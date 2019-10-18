@@ -1,0 +1,355 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name EDGE_BLEED2
+selected true
+xpos -13999
+ypos 1124
+addUserKnob {20 User}
+addUserKnob {6 unpremult_input l "UnPremult Input" +STARTLINE}
+unpremult_input true
+addUserKnob {26 cut_point l "Cut Point"}
+addUserKnob {26 cut_point_text l "" +STARTLINE T "Set the erosion to eliminate the spill you're fighting.\nAlpha cut point need not generally be adjusted."}
+addUserKnob {41 alpha_cut_point l "Alpha Cut Point" T Grade9.blackpoint}
+addUserKnob {7 erode_cut_point l "Erode Cut Point" R 0 10}
+erode_cut_point 1
+addUserKnob {7 fine_tune_cut_point l "Fine Tune" R -2 2}
+addUserKnob {26 main_extension l "Main Extension"}
+addUserKnob {26 main_extension_text l "" +STARTLINE T "Adjust this to increase the amount of bleed."}
+addUserKnob {14 Blur11_size l size R 0 100}
+Blur11_size 4
+addUserKnob {26 secondary_extension l "Secondary Extension"}
+addUserKnob {26 secondary_extension_text l "" +STARTLINE T "Use this if you need a longer edge extension,\nbut don't want to go too soft near the core."}
+addUserKnob {6 secondary_extend +STARTLINE}
+secondary_extend true
+addUserKnob {14 Blur7_size l size R 0 100}
+Blur7_size 6
+addUserKnob {7 secondary_blend R 0 20}
+secondary_blend 7
+addUserKnob {26 bleed_zone l "Bleed Zone Controls"}
+addUserKnob {26 bleed_zone_text l "" +STARTLINE T "This controls how the extended edge is\ncombined back with the original."}
+addUserKnob {7 erode_original l "Erode Original" R -5 10}
+erode_original 2
+addUserKnob {7 fine_erode_original l "Fine Tune" R -2 2}
+addUserKnob {41 bleed_softness l "Blend with Original" T Blur10.size}
+addUserKnob {26 ouput l Output}
+addUserKnob {4 Output M {"Edge Extension" "Cut Point"}}
+Output "Cut Point"
+addUserKnob {6 mask +STARTLINE}
+addUserKnob {6 invert_mask +STARTLINE}
+addUserKnob {6 premult_output +STARTLINE}
+}
+Input {
+inputs 0
+name image
+xpos -351
+ypos -418
+}
+Transform {
+center {1024 576}
+shutteroffset centred
+name Transform1
+xpos -351
+ypos -392
+}
+Unpremult {
+name Unpremult1
+xpos -351
+ypos -366
+disable {{!parent.unpremult_input}}
+}
+Dot {
+name Dot1
+xpos -317
+ypos -303
+}
+set N12624420 [stack 0]
+Dot {
+name Dot41
+label "\noriginal alpha"
+xpos -188
+ypos -303
+}
+set N12629070 [stack 0]
+Dot {
+name Dot44
+label "\noriginal rgb"
+xpos -78
+ypos -303
+}
+set N1262dbc0 [stack 0]
+Dot {
+name Dot45
+label "\nsmear"
+xpos 50
+ypos -303
+}
+Grade {
+channels alpha
+blackpoint 0.7
+white_clamp true
+name Grade9
+xpos 16
+ypos -268
+}
+Dilate {
+channels alpha
+size {{-parent.erode_cut_point}}
+name Dilate2
+label "size \[value size]"
+xpos 16
+ypos -230
+}
+Erode {
+size {{parent.fine_tune_cut_point}}
+name Erode1
+xpos 16
+ypos -180
+}
+set N126555d0 [stack 0]
+Premult {
+name Premult12
+xpos 16
+ypos -138
+}
+set N12662670 [stack 0]
+Input {
+inputs 0
+name mask
+xpos -485
+ypos 294
+number 1
+}
+Dot {
+name MASK
+label "smear zone"
+xpos -451
+ypos 385
+}
+Dot {
+name Dot39
+xpos -451
+ypos 634
+}
+push $N12629070
+Dot {
+name Dot43
+xpos -188
+ypos 563
+}
+push $N126555d0
+Dot {
+name Dot46
+label "\nsmear control"
+xpos 464
+ypos -170
+}
+Invert {
+name Invert1
+xpos 430
+ypos -147
+}
+Dilate {
+size {{erode_original}}
+name Dilate3
+label "size \[value size]"
+xpos 430
+ypos -109
+}
+Erode {
+size {{-fine_erode_original}}
+name Erode3
+xpos 430
+ypos -44
+}
+Blur {
+size 5
+name Blur10
+label "size \[value size]"
+xpos 430
+ypos -6
+}
+Dot {
+name Dot17
+xpos 464
+ypos 279
+}
+push $N12662670
+Blur {
+size {{parent.Blur11_size.w} {parent.Blur11_size.h}}
+name Blur11
+label "size \[value size]"
+xpos 16
+ypos -112
+}
+Unpremult {
+name Unpremult3
+xpos 16
+ypos -62
+}
+Keyer {
+operation "luminance key"
+range {0 0 1 1}
+name Keyer10
+xpos 16
+ypos -36
+}
+Dot {
+name Dot23
+xpos 50
+ypos 25
+}
+set N126d8270 [stack 0]
+Dot {
+name Dot26
+xpos 181
+ypos 25
+}
+set N126dccc0 [stack 0]
+Dot {
+name Dot25
+xpos 321
+ypos 25
+}
+Dilate {
+size {{-parent.secondary_blend}}
+name Dilate1
+label "size \[value size]"
+xpos 287
+ypos 43
+}
+Blur {
+size {{parent.secondary_blend}}
+name Blur12
+label "size \[value size]"
+xpos 287
+ypos 93
+}
+Dot {
+name Dot27
+xpos 321
+ypos 160
+}
+push $N126dccc0
+Blur {
+size {{parent.Blur7_size.w} {parent.Blur7_size.h}}
+name Blur7
+label "size \[value size]"
+xpos 147
+ypos 43
+}
+Unpremult {
+name Unpremult4
+xpos 147
+ypos 93
+}
+Keyer {
+operation "luminance key"
+range {0 0 1 1}
+name Keyer9
+xpos 147
+ypos 119
+}
+Merge2 {
+inputs 2
+operation stencil
+bbox B
+name Merge18
+xpos 147
+ypos 156
+}
+Dot {
+name Dot22
+xpos 181
+ypos 209
+}
+push $N126d8270
+Merge2 {
+inputs 2
+bbox B
+name Merge16
+xpos 16
+ypos 205
+disable {{!parent.secondary_extend}}
+}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 rgba.alpha
+name Copy2
+xpos 16
+ypos 269
+}
+Premult {
+name Premult15
+xpos 16
+ypos 345
+}
+Dot {
+name Dot21
+xpos 50
+ypos 473
+}
+push $N1262dbc0
+Merge2 {
+inputs 2
+bbox B
+name Merge12
+label "comp smear over original"
+xpos -112
+ypos 463
+}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 rgba.alpha
+name Copy4
+label "return modified alpha"
+xpos -112
+ypos 547
+}
+Dot {
+name Dot48
+xpos -78
+ypos 634
+}
+set N127822d0 [stack 0]
+push $N12624420
+Keymix {
+inputs 3
+invertMask {{invert_mask}}
+name Keymix3
+label "restrict smear to over stump"
+selected true
+xpos -351
+ypos 618
+}
+push $N127822d0
+Switch {
+inputs 2
+which {{parent.mask}}
+name Switch2
+xpos -351
+ypos 735
+}
+Premult {
+name Premult17
+xpos -351
+ypos 784
+disable {{!parent.premult_output}}
+}
+Switch {
+inputs 2
+which {{parent.Output}}
+name Switch1
+label "Cut Point or Edge Extend"
+xpos -215
+ypos 854
+}
+Output {
+name Output1
+xpos -215
+ypos 938
+}
+end_group

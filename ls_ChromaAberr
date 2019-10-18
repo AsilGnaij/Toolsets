@@ -1,0 +1,48 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name ls_ChromaAberr2
+tile_color 0xffff00ff
+selected true
+xpos -14121
+ypos 1040
+addUserKnob {20 User}
+addUserKnob {7 chroma R -0.005 0.005}
+chroma -0.0024
+addUserKnob {7 mix}
+mix 0.615
+}
+Input {
+inputs 0
+name img
+xpos 400
+ypos -13
+}
+TransformMasked {
+channels {rgba.red -rgba.green -rgba.blue none}
+scale {{1-parent.chroma}}
+center {{width/2} {height/2}}
+black_outside false
+mix {{parent.mix}}
+name Transform1
+xpos 400
+ypos 52
+}
+TransformMasked {
+channels {-rgba.red -rgba.green rgba.blue none}
+scale {{1+parent.chroma}}
+center {{width/2} {height/2}}
+black_outside false
+mix {{parent.mix}}
+name Transform2
+selected true
+xpos 400
+ypos 100
+}
+Output {
+name Output1
+xpos 400
+ypos 187
+}
+end_group

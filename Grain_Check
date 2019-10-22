@@ -1,0 +1,52 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name Grain_Check
+selected true
+xpos -1481
+ypos 12742
+}
+Input {
+inputs 0
+name Input1
+xpos -312
+ypos 385
+}
+Dot {
+name Dot7
+xpos -278
+ypos 425
+}
+set N66b4c40 [stack 0]
+push $N66b4c40
+Blur {
+size 0.7
+name Blur5
+label "\[value size]"
+xpos -252
+ypos 571
+}
+Merge2 {
+inputs 2
+operation minus
+name Merge8
+selected true
+xpos -367
+ypos 571
+}
+Grade {
+white 27
+multiply 100
+gamma 0.79
+white_clamp true
+name Grade3
+xpos -367
+ypos 630
+}
+Output {
+name Output1
+xpos -367
+ypos 695
+}
+end_group

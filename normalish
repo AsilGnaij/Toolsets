@@ -1,0 +1,566 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name normalish
+help distance
+tile_color 0x7f6effff
+selected true
+xpos -1362
+ypos 12618
+addUserKnob {20 normalish l Normalish}
+addUserKnob {26 normalishGenerator l "Normalish v1.1" T "Normal generator by Khari Anthony"}
+addUserKnob {26 ""}
+addUserKnob {41 preGamma l Pre-Gamma t "Gammas image before creating normals. Can reveal different levels of detail for different images" T Gamma1.value}
+addUserKnob {26 baseDetail l "Base Detail"}
+addUserKnob {41 baseSize l Size t "Adjusts amount of detail in base layer. (Higher values = less detail)" T baseblur.size}
+addUserKnob {41 baseDistance l Distance t "Not sure how to describe this. Just tweak it. " T plainblur.size}
+addUserKnob {26 fineDetail l "Fine Detail"}
+addUserKnob {41 fineAmount l Amount t "Intensity of detail added to base. " T fineadd.mix}
+addUserKnob {41 fineDistance l Distance t "not sure how to describe this..." T detplainblur.size}
+addUserKnob {26 postAdjust l "Post Adjustments"}
+addUserKnob {41 xMult l "X Mult" t "Multiplies intensity of x normals." T redmult.value}
+addUserKnob {41 Ymult l "Y Mult" t "Multiplies intensity of y normals." T greenmult.value}
+addUserKnob {41 zMult l "Z Mult" t "Multiplies intensity of z normals." T bluemult.value}
+addUserKnob {20 transforms l Transforms}
+addUserKnob {6 flipX l flipx +STARTLINE}
+addUserKnob {6 flipY l flipy +STARTLINE}
+addUserKnob {41 offsetXchan l "Offset X Channel" T baseoffx.translate}
+addUserKnob {41 offsetYchan l "Offset Y Channel" T baseoffy.translate}
+addUserKnob {20 thanksto l "thanks to..."}
+addUserKnob {26 Thanks -STARTLINE T "Lucas Pfaff and M Frank for qc catches"}
+}
+StickyNote {
+inputs 0
+name StickyNote1
+label "Base detail"
+note_font_size 29.7
+xpos -4804
+ypos 68
+}
+StickyNote {
+inputs 0
+name StickyNote2
+label "Fine detail"
+note_font_size 31.2
+xpos -5140
+ypos 820
+}
+Input {
+inputs 0
+name map
+label "rgb color map"
+xpos -5541
+ypos -136
+}
+Gamma {
+name Gamma1
+xpos -5540
+ypos -60
+}
+Dot {
+name Dot16
+xpos -5506
+ypos -4
+}
+set N2c26e220 [stack 0]
+Dot {
+name Dot14
+xpos -5509
+ypos 873
+}
+Dot {
+name Dot15
+xpos -4708
+ypos 873
+}
+Dot {
+name Dot8
+xpos -4708
+ypos 999
+}
+set N2c2010b0 [stack 0]
+Dot {
+name Dot9
+xpos -4866
+ypos 999
+}
+set N58e1a1f0 [stack 0]
+Dot {
+name Dot10
+xpos -5052
+ypos 999
+}
+set N50f9cf00 [stack 0]
+Dot {
+name Dot19
+xpos -5161
+ypos 999
+}
+set N5cad5270 [stack 0]
+Dot {
+name Dot11
+xpos -5253
+ypos 999
+}
+set Nad316ee0 [stack 0]
+Dot {
+name Dot12
+xpos -5381
+ypos 999
+}
+set Nf44f6d40 [stack 0]
+Dot {
+name Dot18
+xpos -5509
+ypos 999
+}
+set N7a1bfd50 [stack 0]
+push $N7a1bfd50
+Dot {
+name Dot13
+xpos -5633
+ypos 999
+}
+DirBlurWrapper {
+channels rgba
+BlurType linear
+BlurCenter {50 50}
+BlurLength {{parent.detplainblur.size}}
+BlurAngle 90
+target {50 50}
+name detxblur
+xpos -5663
+ypos 1201
+}
+set N2c1a4950 [stack 0]
+Merge2 {
+inputs 2
+operation minus
+name Merge12
+xpos -5540
+ypos 1334
+}
+push $N2c1a4950
+push $Nf44f6d40
+Merge2 {
+inputs 2
+operation minus
+name Merge7
+xpos -5411
+ypos 1201
+}
+Saturation {
+saturation 0
+name Saturation5
+xpos -5411
+ypos 1245
+}
+Switch {
+inputs 2
+which {{parent.flipX}}
+name finexswitch1
+xpos -5412
+ypos 1334
+}
+Shuffle {
+green black
+blue black
+alpha black
+name Shuffle2
+label "\[value in] -> \[value out]"
+xpos -5412
+ypos 1453
+}
+Transform {
+name fineoffx
+xpos -5279
+ypos 1459
+}
+push $N5cad5270
+push $Nad316ee0
+DirBlurWrapper {
+channels rgba
+BlurType linear
+BlurCenter {50 50}
+BlurLength {{parent.detplainblur.size}}
+BlurAngle 0
+target {50 50}
+name detyblur
+xpos -5283
+ypos 1201
+}
+set Nf7e91160 [stack 0]
+Merge2 {
+inputs 2
+operation minus
+name Merge13
+xpos -5191
+ypos 1317
+}
+push $Nf7e91160
+push $N50f9cf00
+Merge2 {
+inputs 2
+operation minus
+name Merge8
+xpos -5082
+ypos 1201
+}
+Saturation {
+saturation 0
+name Saturation6
+xpos -5082
+ypos 1245
+}
+Switch {
+inputs 2
+which {{parent.flipY}}
+name yfineswitch
+xpos -5082
+ypos 1317
+}
+Shuffle {
+red black
+blue black
+alpha black
+name Shuffle6
+label "\[value in] -> \[value out]"
+xpos -5082
+ypos 1361
+}
+Transform {
+center {1214 782}
+name fineoffy
+xpos -5082
+ypos 1415
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge9
+xpos -5082
+ypos 1459
+}
+push $N2c2010b0
+push $N58e1a1f0
+Blur {
+channels rgba
+size 20
+name detplainblur
+xpos -4896
+ypos 1199
+}
+Merge2 {
+inputs 2
+operation minus
+name Merge10
+xpos -4738
+ypos 1199
+}
+Saturation {
+saturation 0
+name Saturation7
+xpos -4738
+ypos 1243
+}
+Invert {
+channels rgba
+name Invert3
+xpos -4738
+ypos 1347
+}
+Shuffle {
+red black
+green black
+alpha blue
+name Shuffle7
+label "\[value in] -> \[value out]"
+xpos -4738
+ypos 1391
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge11
+xpos -4738
+ypos 1459
+}
+push $N2c26e220
+Dot {
+name Dot7
+xpos -4406
+ypos -6
+}
+Blur {
+channels rgba
+size 20
+name baseblur
+xpos -4440
+ypos 78
+}
+Dot {
+name Dot1
+xpos -4406
+ypos 130
+}
+set N4a08d570 [stack 0]
+Dot {
+name Dot6
+xpos -4532
+ypos 130
+}
+set Nde209c30 [stack 0]
+Dot {
+name Dot5
+xpos -4658
+ypos 130
+}
+set Nbce29be0 [stack 0]
+Dot {
+name Dot20
+xpos -4755
+ypos 130
+}
+set N271046c0 [stack 0]
+Dot {
+name Dot4
+xpos -4845
+ypos 130
+}
+set Nde5aad70 [stack 0]
+Dot {
+name Dot3
+xpos -4956
+ypos 130
+}
+set N6bb96390 [stack 0]
+Dot {
+name Dot17
+xpos -5175
+ypos 130
+}
+set Nad31c950 [stack 0]
+push $Nad31c950
+Dot {
+name Dot2
+xpos -5285
+ypos 130
+}
+DirBlurWrapper {
+channels rgba
+BlurType linear
+BlurCenter {50 50}
+BlurLength {{parent.plainblur.size}}
+BlurAngle 90
+target {50 50}
+name xblur
+xpos -5319
+ypos 326
+}
+set Ne3ce0ff0 [stack 0]
+Merge2 {
+inputs 2
+operation minus
+name Merge1
+xpos -5209
+ypos 410
+}
+push $Ne3ce0ff0
+push $N6bb96390
+Merge2 {
+inputs 2
+operation minus
+name Merge2
+xpos -4990
+ypos 326
+}
+set N9625e2a0 [stack 0]
+Switch {
+inputs 2
+which {{parent.flipX}}
+name basexswitch
+xpos -4990
+ypos 410
+}
+Saturation {
+saturation 0
+name Saturation3
+xpos -4990
+ypos 507
+}
+Shuffle {
+green black
+blue black
+alpha black
+name Shuffle5
+label "\[value in] -> \[value out]"
+xpos -4990
+ypos 580
+}
+Transform {
+name baseoffx
+xpos -4893
+ypos 586
+}
+push $N271046c0
+push $Nde5aad70
+DirBlurWrapper {
+channels rgba
+BlurType linear
+BlurCenter {50 50}
+BlurLength {{parent.plainblur.size}}
+BlurAngle 0
+target {50 50}
+name yblur
+xpos -4879
+ypos 326
+}
+set Ne0cfac60 [stack 0]
+Merge2 {
+inputs 2
+operation minus
+name Merge14
+xpos -4789
+ypos 427
+}
+push $Ne0cfac60
+push $Nbce29be0
+Merge2 {
+inputs 2
+operation minus
+name Merge3
+xpos -4692
+ypos 326
+}
+Saturation {
+saturation 0
+name Saturation2
+xpos -4692
+ypos 370
+}
+Switch {
+inputs 2
+which {{parent.flipY}}
+name ybaseswitch1
+xpos -4692
+ypos 427
+}
+Shuffle {
+red black
+blue black
+alpha black
+name Shuffle3
+label "\[value in] -> \[value out]"
+xpos -4692
+ypos 471
+}
+Transform {
+name baseoffy
+xpos -4692
+ypos 536
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge5
+xpos -4692
+ypos 586
+}
+push $N4a08d570
+push $Nde209c30
+Blur {
+channels rgba
+size 20
+name plainblur
+xpos -4566
+ypos 326
+}
+Merge2 {
+inputs 2
+operation minus
+name Merge4
+xpos -4440
+ypos 326
+}
+Saturation {
+saturation 0
+name Saturation4
+xpos -4440
+ypos 368
+}
+Invert {
+channels rgba
+name Invert1
+xpos -4440
+ypos 410
+}
+Shuffle {
+red black
+green black
+alpha blue
+name Shuffle4
+label "\[value in] -> \[value out]"
+xpos -4440
+ypos 455
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge6
+xpos -4440
+ypos 586
+}
+Merge2 {
+inputs 2
+operation plus
+mix 0.1
+name fineadd
+xpos -4440
+ypos 1459
+}
+Multiply {
+channels {rgba.red rgba.green -rgba.blue rgba.alpha}
+value 5
+name Multiply1
+xpos -4440
+ypos 1503
+}
+Multiply {
+channels {rgba.red -rgba.green -rgba.blue none}
+name redmult
+tile_color 0xff0000ff
+xpos -4440
+ypos 1568
+}
+Multiply {
+channels {-rgba.red rgba.green -rgba.blue none}
+name greenmult
+tile_color 0xff00ff
+xpos -4440
+ypos 1628
+}
+Multiply {
+channels {-rgba.red -rgba.green rgba.blue none}
+name bluemult
+tile_color 0xffff
+xpos -4440
+ypos 1681
+}
+set Nde58dbc0 [stack 0]
+Output {
+name Output2
+xpos -4440
+ypos 1748
+}
+push $N9625e2a0
+push $Nde58dbc0
+Viewer {
+inputs 2
+input_process_node IP
+input_process false
+name Viewer1
+xpos -4330
+ypos 370
+}
+end_group

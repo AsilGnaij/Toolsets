@@ -1,0 +1,81 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name RED_Invert_Conversion4
+help "Red log conversion \nGavin Greenwalt\nStraightface Studios\nGavin@SFStudios.com"
+label "Applied to \[value this.channels]"
+selected true
+xpos -157
+ypos 562
+addUserKnob {20 Log2Lin}
+addUserKnob {26 conversion l "" +STARTLINE T "Lin to RED Log Conversion"}
+addUserKnob {26 ""}
+addUserKnob {41 channels l "Apply to" T ShuffleCopy1.in2}
+}
+Constant {
+inputs 0
+format {{{parent.input1.format}}}
+name Constant1
+xpos 581
+ypos -10
+}
+Input {
+inputs 0
+name Input1
+xpos 434
+ypos 46
+}
+Dot {
+name Dot5
+xpos 468
+ypos 141
+}
+set N17f6fd60 [stack 0]
+ShuffleCopy {
+inputs 2
+in2 rgb
+name ShuffleCopy1
+xpos 581
+ypos 138
+}
+Expression {
+temp_name0 magicA
+temp_expr0 .224282
+temp_name1 magicB
+temp_expr1 155.975327
+temp_name2 magicC
+temp_expr2 .01
+temp_name3 magicG
+temp_expr3 15.1927
+expr0 (r+magicC<0.0)?((r+magicC)*magicG):(magicA*log10(((r+magicC)*magicB)+1.0))
+expr1 (g+magicC<0.0)?((g+magicC)*magicG):(magicA*log10(((g+magicC)*magicB)+1.0))
+expr2 (b+magicC<0.0)?((b+magicC)*magicG):(magicA*log10(((b+magicC)*magicB)+1.0))
+name Lin_2_Log3G10
+xpos 581
+ypos 207
+}
+push $N17f6fd60
+ShuffleCopy {
+inputs 2
+red red
+green green
+blue blue
+alpha alpha2
+out {{{parent.ShuffleCopy1.in2}}}
+name ShuffleCopy2
+xpos 434
+ypos 207
+}
+Colorspace {
+colorspace_in REDLog
+name Colorspace1
+xpos 434
+ypos 300
+}
+Output {
+name Output1
+xpos 434
+ypos 406
+}
+end_group

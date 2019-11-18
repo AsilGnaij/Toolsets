@@ -1,0 +1,24 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+CurveTool {
+ROI {1957 1885 1999 1927}
+autocropdata {960 540 2880 1620}
+intensitydata {0 0 0 0}
+name CurveTool1
+selected true
+xpos 12642
+ypos 356
+}
+Grade {
+inputs 0
+whitepoint {{parent.CurveTool1.intensitydata(ref)} {parent.CurveTool1.intensitydata(ref)} {parent.CurveTool1.intensitydata(ref)} {parent.CurveTool1.intensitydata(ref)}}
+white {{parent.CurveTool1.intensitydata} {parent.CurveTool1.intensitydata} {parent.CurveTool1.intensitydata} {parent.CurveTool1.intensitydata}}
+name Grade40
+selected true
+xpos 12644
+ypos 420
+addUserKnob {20 User}
+addUserKnob {3 ref}
+ref 1001
+} 

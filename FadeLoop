@@ -1,0 +1,87 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name FadeLoop3
+tile_color 0xffffffff
+label "\[value loopin] - \[value loopout]"
+note_font "DejaVu Sans"
+selected true
+xpos 1732
+ypos 991
+addUserKnob {20 User}
+addUserKnob {3 start l "Input frame range"}
+start 1001
+addUserKnob {3 end l "" -STARTLINE}
+end 1030
+addUserKnob {22 inputrange l "Input Range" -STARTLINE T "n = nuke.thisNode()\nf = n.input(0).firstFrame()\nl = n.input(0).lastFrame() \n\nn\['start'].setValue(f)\nn\['end'].setValue(l)"}
+addUserKnob {3 fadeframes l "Fade Frames"}
+fadeframes 10
+addUserKnob {3 offset l Offset}
+addUserKnob {26 ""}
+addUserKnob {3 loopin l INVISIBLE +INVISIBLE}
+loopin {{start+offset}}
+addUserKnob {3 loopout l INVISIBLE -STARTLINE +INVISIBLE}
+loopout {{end-(fadeframes)+offset}}
+addUserKnob {26 text l "" +STARTLINE T "Fade loop v1.4 by Richard Frazer\nRebuild of version by Sebastian Hesselsjo"}
+}
+Input {
+inputs 0
+name Input1
+xpos 515
+ypos 86
+}
+Dot {
+name Dot4
+xpos 549
+ypos 235
+}
+set Nf161d850 [stack 0]
+push $Nf161d850
+TimeOffset {
+time_offset {{-(loopframes-parent.fadeframes)}}
+time ""
+name TimeOffset2
+xpos 410
+ypos 285
+addUserKnob {20 User}
+addUserKnob {3 loopframes l "loop frames"}
+loopframes {{((parent.end+1)-parent.start)}}
+}
+Dissolve {
+inputs 2
+which {{clamp((frame-parent.start)/parent.fadeframes)}}
+name Dissolve3
+xpos 515
+ypos 339
+addUserKnob {20 User}
+addUserKnob {3 loopframes l "loop frames"}
+loopframes {{((parent.end+1)-parent.start)}}
+addUserKnob {7 fadepc}
+fadepc {{parent.fadeframes/loopframes}}
+addUserKnob {3 fadeframes}
+fadeframes {{parent.fadeframes}}
+}
+Retime {
+input.first {{parent.loopin}}
+input.first_lock true
+input.last {{parent.loopout}}
+input.last_lock true
+output.first {{parent.loopin x62 1001}}
+output.first_lock true
+output.last {{parent.loopout}}
+output.last_lock true
+before loop
+after loop
+time ""
+name Retime2
+selected true
+xpos 515
+ypos 448
+}
+Output {
+name Output1
+xpos 518
+ypos 590
+}
+end_group

@@ -1,0 +1,99 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name photoshop_conversion3
+label "Direction: \[value convert_type]"
+selected true
+xpos -1072
+ypos 839
+addUserKnob {20 User}
+addUserKnob {4 convert_type l Conversion M {"Nuke to Photoshop" "Photoshop to Nuke"}}
+convert_type "Photoshop to Nuke"
+addUserKnob {26 ""}
+addUserKnob {26 info l "" +STARTLINE T "<strong><span style=\"color: #ffcc00;\">Nuke</span></strong> to <span style=\"color: #00ccff;\"><strong>Photoshop</strong></span>:\n<br><br>\n    - Use this to export your plate and your elements to Photoshop.\n\n<p></p><p></p>\n<span style=\"color: #00ccff;\"><strong>Photoshop</strong></span> to <strong><span style=\"color: #ffcc00;\">Nuke</span></strong>:\n    <br><br> \n    - Use this on the exported elements from Photoshop to <br>   convert them back to the proper colorspace for them <br> to be worked on in Nuke."}
+}
+Input {
+inputs 0
+name Input1
+xpos 0
+ypos -110
+}
+set N16287660 [stack 0]
+Dot {
+name Dot3
+xpos -181
+ypos -106
+}
+Dot {
+name Dot5
+xpos -181
+ypos -8
+}
+Colorspace {
+colorspace_out sRGB
+name Colorspace1
+label "Linear\n\[value colorspace_out]"
+xpos -215
+ypos 79
+}
+OCIOColorSpace {
+in_colorspace "Input - ARRI - Curve - V3 LogC (EI800)"
+out_colorspace "ACES - ACEScg"
+name OCIOColorSpace1
+label "\[value in_colorspace]\n\[value out_colorspace]"
+xpos -215
+ypos 153
+}
+Clamp {
+maximum_enable false
+name Clamp1
+xpos -215
+ypos 219
+}
+Dot {
+name Dot4
+xpos -181
+ypos 286
+}
+push $N16287660
+Dot {
+name Dot1
+xpos 264
+ypos -106
+}
+OCIOColorSpace {
+in_colorspace "ACES - ACEScg"
+out_colorspace "Input - ARRI - Curve - V3 LogC (EI800)"
+name OCIOColorSpace2
+label "\[value in_colorspace]\n\[value out_colorspace]"
+selected true
+xpos 230
+ypos 84
+}
+Colorspace {
+colorspace_in sRGB
+name Colorspace2
+label "\[value colorspace_in]\nLinear"
+xpos 230
+ypos 153
+}
+Dot {
+name Dot2
+xpos 264
+ypos 286
+}
+Switch {
+inputs 2
+which {{parent.convert_type}}
+name Switch1
+label "\[value which]"
+xpos -2
+ypos 276
+}
+Output {
+name Output1
+xpos 0
+ypos 326
+}
+end_group

@@ -1,0 +1,26 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push 0
+push $cut_paste_input
+Switch {
+inputs 2
+name Switch1
+tile_color 0xff000000
+label "\[value which]\n\[knob tile_color \[value which]01]"
+selected true
+xpos -112
+ypos 7308
+}
+push 0
+push $cut_paste_input
+Switch {
+inputs 2
+which 1
+name Switch13
+knobChanged "if nuke.thisKnob().name() == 'which':\n    node = nuke.thisNode()\n    colors = \[582156543,3003121919]\n    try:\n        node.knob('tile_color').setValue(colors\[int(node.knob('which').value())])\n    except:\n        pass"
+tile_color 0xb30000ff
+label "\[value which]"
+selected true
+xpos -384
+ypos 7309
+}

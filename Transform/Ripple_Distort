@@ -1,0 +1,90 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name Ripple_Distort
+help "creates a simple ripple distortion"
+tile_color 0xa57aaa00
+selected true
+xpos 832
+ypos 1269
+addUserKnob {20 "" l RippleDistortion}
+addUserKnob {41 channels T IDistort1.channels}
+addUserKnob {26 "" +STARTLINE}
+addUserKnob {6 keepMap l "keep distortion map" t "check this to store the internal distortion map in the UV channels,\nturn it off to keep the input's UVs. " -STARTLINE}
+addUserKnob {41 uv_scale l "UV scale" T IDistort1.uv_scale}
+addUserKnob {41 frequency T Expression2.frequency}
+addUserKnob {41 phase T Expression2.phase}
+}
+Input {
+inputs 0
+name Input1
+xpos -160
+ypos -244
+}
+set N549fea60 [stack 0]
+Expression {
+temp_name0 xc
+temp_expr0 (x-width/2)/width*pixel_aspect*(width/height)
+temp_name1 yc
+temp_expr1 (y-height/2)/height
+temp_name2 r
+temp_expr2 "sqrt(xc*xc + yc*yc)"
+channel0 {forward.u -forward.v}
+expr0 sin(phase-r*frequency)
+channel1 {-forward.u forward.v}
+expr1 xc
+channel2 none
+channel3 {none none none -rgba.alpha}
+name Expression2
+selected true
+xpos -160
+ypos -210
+addUserKnob {20 "" l User}
+addUserKnob {7 frequency}
+frequency 70
+addUserKnob {7 phase}
+phase {{frame/5}}
+}
+IDistort {
+channels rgb
+uv forward
+uv_scale 2
+name IDistort1
+xpos -160
+ypos -72
+}
+set Na34fae90 [stack 0]
+push $N549fea60
+Dot {
+name Dot1
+xpos -252
+ypos -240
+}
+AddChannels {
+channels rgb
+name AddChannels1
+xpos -286
+ypos -207
+}
+push $Na34fae90
+Copy {
+inputs 2
+channels forward
+name Copy1
+xpos -286
+ypos -24
+}
+Switch {
+inputs 2
+which {{parent.keepMap}}
+name Switch1
+xpos -160
+ypos -10
+}
+Output {
+name Output1
+xpos -160
+ypos 44
+}
+end_group

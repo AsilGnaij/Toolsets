@@ -1,0 +1,26 @@
+set cut_paste_input [stack 0]
+version 11.3 v3
+push $cut_paste_input
+NoOp {
+ name H_Colorize_Nodes
+ tile_color 0x9da5a5ff
+ gl_color 0xff
+ note_font_size 30
+ selected true
+ xpos -5533
+ ypos -5661
+ addUserKnob {20 User}
+ addUserKnob {22 Colorize l "                    Backdrop Colorize                    " T "import random\nfor n in nuke.allNodes('BackdropNode'):\n   r=random.random()*0.2+0.4\n   g=random.random()*0.2+0.4\n   b=random.random()*0.2+0.4\n   a=1\n   color=int('%02x%02x%02x%02x'%(r*255,g*255,b*255,a*255),16)\n   n.knob('tile_color').setValue(color); " +STARTLINE}
+ addUserKnob {26 ""}
+ addUserKnob {22 colorize2 l "       Colorize selected nodes to this color       " T "C=nuke.thisNode().knob('Color1').getValue()\nr=C\[0];\ng=C\[1];\nb=C\[2];\na=C\[3];\ncolor=int('%02x%02x%02x%02x'%(r*255,g*255,b*255,a*255),16)\nfor n in nuke.selectedNodes() :\n n.knob('tile_color').setValue(color); " +STARTLINE}
+ addUserKnob {19 Color1 l Color}
+ Color1 {0.6 0.6 0.6 0.6}
+ addUserKnob {6 Color1_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {6 Color1_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {6 Color1_panelDropped_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {6 color_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+ addUserKnob {26 ""}
+ addUserKnob {26 about l "" +STARTLINE T "by Han Cao\nhancaofx@gmail.com\nPlease Shoot me ideas and bugs. Thanks!"}
+
+
+}

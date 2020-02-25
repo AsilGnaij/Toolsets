@@ -1,0 +1,356 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+Read {
+inputs 0
+file_type exr
+format "4635 2199 0 0 4635 2199 1 "
+origset true
+version 4
+name Read14
+selected true
+xpos 3584
+ypos 259
+}
+set N103ccfa0 [stack 0]
+Reformat {
+resize none
+pbb true
+name Reformat6
+selected true
+xpos 3584
+ypos 433
+}
+Unpremult {
+channels all
+name Unpremult4
+selected true
+xpos 3584
+ypos 550
+}
+Dot {
+name Dot36
+tile_color 0xcccccc00
+label Multipass_EXR
+note_font "Verdana Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold Bold"
+note_font_size 16
+note_font_color 0xffffffff
+selected true
+xpos 3618
+ypos 693
+}
+Dot {
+name Dot37
+tile_color 0xcccccc00
+selected true
+xpos 3618
+ypos 859
+}
+set N104aa4f0 [stack 0]
+Dot {
+name Dot38
+tile_color 0xcccccc00
+selected true
+xpos 3993
+ypos 859
+}
+set N104adf30 [stack 0]
+Dot {
+name Dot39
+tile_color 0xcccccc00
+selected true
+xpos 4310
+ypos 859
+}
+set N104b2c20 [stack 0]
+Dot {
+name Dot40
+tile_color 0xcccccc00
+selected true
+xpos 4693
+ypos 859
+}
+set N104b7870 [stack 0]
+Dot {
+name Dot41
+tile_color 0xcccccc00
+selected true
+xpos 4904
+ypos 859
+}
+set N104bc420 [stack 0]
+Dot {
+name Dot42
+tile_color 0xcccccc00
+selected true
+xpos 5292
+ypos 859
+}
+set N104c1230 [stack 0]
+Dot {
+name Dot43
+tile_color 0xcccccc00
+selected true
+xpos 5506
+ypos 859
+}
+set N104c5df0 [stack 0]
+Dot {
+name Dot44
+tile_color 0xcccccc00
+selected true
+xpos 5915
+ypos 859
+}
+add_layer {coat_indirect coat_indirect.red coat_indirect.green coat_indirect.blue}
+Shuffle {
+in coat_indirect
+out rgb
+name coat_indirect
+selected true
+xpos 5881
+ypos 898
+}
+Grade {
+name Grade9
+label "\[value white]"
+selected true
+xpos 5881
+ypos 1018
+}
+Dot {
+name Dot54
+tile_color 0x7aa9ff00
+note_font_size 30
+selected true
+xpos 5915
+ypos 1527
+}
+push $N104c5df0
+add_layer {coat_direct coat_direct.red coat_direct.green coat_direct.blue}
+Shuffle {
+in coat_direct
+out rgb
+name coat_direct
+selected true
+xpos 5472
+ypos 900
+}
+Grade {
+name Grade11
+label "\[value white]"
+selected true
+xpos 5472
+ypos 1020
+}
+Merge2 {
+inputs 2
+operation plus
+Achannels rgb
+Bchannels rgb
+name Merge20
+selected true
+xpos 5470
+ypos 1523
+}
+push $N104c1230
+add_layer {sss_indirect sss_indirect.red sss_indirect.green sss_indirect.blue}
+Shuffle {
+in sss_indirect
+out rgb
+name sss_indirect
+selected true
+xpos 5258
+ypos 906
+}
+Grade {
+name Grade13
+label "\[value white]"
+selected true
+xpos 5258
+ypos 1018
+}
+Dot {
+name Dot52
+tile_color 0x7aa9ff00
+note_font_size 30
+selected true
+xpos 5292
+ypos 1516
+}
+push $N104bc420
+add_layer {sss_direct sss_direct.red sss_direct.green sss_direct.blue}
+Shuffle {
+in sss_direct
+out rgb
+name sss_direct
+selected true
+xpos 4870
+ypos 912
+}
+Grade {
+name Grade21
+label "\[value white]"
+selected true
+xpos 4870
+ypos 1024
+}
+Merge2 {
+inputs 2
+operation plus
+Achannels rgb
+Bchannels rgb
+name Merge19
+selected true
+xpos 4870
+ypos 1512
+}
+push $N104b7870
+add_layer {specular_indirect specular_indirect.red specular_indirect.green specular_indirect.blue}
+Shuffle {
+in specular_indirect
+out rgb
+name indirect_specular
+selected true
+xpos 4659
+ypos 903
+}
+Grade {
+name Grade29
+label "\[value white]"
+selected true
+xpos 4659
+ypos 1025
+}
+Dot {
+name Dot45
+tile_color 0x7aa9ff00
+note_font_size 30
+selected true
+xpos 4693
+ypos 1514
+}
+push $N104b2c20
+add_layer {specular_direct specular_direct.red specular_direct.green specular_direct.blue}
+Shuffle {
+in specular_direct
+out rgb
+name direct_specular
+selected true
+xpos 4276
+ypos 903
+}
+Grade {
+name Grade30
+label "\[value white]"
+selected true
+xpos 4276
+ypos 1018
+}
+Merge2 {
+inputs 2
+operation plus
+Achannels rgb
+Bchannels rgb
+name Merge18
+selected true
+xpos 4276
+ypos 1510
+}
+push $N104adf30
+add_layer {diffuse_indirect diffuse_indirect.red diffuse_indirect.green diffuse_indirect.blue}
+Shuffle {
+in diffuse_indirect
+out rgb
+name indirect_diffuse
+selected true
+xpos 3959
+ypos 903
+}
+Grade {
+name Grade31
+label "\[value white]"
+selected true
+xpos 3959
+ypos 1005
+}
+Dot {
+name Dot53
+tile_color 0x7aa9ff00
+note_font_size 30
+selected true
+xpos 3993
+ypos 1509
+}
+push $N104aa4f0
+add_layer {diffuse_direct diffuse_direct.red diffuse_direct.green diffuse_direct.blue}
+Shuffle {
+in diffuse_direct
+out rgb
+name direct_diffuse
+selected true
+xpos 3584
+ypos 905
+}
+Grade {
+name Grade32
+label "\[value white]"
+selected true
+xpos 3584
+ypos 1012
+}
+Merge2 {
+inputs 2
+operation plus
+Achannels rgb
+name Merge17
+selected true
+xpos 3584
+ypos 1505
+}
+Dot {
+name Dot51
+tile_color 0x4b5ec600
+note_font_size 30
+selected true
+xpos 3618
+ypos 2197
+}
+Merge2 {
+inputs 2
+operation plus
+Achannels rgb
+name Merge13
+selected true
+xpos 4276
+ypos 2193
+}
+Merge2 {
+inputs 2
+operation plus
+name Plus1
+selected true
+xpos 4870
+ypos 2193
+}
+Merge2 {
+inputs 2
+operation plus
+name Plus
+selected true
+xpos 5472
+ypos 2193
+}
+Premult {
+name Premult7
+selected true
+xpos 5472
+ypos 2397
+}
+push $N103ccfa0
+LayerContactSheet {
+showLayerNames true
+name LayerContactSheet1
+selected true
+xpos 3772
+ypos 282
+}

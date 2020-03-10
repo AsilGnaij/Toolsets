@@ -1,0 +1,189 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name KeyChew
+help "The old KeyChew from the Shake days. Will allow for fine dilate/erode control of a matte as well as softening. This gizmo will only manipulate the Alpha channel."
+tile_color 0xff00ff
+selected true
+xpos -1508
+ypos 2767
+addUserKnob {20 User}
+addUserKnob {41 chew T X.chew}
+addUserKnob {41 soften T X.soften}
+addUserKnob {41 premult T X.premult}
+}
+NoOp {
+inputs 0
+name gamma_curve
+xpos 110
+ypos -479
+addUserKnob {20 User}
+addUserKnob {16 n_curve}
+n_curve {{curve i 1 x5 0.95 0.8 x20 0.5 x40 0.3 x80 0.2 x200 0.1}}
+addUserKnob {16 n_result}
+n_result {{gamma_curve.n_curve(n_value) i}}
+addUserKnob {16 n_value}
+n_value {{abs(X.chew) i}}
+}
+Input {
+inputs 0
+name Input1
+label "\[value number]"
+xpos 545
+ypos -1499
+}
+NoOp {
+name NoOp1
+xpos 545
+ypos -1031
+}
+set N2b1ca020 [stack 0]
+Invert {
+channels rgba
+name Invert1
+xpos 663
+ypos -902
+}
+push $N2b1ca020
+Switch {
+inputs 2
+which {{X.chew>=0?0:1 i}}
+name Switch1
+xpos 545
+ypos -822
+}
+Blur {
+channels rgba
+size {{abs(X.chew) i}}
+name Blur1
+xpos 545
+ypos -647
+}
+set Na58f1d20 [stack 0]
+Grade {
+multiply {{max(Blur1.size*1.5,1) i}}
+white_clamp true
+name Grade1
+xpos 682
+ypos -575
+}
+NoOp {
+inputs 0
+name X
+xpos 110
+ypos -647
+addUserKnob {20 User}
+addUserKnob {7 chew R -10 10}
+addUserKnob {7 soften R 0 10}
+addUserKnob {6 premult +STARTLINE}
+}
+push $Na58f1d20
+Multiply {
+channels alpha
+value {{max(Blur1.size*1.5,1) i}}
+name Multiply1
+xpos 545
+ypos -582
+}
+Gamma {
+channels alpha
+value {{gamma_curve.n_result i}}
+name Gamma1
+xpos 545
+ypos -486
+}
+set Nf0d9cb30 [stack 0]
+Dot {
+name Dot2
+xpos 664
+ypos -402
+}
+Dot {
+name Dot3
+xpos 833
+ypos -402
+}
+push $N2b1ca020
+Dot {
+name Dot1
+xpos 881
+ypos -1026
+}
+set N6017da50 [stack 0]
+Merge2 {
+inputs 2
+operation from
+name Merge1
+xpos 847
+ypos -287
+}
+Dot {
+name Dot4
+xpos 881
+ypos -234
+}
+Dot {
+name Dot5
+xpos 657
+ypos -234
+}
+push $Nf0d9cb30
+Switch {
+inputs 2
+which {{X.chew>=0?0:1 i}}
+name Switch3
+xpos 545
+ypos -167
+}
+Clamp {
+channels rgba
+name Clamp1
+xpos 545
+ypos -102
+}
+Blur {
+channels rgba
+size {{X.soften i}}
+name Blur2
+xpos 545
+ypos -36
+}
+push $N6017da50
+Dot {
+name Dot6
+xpos 1258
+ypos -1026
+}
+Dot {
+name Dot7
+xpos 1258
+ypos 54
+}
+Dot {
+name Dot8
+xpos 682
+ypos 54
+}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 rgba.alpha
+name Copy1
+selected true
+xpos 545
+ypos 114
+disable {{"!\[exists parent.input0]" i}}
+}
+Premult {
+name Premult1
+xpos 545
+ypos 193
+disable {{!X.premult i}}
+}
+Output {
+name Output1
+xpos 545
+ypos 685
+}
+end_group

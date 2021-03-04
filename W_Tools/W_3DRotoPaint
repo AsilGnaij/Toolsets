@@ -1,0 +1,378 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+Dot {
+inputs 0
+name Dot44
+tile_color 0xa60000ff
+label "\nGeo"
+note_font_size 20
+selected true
+xpos 1535
+ypos 8434
+}
+set N39bc5cd0 [stack 0]
+Dot {
+name Dot43
+tile_color 0xa60000ff
+selected true
+xpos 1535
+ypos 8923
+}
+push $N39bc5cd0
+Dot {
+inputs 0
+name Dot39
+selected true
+xpos 1805
+ypos 8355
+}
+push $cut_paste_input
+Dot {
+name Dot24
+tile_color 0xa60000ff
+label "\n\nCamera"
+note_font_size 20
+selected true
+xpos 1630
+ypos 8389
+}
+set N39c02eb0 [stack 0]
+Group {
+inputs 3
+name W_3D_Rotopaint
+tile_color 0xa60000ff
+label "\n\[expr \{\[value projmethod]?\"Ref f\":\"UV Projection\"\}]\[expr \{\[value projmethod]?\[value refframe]:\"\"\}]"
+selected true
+xpos 1771
+ypos 8415
+lock_connections true
+addUserKnob {20 User l W_3D_Rotopaint_Controls}
+addUserKnob {26 method l Method T " "}
+addUserKnob {22 uvproj l "<b>UV Projection</b>" -STARTLINE T "n=nuke.thisNode()\nk=n.knob\nk(\"uvproj\").setLabel(\"<b>UV Projection</b>\")\nk(\"framehold\").setLabel(\"<font color=gray>Frame Hold</font>\")\nk(\"projmethod\").setValue(0)\nnuke.toNode(\"ScanlineRender\")\[\"projection_mode\"].setValue(2)\nn.knobs()\['uvprojsettings'].setVisible(True)\nn.knobs()\['frameholdsettings'].setVisible(False)\nn.knobs()\['outcrop'].setEnabled(False)\nn.knobs()\['tile_color'].setValue(0xa60000ff)"}
+addUserKnob {22 framehold l "<font color=gray>Frame Hold</font>" -STARTLINE T "n=nuke.thisNode()\nk=n.knob\nk(\"uvproj\").setLabel(\"<font color=gray>UV Projection</font>\")\nk(\"framehold\").setLabel(\"<b>Frame Hold</bt>\")\nk(\"projmethod\").setValue(1)\nnuke.toNode(\"ScanlineRender\")\[\"projection_mode\"].setValue(4)\nn.knobs()\['uvprojsettings'].setVisible(False)\nn.knobs()\['frameholdsettings'].setVisible(True)\nn.knobs()\['outcrop'].setEnabled(True)\nn.knobs()\['tile_color'].setValue(0xaca15bff)"}
+addUserKnob {6 projmethod l "" -STARTLINE +INVISIBLE}
+addUserKnob {26 projection l <b>Projection</b>}
+addUserKnob {41 udformat l Resolution +INVISIBLE T Dot42.udformat}
+addUserKnob {41 udaspect l "Pixel Aspect" +INVISIBLE T Dot42.udaspect}
+addUserKnob {41 filter_1 l Filter T ScanlineRender.filter}
+addUserKnob {26 spacer l "" -STARTLINE T "      "}
+addUserKnob {41 crop l "Project3D Crop" -STARTLINE T Project3D1.crop}
+addUserKnob {20 uvprojsettings l "UV Projection Settings" n 1}
+addUserKnob {26 uvrestext l Resolution T " "}
+addUserKnob {22 uvres0 l <b>Undistort</b> -STARTLINE T "n=nuke.thisNode()\nk=n.knob\nk(\"uvres0\").setLabel(\"<b>Undistort</b>\")\nk(\"uvres1\").setLabel(\"<font color=gray>Project</font>\")\nk(\"uvres2\").setLabel(\"<font color=gray>Custom</font>\")\nnuke.toNode(\"Switch1\")\[\"which\"].setValue(0)\nn.knobs()\['uvformat'].setEnabled(False)"}
+addUserKnob {22 uvres1 l "<font color=gray>Project</font>" -STARTLINE T "n=nuke.thisNode()\nk=n.knob\nk(\"uvres0\").setLabel(\"<font color=gray>Undistort</font>\")\nk(\"uvres1\").setLabel(\"<b>Project</b>\")\nk(\"uvres2\").setLabel(\"<font color=gray>Custom</font>\")\nnuke.toNode(\"Switch1\")\[\"which\"].setValue(1)\nn.knobs()\['uvformat'].setEnabled(False)"}
+addUserKnob {22 uvres2 l "<font color=gray>Custom</font>" -STARTLINE T "n=nuke.thisNode()\nk=n.knob\nk(\"uvres0\").setLabel(\"<font color=gray>Undistort</font>\")\nk(\"uvres1\").setLabel(\"<font color=gray>Project</font>\")\nk(\"uvres2\").setLabel(\"<b>Custom</b>\")\nnuke.toNode(\"Switch1\")\[\"which\"].setValue(2)\nn.knobs()\['uvformat'].setEnabled(True)\n"}
+addUserKnob {41 uvformat l Format +DISABLED T Reformat.format}
+addUserKnob {20 endGroup_1 l endGroup n -1}
+addUserKnob {20 frameholdsettings l "Frame Hold Settings" +HIDDEN n 1}
+addUserKnob {3 refframe l "Ref Frame"}
+refframe 1001
+addUserKnob {22 setref l "Set Current Frame" -STARTLINE T "nuke.thisNode().knob(\"refframe\").setValue(nuke.frame())"}
+addUserKnob {14 overscan l Overscan R 0 1000}
+addUserKnob {20 endGroup n -1}
+addUserKnob {26 divider l " " T "  "}
+addUserKnob {26 out l <b>Output</b>}
+addUserKnob {4 filter l Filter M {Impulse Cubic Simon Keys Rifman Mitchell Parzan Notch Lanczos4 Lanczos6 Sinc4 Nearest Bilinear Trilinear Anisotropic "" "" ""}}
+filter Cubic
+addUserKnob {26 spacer2 l "" -STARTLINE T "      "}
+addUserKnob {6 outcrop l "Project3D Crop" -STARTLINE +DISABLED}
+addUserKnob {14 rscale l "Res Scale" R 0.25 4}
+rscale 1
+addUserKnob {14 outoverscan l Overscan R 0 500}
+addUserKnob {20 mb l "Motion Blur Settings" n 1}
+addUserKnob {7 samples l Samples R 1 12}
+samples 1
+addUserKnob {7 shutter l Shutter R 0 2}
+shutter 0.5
+addUserKnob {6 gui l "On Farm Only" +STARTLINE}
+addUserKnob {20 endGroup_2 l endGroup n -1}
+addUserKnob {26 ""}
+addUserKnob {26 credit l "" +STARTLINE T "                       v1.0  -  Nov 2019  -  Wes Heo"}
+}
+Input {
+inputs 0
+name Camera
+xpos -549
+ypos -433
+}
+Dot {
+name Dot39
+xpos -515
+ypos -367
+}
+set N39c282f0 [stack 0]
+Dot {
+name Dot40
+xpos -515
+ypos -223
+}
+FrameHold {
+first_frame {{parent.refframe}}
+name FrameHold1
+xpos -420
+ypos -233
+disable {{1-parent.projmethod}}
+}
+push $N39c282f0
+Input {
+inputs 0
+name Undistorted_Plt
+xpos -255
+ypos -488
+number 1
+}
+Dot {
+name Dot42
+xpos -221
+ypos -422
+addUserKnob {20 User}
+addUserKnob {14 udformat l Resolution R 0 100}
+udformat {{input.width} {input.height}}
+addUserKnob {7 udaspect l "Pixel Aspect" R 0 2}
+udaspect {{input.pixel_aspect}}
+}
+set N3e6656d0 [stack 0]
+Project3D2 {
+inputs 2
+name Project3D1
+xpos -255
+ypos -371
+}
+Input {
+inputs 0
+name Geo
+xpos -409
+ypos -307
+number 2
+}
+ApplyMaterial {
+inputs 2
+name ApplyMaterial1
+xpos -255
+ypos -307
+}
+Reformat {
+inputs 0
+format "4096 4096 0 0 4096 4096 1 4k"
+name Reformat
+xpos 60
+ypos -233
+}
+Dot {
+inputs 0
+name Dot1
+xpos 32
+ypos -293
+}
+push $N3e6656d0
+Remove {
+operation keep
+channels rgba
+name Remove1
+xpos -76
+ypos -426
+}
+Shuffle {
+red black
+green black
+blue black
+alpha black
+name Shuffle1
+xpos -76
+ypos -368
+}
+Switch {
+inputs 3
+name Switch1
+label "\[value which]"
+xpos -76
+ypos -233
+disable {{parent.projmethod}}
+}
+ScanlineRender {
+inputs 3
+conservative_shader_sampling false
+projection_mode uv
+overscan {{parent.projmethod?parent.overscan:0} {parent.projmethod?parent.overscan:0}}
+motion_vectors_type distance
+name ScanlineRender
+selected true
+xpos -255
+ypos -227
+}
+Crop {
+box {{-parent.overscan.w} {-parent.overscan.h} {input.width+parent.overscan.w} {input.height+parent.overscan.h}}
+reformat true
+intersect {{crop}}
+crop {{parent.Project3D1.crop}}
+name Crop1
+xpos -255
+ypos -151
+disable {{!parent.projmethod}}
+}
+Output {
+name Output1
+xpos -255
+ypos -63
+}
+end_group
+Dot {
+name Dot47
+tile_color 0xa60000ff
+label "Work Area"
+selected true
+xpos 1805
+ypos 8496
+}
+Shuffle {
+red black
+green black
+blue black
+alpha black
+name Shuffle3
+selected true
+xpos 1771
+ypos 8532
+}
+push $N39c02eb0
+Dot {
+name Dot40
+tile_color 0xa60000ff
+selected true
+xpos 1630
+ypos 8865
+}
+Group {
+inputs 3
+name W_3D_Rotopaint_Output
+tile_color 0xa60000ff
+selected true
+xpos 1771
+ypos 8919
+lock_connections true
+addUserKnob {20 User l W_3D_Rotopaint_Output}
+addUserKnob {41 overscan +INVISIBLE T ScanlineRender8.overscan}
+addUserKnob {14 resscale l "" +STARTLINE +INVISIBLE R 0 100}
+resscale {{parent.W_3D_Rotopaint.rscale} {parent.W_3D_Rotopaint.rscale}}
+addUserKnob {14 udformat l "" +STARTLINE +INVISIBLE R 0 100}
+udformat {{parent.W_3D_Rotopaint.Dot42.udformat} {parent.W_3D_Rotopaint.Dot42.udformat}}
+addUserKnob {7 udaspect l "" +STARTLINE +INVISIBLE R 0 2}
+udaspect {{parent.W_3D_Rotopaint.Dot42.udaspect}}
+addUserKnob {6 projmethod l "" +STARTLINE +INVISIBLE +STARTLINE}
+projmethod {{parent.W_3D_Rotopaint.projmethod}}
+addUserKnob {3 refframe l "" +STARTLINE +INVISIBLE}
+refframe {{parent.W_3D_Rotopaint.refframe}}
+addUserKnob {3 filter l "" +STARTLINE +INVISIBLE}
+filter {{parent.W_3D_Rotopaint.filter}}
+addUserKnob {6 outcrop l "" +STARTLINE +INVISIBLE +STARTLINE}
+outcrop {{parent.W_3D_Rotopaint.outcrop}}
+addUserKnob {7 samples l "" +STARTLINE +INVISIBLE R 0 12}
+samples {{parent.W_3D_Rotopaint.samples}}
+addUserKnob {7 shutter l "" +STARTLINE +INVISIBLE R 0 2}
+shutter {{parent.W_3D_Rotopaint.shutter}}
+addUserKnob {6 gui l "" +STARTLINE +INVISIBLE +STARTLINE}
+gui {{parent.W_3D_Rotopaint.gui}}
+addUserKnob {26 credit l "" +STARTLINE T "v1.0  -  Nov 2019  -  Wes Heo"}
+}
+Input {
+inputs 0
+name Camera
+xpos -502
+ypos -430
+}
+Dot {
+name Dot45
+xpos -468
+ypos -348
+}
+set N3e95a390 [stack 0]
+Dot {
+name Dot44
+xpos -468
+ypos -156
+}
+push $N3e95a390
+FrameHold {
+first_frame {{parent.refframe}}
+name FrameHold1
+xpos -397
+ypos -358
+}
+Input {
+inputs 0
+name Projection
+xpos -255
+ypos -528
+number 1
+}
+Reformat {
+type "to box"
+box_width {{parent.udformat.w}}
+box_height {{parent.udformat.h}}
+box_pixel_aspect {{parent.udaspect}}
+resize none
+pbb true
+name Reformat1
+xpos -255
+ypos -443
+disable {{!parent.projmethod}}
+}
+Project3D2 {
+inputs 2
+crop {{parent.outcrop}}
+name Project3D1
+xpos -255
+ypos -352
+disable {{!parent.projmethod}}
+}
+Input {
+inputs 0
+name Geo
+xpos -390
+ypos -259
+number 2
+}
+ApplyMaterial {
+inputs 2
+name ApplyMaterial1
+xpos -255
+ypos -259
+}
+Reformat {
+inputs 0
+type "to box"
+box_width {{parent.udformat.w}}
+box_height {{parent.udformat.h}}
+box_pixel_aspect {{parent.udaspect}}
+resize none
+name Reformat2
+xpos -88
+ypos -218
+}
+Reformat {
+type scale
+scale {{parent.resscale} {parent.resscale}}
+resize none
+name Reformat3
+xpos -88
+ypos -160
+}
+ScanlineRender {
+inputs 3
+conservative_shader_sampling false
+filter {{parent.filter}}
+overscan {{parent.parent.W_3D_Rotopaint.outoverscan.w} {parent.parent.W_3D_Rotopaint.outoverscan.h}}
+samples {{parent.gui?1:parent.samples}}
+shutter {{parent.shutter}}
+shutteroffset centred
+motion_vectors_type distance
+name ScanlineRender8
+xpos -255
+ypos -160
+}
+Output {
+name Output1
+xpos -255
+ypos -60
+}
+end_group

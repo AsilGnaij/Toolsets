@@ -7,8 +7,8 @@ onCreate "n=nuke.thisNode()\nn\['defocus'].setFlag(0x0000000000000004)\nn\['rati
 knobChanged "n=nuke.thisNode()\nk1=nuke.thisKnob()\nif k1.name() in \['catsync']:\n    if k1.value() == 1:\n        n\['catsize'].setLabel(\"Amount\")\n        n\['catsize2'].setVisible(False)        \n    else:\n        n\['catsize'].setLabel(\"Inner Amount\")\n        n\['catsize2'].setVisible(True)\nif k1.name() in \['bloomgain']:\n    if k1.value() == 1:\n        n\['bloommax'].setEnabled(False)\n        n\['bloommin'].setEnabled(False)        \n    else:\n        n\['bloommax'].setEnabled(True)\n        n\['bloommin'].setEnabled(True)\nif k1.name() in \['gammacorrect']:\n    if k1.value() == 1:\n        n\['gammablack'].setEnabled(False)\n    else:\n        n\['gammablack'].setEnabled(True)\nif k1.name() in \['userlock']:\n    if k1.value() == 1:\n        n\['storedist'].setEnabled(False)\n    else:\n        n\['storedist'].setEnabled(True)"
 tile_color 0xff7f32ff
 selected true
-xpos 3510
-ypos 2171
+xpos 617
+ypos 7541
 addUserKnob {20 User l "Cat's Eye"}
 addUserKnob {26 outputtext l "             Output" T ""}
 addUserKnob {22 output0 l "<font color=gray>Result</font>" t "Distortion applied to the input image." -STARTLINE T "n=nuke.thisNode()\nk=n.knob\nk(\"output0\").setLabel(\"<b>Result</b>\")\nk(\"output1\").setLabel(\"<font color=gray>Preview</font>\")\nk(\"output2\").setLabel(\"<font color=gray>Distort ST</font>\")\nk(\"output3\").setLabel(\"<font color=gray>Undistort ST</font>\")\nnuke.toNode(\"Switch2\")\[\"which\"].setValue(0)\nnuke.toNode(\"Switch4\")\[\"which\"].setValue(0)\nn.knobs()\['stmap'].setVisible(False)\nn.knobs()\['preview'].setVisible(False)"}
@@ -225,7 +225,7 @@ name Reformat1
 xpos -775
 ypos 663
 }
-set N4ca79950 [stack 0]
+set N3668b0d0 [stack 0]
 Radial {
 output alpha
 area {{-border} {-border} {input.width+border} {input.height+border}}
@@ -238,7 +238,7 @@ addUserKnob {20 User}
 addUserKnob {7 border l Border R -500 500}
 border {{-input.width/2*(1-parent.ringedge)}}
 }
-push $N4ca79950
+push $N3668b0d0
 Noise {
 output alpha
 type turbulence
@@ -251,7 +251,7 @@ onCreate "nuke.thisNode()\['center'].setFlag(0x00008000)"
 xpos -1135
 ypos 801
 }
-push $N4ca79950
+push $N3668b0d0
 Expression {
 temp_name0 centerx
 temp_expr0 input.width/2*(1+parent.ringoffsetx)
@@ -269,7 +269,7 @@ addUserKnob {20 User}
 addUserKnob {7 size l Size R 0 50}
 size {{1/parent.ringsize*18}}
 }
-push $N4ca79950
+push $N3668b0d0
 Expression {
 temp_name0 centerx
 temp_expr0 input.width/2*(1+parent.ringoffsetx)
@@ -306,7 +306,7 @@ name Grade2
 xpos -1262
 ypos 1028
 }
-push $N4ca79950
+push $N3668b0d0
 Ramp {
 p0 {0 {input.width}}
 p1 {0 0}
@@ -344,7 +344,7 @@ name Transform1
 xpos -995
 ypos 956
 }
-push $N4ca79950
+push $N3668b0d0
 Radial {
 output alpha
 area {{-border} {-border} {input.width+border} {input.height+border}}
@@ -357,7 +357,7 @@ addUserKnob {20 User}
 addUserKnob {7 border l Border R -500 500}
 border {{-input.width/2*(1-parent.speckedge*1.1)}}
 }
-push $N4ca79950
+push $N3668b0d0
 Noise {
 size 20
 zoffset {{parent.zoffset}}
@@ -371,7 +371,7 @@ selected true
 xpos -884
 ypos 811
 }
-push $N4ca79950
+push $N3668b0d0
 Flare {
 position {{input.width/2} {input.height/2}}
 radius {{parent.innerr*100} {(115-(parent.innerr+0.05)*100)*parent.ringcenter+((parent.innerr+0.05)*100)} 120}
@@ -434,7 +434,7 @@ label "do not touch"
 xpos -775
 ypos 1190
 }
-set N6816fb70 [stack 0]
+set N28091c00 [stack 0]
 Dot {
 name Dot8
 label "filter preview"
@@ -448,7 +448,7 @@ name img
 xpos 56
 ypos -234
 }
-set N72b20c0 [stack 0]
+set N39bf48c0 [stack 0]
 Remove {
 operation keep
 channels rgba
@@ -456,7 +456,7 @@ name Remove1
 xpos -357
 ypos -234
 }
-set N4ca7d760 [stack 0]
+set N27fd06e0 [stack 0]
 Remove {
 name Remove2
 xpos -1826
@@ -470,7 +470,7 @@ name Crop1
 xpos -1826
 ypos -173
 }
-set N2d1f67d0 [stack 0]
+set N3669c580 [stack 0]
 Grid {
 number {0 {floor(parent.column/input.width*input.height)}}
 size {0 {parent.dotsize.h}}
@@ -478,7 +478,7 @@ name Grid2
 xpos -1745
 ypos -121
 }
-push $N2d1f67d0
+push $N3669c580
 Grid {
 number {{floor(parent.column)-1} 0}
 size {{parent.dotsize} 0}
@@ -524,8 +524,8 @@ name Crop2
 xpos -1824
 ypos 109
 }
-set N9450c800 [stack 0]
-push $N4ca7d760
+set N175ce1f0 [stack 0]
+push $N27fd06e0
 Switch {
 inputs 2
 which 1
@@ -543,7 +543,7 @@ xpos -357
 ypos 216
 disable {{parent.bypasss}}
 }
-set N4f42ae30 [stack 0]
+set N3df4e4c0 [stack 0]
 Expression {
 expr0 (x+0.5)/input.width
 expr1 (y+0.5)/input.height
@@ -553,7 +553,7 @@ label STMap
 xpos -1237
 ypos 210
 }
-set Na2dd0a90 [stack 0]
+set N366f8e30 [stack 0]
 LensDistortion {
 serializeKnob ""
 serialiseKnob "22 serialization::archive 14 0 0 0 0 0 0 0 0 0 0 0 0"
@@ -602,7 +602,7 @@ name FrameHold2
 xpos -1488
 ypos 502
 }
-set Nb7732480 [stack 0]
+set N3e23adb0 [stack 0]
 Dot {
 name Dot6
 label "undistort ST"
@@ -610,7 +610,7 @@ xpos 225
 ypos 2096
 hide_input true
 }
-push $Na2dd0a90
+push $N366f8e30
 LensDistortion {
 serializeKnob ""
 serialiseKnob "22 serialization::archive 14 0 0 0 0 0 0 0 0 0 0 0 0"
@@ -657,7 +657,7 @@ name FrameHold1
 xpos -1237
 ypos 499
 }
-set Ndf6f2990 [stack 0]
+set N3e28afb0 [stack 0]
 Dot {
 name Dot7
 label "distort ST"
@@ -665,13 +665,13 @@ xpos 205
 ypos 2018
 hide_input true
 }
-push $N9450c800
+push $N175ce1f0
 Dot {
 name Dot5
 xpos -1790
 ypos 1949
 }
-push $Nb7732480
+push $N3e23adb0
 Switch {
 name Switch6
 label "do not touch"
@@ -683,15 +683,15 @@ name Dot4
 xpos -1454
 ypos 1719
 }
-push $N6816fb70
-push $Ndf6f2990
+push $N28091c00
+push $N3e28afb0
 Switch {
 name Switch5
 label "do not touch"
 xpos -1237
 ypos 576
 }
-push $N4f42ae30
+push $N3df4e4c0
 STMap {
 inputs 2
 uv rgb
@@ -715,7 +715,7 @@ xpos -357
 ypos 780
 disable {{parent.gammacorrect==1||!parent.gammablack}}
 }
-set Nee07c900 [stack 0]
+set N3e2c8ba0 [stack 0]
 Keyer {
 operation "luminance key"
 range {{parent.bloommax*parent.bloommin} {parent.bloommax} {parent.bloommax+1} {parent.bloommax+1}}
@@ -723,7 +723,7 @@ name Keyer2
 xpos -216
 ypos 834
 }
-push $Nee07c900
+push $N3e2c8ba0
 Multiply {
 inputs 1+1
 value {{parent.bloomgain}}
@@ -738,7 +738,7 @@ name Dot3
 xpos -323
 ypos 1084
 }
-set N13b4930 [stack 0]
+set N3e2ee350 [stack 0]
 add_layer {DepthTemp DepthTemp.Z}
 Shuffle {
 red black
@@ -774,7 +774,7 @@ name Dot1
 xpos -466
 ypos 1310
 }
-push $N13b4930
+push $N3e2ee350
 Defocus {
 defocus {{ratio>1?parent.defocus/ratio:parent.defocus}}
 ratio {{parent.ratio}}
@@ -791,7 +791,7 @@ name Switch1
 xpos -357
 ypos 1306
 }
-set N94229820 [stack 0]
+set N3e32ff00 [stack 0]
 Shuffle {
 red black
 green black
@@ -821,7 +821,7 @@ name Crop6
 xpos -89
 ypos 1516
 }
-push $N94229820
+push $N3e32ff00
 Gamma {
 value {{parent.gammacorrect}}
 name Gamma1
@@ -829,7 +829,7 @@ xpos -356
 ypos 1369
 disable {{parent.gammacorrect==1}}
 }
-set N8ba554f0 [stack 0]
+set N3e3614e0 [stack 0]
 Transform {
 scale {{parent.catsync?1-parent.catsize/10000:1-parent.catsize2/10000} {parent.catsync?1-parent.catsize/10000:1-parent.catsize2/10000}}
 center {{input.width/2+parent.catoffsetx*0.5*input.width/2} {input.height/2+parent.catoffsety*0.5*input.height/2}}
@@ -839,7 +839,7 @@ xpos -235
 ypos 1434
 disable {{parent.nocat}}
 }
-push $N8ba554f0
+push $N3e3614e0
 Transform {
 scale {{1+parent.catsize/10000} {1+parent.catsize/10000}}
 center {{input.width/2+parent.catoffsetx*0.5*input.width/2} {input.height/2+parent.catoffsety*0.5*input.height/2}}
@@ -909,7 +909,7 @@ xpos -356
 ypos 1945
 disable {{!parent.Switch2.which}}
 }
-push $N72b20c0
+push $N39bf48c0
 Copy {
 inputs 2
 channels rgba

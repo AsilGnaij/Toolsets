@@ -1,0 +1,141 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+Dot {
+inputs 0
+name Dot20
+selected true
+xpos 972
+ypos 7691
+hide_input true
+}
+Dot {
+inputs 0
+name Dot21
+selected true
+xpos 768
+ypos 7691
+hide_input true
+}
+push $cut_paste_input
+Dot {
+name Dot23
+label "comp without grain"
+selected true
+xpos 866
+ypos 7603
+}
+Group {
+inputs 3
+name W_PlateGrain
+selected true
+xpos 832
+ypos 7687
+lock_connections true
+addUserKnob {20 User}
+addUserKnob {26 mmix l "<b>Method Mix</b>"}
+addUserKnob {26 mp l Minus/Plus T ""}
+addUserKnob {41 which l "" -STARTLINE T Dissolve1.which}
+addUserKnob {26 dm l "  Divide/Multiply" -STARTLINE T " "}
+addUserKnob {26 divider l " " T ""}
+addUserKnob {20 clampgroup l "Clamp Divided Values" n 1}
+addUserKnob {7 min l Minimum R -1 0}
+addUserKnob {41 minimum_enable l enable -STARTLINE T Clamp1.minimum_enable}
+addUserKnob {7 max l Maximum R 1 3}
+max 2
+addUserKnob {41 maximum_enable l enable -STARTLINE T Clamp1.maximum_enable}
+addUserKnob {20 endGroup n -1}
+addUserKnob {26 divider2 l "  " T ""}
+addUserKnob {26 grainmixtext l "<b>Grain Mix</b>"}
+addUserKnob {41 which_1 l Mix T Dissolve2.which}
+addUserKnob {26 ""}
+addUserKnob {26 credit l "" +STARTLINE T "                       v1.0  -  Dec 2019  -  Wes Heo"}
+}
+Input {
+inputs 0
+name Plate
+xpos -938
+ypos 307
+number 1
+}
+set N3e14e8d0 [stack 0]
+Input {
+inputs 0
+name Degrain
+xpos -721
+ypos 307
+number 2
+}
+set N3e1c18e0 [stack 0]
+Merge2 {
+inputs 2
+operation divide
+name Merge1
+xpos -938
+ypos 471
+}
+Clamp {
+channels rgb
+minimum {{parent.min}}
+maximum {{parent.max}}
+name Clamp1
+xpos -938
+ypos 628
+}
+Input {
+inputs 0
+name Comp
+xpos -302
+ypos 317
+}
+set N3e106570 [stack 0]
+Merge2 {
+inputs 2
+operation multiply
+output rgb
+name Merge4
+xpos -718
+ypos 628
+}
+push $N3e14e8d0
+push $N3e1c18e0
+Merge2 {
+inputs 2
+operation minus
+name Merge2
+xpos -721
+ypos 470
+}
+push $N3e106570
+Merge2 {
+inputs 2
+operation plus
+output rgb
+name Merge3
+xpos -502
+ypos 633
+}
+Dissolve {
+inputs 2
+channels rgb
+which 0.5
+name Dissolve1
+label "\[value which]"
+xpos -502
+ypos 771
+}
+push $N3e106570
+Dissolve {
+inputs 2
+channels rgb
+which 1
+name Dissolve2
+label "\[value which]"
+xpos -302
+ypos 913
+}
+Output {
+name Output1
+xpos -302
+ypos 1012
+}
+end_group

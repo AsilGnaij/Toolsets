@@ -1,0 +1,312 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name W_HSV2
+onCreate "n=nuke.thisNode()\nn\['vibrance'].setFlag(0x0000000000000004)\nn\['lumwhite'].setFlag(0x0000000000000004)\nn\['lumgamma'].setFlag(0x0000000000000004)\nn\['lumblack'].setFlag(0x0000000000000004)\nn\['temp'].setFlag(0x0000000000000004)\nn\['tint'].setFlag(0x0000000000000004)\n"
+knobChanged "n = nuke.thisNode()\nk1 = nuke.thisKnob()\nhb = nuke.toNode(\"Colorspace1\")\nhbv = hb\[\"hbias\"].getValue()\nif k1.name() in \['greybias']:\n    if hbv <= -5:\n        hb\['illuminant_in'].setValue(3)\n        hb\['illuminant_out'].setValue(8)\n    elif hbv == -4:\n        hb\['illuminant_in'].setValue(4)\n        hb\['illuminant_out'].setValue(8)\n    elif hbv == -3:\n        hb\['illuminant_in'].setValue(4)\n        hb\['illuminant_out'].setValue(7)\n    elif hbv == -2:\n        hb\['illuminant_in'].setValue(5)\n        hb\['illuminant_out'].setValue(7)\n    elif hbv == -1:\n        hb\['illuminant_in'].setValue(5)\n        hb\['illuminant_out'].setValue(6)\n    elif hbv == 0:\n        hb\['illuminant_in'].setValue(6)\n        hb\['illuminant_out'].setValue(6)\n    elif hbv == 1:\n        hb\['illuminant_in'].setValue(6)\n        hb\['illuminant_out'].setValue(5)        \n    elif hbv == 2:\n        hb\['illuminant_in'].setValue(7)\n        hb\['illuminant_out'].setValue(5)\n    elif hbv == 3:\n        hb\['illuminant_in'].setValue(7)\n        hb\['illuminant_out'].setValue(4)\n    elif hbv == 4:\n        hb\['illuminant_in'].setValue(8)\n        hb\['illuminant_out'].setValue(4)\n    elif hbv >= 5:\n        hb\['illuminant_in'].setValue(8)\n        hb\['illuminant_out'].setValue(3)     "
+tile_color 0x77a8ffff
+selected true
+xpos 834
+ypos 7494
+addUserKnob {20 User l HSV}
+addUserKnob {26 sat l "@b;Saturation" T ""}
+addUserKnob {22 satmode0 l "<b>V bias</b>" -STARTLINE T "n=nuke.thisNode()\nk=n.knob\nk(\"satmode0\").setLabel(\"<b>V bias</b>\")\nk(\"satmode1\").setLabel(\"<font color=gray>H bias</font>\")\nk(\"satmode\").setValue(0)\nk(\"hbias\").setValue(k(\"greybias\").getValue())\nk(\"greybias\").setValue(0)\nn.knobs()\['lummode'].setVisible(True)\nn.knobs()\['lummode0'].setVisible(True)\nn.knobs()\['lummode1'].setVisible(True)\nn.knobs()\['lummode2'].setVisible(True)\nn.knobs()\['lummode3'].setVisible(True)\nn.knobs()\['greybias'].setVisible(False)\nn.knobs()\['satlummix'].setVisible(False)"}
+addUserKnob {22 satmode1 l "<font color=gray>H bias</font>" -STARTLINE T "n=nuke.thisNode()\nk=n.knob\nk(\"satmode0\").setLabel(\"<font color=gray>V bias</font>\")\nk(\"satmode1\").setLabel(\"<b>H bias</b>\")\nk(\"satmode\").setValue(1)\nk(\"greybias\").setValue(k(\"hbias\").getValue())\nn.knobs()\['lummode'].setVisible(False)\nn.knobs()\['lummode0'].setVisible(False)\nn.knobs()\['lummode1'].setVisible(False)\nn.knobs()\['lummode2'].setVisible(False)\nn.knobs()\['lummode3'].setVisible(False)\nn.knobs()\['greybias'].setVisible(True)\nn.knobs()\['satlummix'].setVisible(True)"}
+addUserKnob {6 satmode l INVISIBLE -STARTLINE +INVISIBLE}
+addUserKnob {26 spacer_6 l "" -STARTLINE T "                         "}
+addUserKnob {22 s_reset l "Reset S" -STARTLINE T "nuke.thisNode().knob(\"saturation\").setValue(1)\nnuke.thisNode().knob(\"vibrance\").setValue(1)\nnuke.thisNode().knob(\"greybias\").setValue(0)"}
+addUserKnob {26 spacer l "" -STARTLINE T "  "}
+addUserKnob {41 s_disable l disable -STARTLINE T Dissolve2.disable}
+addUserKnob {26 lummode l "Luma Math" T ""}
+addUserKnob {22 lummode0 l "<b>Rec 709</b>" -STARTLINE T "n=nuke.thisNode()\nk=n.knob\nk(\"lummode0\").setLabel(\"<b>Rec 709</b>\")\nk(\"lummode1\").setLabel(\"<font color=gray>Ccir 601</font>\")\nk(\"lummode2\").setLabel(\"<font color=gray>Average</font>\")\nk(\"lummode3\").setLabel(\"<font color=gray>Maximum</font>\")\nnuke.toNode(\"Saturation1\")\[\"mode\"].setValue(0)\n"}
+addUserKnob {22 lummode1 l "<font color=gray>Ccir 601</font>" -STARTLINE T "n=nuke.thisNode()\nk=n.knob\nk(\"lummode0\").setLabel(\"<font color=gray>Rec 709</font>\")\nk(\"lummode1\").setLabel(\"<b>Ccir 601</b>\")\nk(\"lummode2\").setLabel(\"<font color=gray>Average</font>\")\nk(\"lummode3\").setLabel(\"<font color=gray>Maximum</font>\")\nnuke.toNode(\"Saturation1\")\[\"mode\"].setValue(1)"}
+addUserKnob {22 lummode2 l "<font color=gray>Average</font>" -STARTLINE T "n=nuke.thisNode()\nk=n.knob\nk(\"lummode0\").setLabel(\"<font color=gray>Rec 709</font>\")\nk(\"lummode1\").setLabel(\"<font color=gray>Ccir 601</font>\")\nk(\"lummode2\").setLabel(\"<b>Average</b>\")\nk(\"lummode3\").setLabel(\"<font color=gray>Maximum</font>\")\nnuke.toNode(\"Saturation1\")\[\"mode\"].setValue(2)"}
+addUserKnob {22 lummode3 l "<font color=gray>Maximum</font>" -STARTLINE T "n=nuke.thisNode()\nk=n.knob\nk(\"lummode0\").setLabel(\"<font color=gray>Rec 709</font>\")\nk(\"lummode1\").setLabel(\"<font color=gray>Ccir 601</font>\")\nk(\"lummode2\").setLabel(\"<font color=gray>Average</font>\")\nk(\"lummode3\").setLabel(\"<b>Maximum</b>\")\nnuke.toNode(\"Saturation1\")\[\"mode\"].setValue(3)"}
+addUserKnob {7 greybias l "<font color=#6895fa><b><<</b><-</font>Grey<font color=#e1ac5e>-><b>>></b>" +HIDDEN R -5 5}
+addUserKnob {3 hbias l INVISIBLE -STARTLINE +INVISIBLE}
+addUserKnob {41 saturation l Saturation T Saturation1.saturation}
+addUserKnob {7 vibrance l Vibrance t "brings out colors in less \nsaturated areas" R 0 4}
+vibrance 1
+addUserKnob {7 satlummix l INVISIBLE +HIDDEN +INVISIBLE}
+satlummix 1
+addUserKnob {41 s_mix l Mix T Dissolve2.which}
+addUserKnob {26 ""}
+addUserKnob {26 hue l "@b;Hue" T ""}
+addUserKnob {26 spacer_5 l "" -STARTLINE T "                                                      "}
+addUserKnob {22 h_reset l "Reset H" -STARTLINE T "nuke.thisNode().knob(\"temp\").setValue(0)\nnuke.thisNode().knob(\"tint\").setValue(0)"}
+addUserKnob {26 spacer_1 l "" -STARTLINE T "  "}
+addUserKnob {41 h_disable l disable -STARTLINE T Dissolve1.disable}
+addUserKnob {7 temp l "<font color=cyan><b><<</b><-</font>Temp<font color=yellow>-><b>>></b></font>" t "left is cooler and right is warmer" R -1 1}
+temp 0.0005
+addUserKnob {7 tint l "<font color=green><b><<</b><<-</font></b>Tint<font color=magenta>-><b>>></b></font>" t "left towards green and right \ntowards magenta" R -1 1}
+tint -0.23
+addUserKnob {41 h_mix l Mix T Dissolve1.which}
+addUserKnob {26 ""}
+addUserKnob {41 lummix l "Luma Mix" T Dissolve6.which}
+addUserKnob {26 ""}
+addUserKnob {26 lum l "@b;Value" T ""}
+addUserKnob {26 spacer_7 l "" -STARTLINE T "                                                      "}
+addUserKnob {22 v_reset l "Reset V" -STARTLINE T "nuke.thisNode().knob(\"lumwhite\").setValue(1)\nnuke.thisNode().knob(\"lumgamma\").setValue(1)\nnuke.thisNode().knob(\"lumblack\").setValue(0)\nnuke.thisNode().knob(\"lumoffset\").setValue(0)"}
+addUserKnob {26 spacer_2 l "" -STARTLINE T "  "}
+addUserKnob {41 v_disable l disable -STARTLINE T Grade1.disable}
+addUserKnob {7 lumwhite l White R 0 4}
+lumwhite 0.8
+addUserKnob {7 lumgamma l Gamma R 0.2 5}
+lumgamma 1.09
+addUserKnob {7 lumblack l Black R -1 1}
+lumblack -0.005
+addUserKnob {7 lumoffset l Offset R -1 1}
+addUserKnob {41 v_mix l Mix T Grade1.mix}
+addUserKnob {26 ""}
+addUserKnob {41 mix l "@b;Overall Mix" T Copy2.mix}
+addUserKnob {26 spacer_3 l "" +STARTLINE T " "}
+addUserKnob {6 black_clamp l "Black Clamp    " +STARTLINE}
+black_clamp true
+addUserKnob {6 unpre l (Un)Premult -STARTLINE}
+addUserKnob {20 info_tab l Info}
+addUserKnob {26 info_text l "    " T "This tool is for modifying Hue, Saturation, and Value properties \nof color independently.\n\nUpdates:\n"}
+addUserKnob {20 v1_3_group l "v1.3 - Jan 2019" n 1}
+addUserKnob {26 v1_3_text l "" +STARTLINE T "-Renamed the tool from W_SatVib to W_HSV to better reflect its functions\n-Internal cleanup:\n  -Removed features that I never used in 2+ years\n  -Reduced the amount of colorspace swapping to minimum\n  -Replaced Grade nodes with Multiply and Gamma when possible\n-H bias saturation method, Luma Mix, Offset, and Black Clamp added\n-UI changes:\n  -Swapped the order of Hue and Luminance\n  -Luma Math for saturation has buttons insteand of a pulldown menu \n   for one-click operation\n  -Added reset buttons\n"}
+addUserKnob {20 endGroup n -1}
+addUserKnob {26 v1_2_text l "" +STARTLINE T "v1.2 - 2016"}
+addUserKnob {26 ""}
+addUserKnob {26 spacer_4 l "" +STARTLINE T "     "}
+addUserKnob {26 copyright l "&#169;  Wes Heo" -STARTLINE T " "}
+}
+Input {
+inputs 0
+name mask
+xpos -86
+ypos 1056
+number 1
+}
+Shuffle {
+red black
+green black
+blue black
+alpha white
+name Shuffle2
+label "\[value in] -&gt; \[value out]"
+xpos -86
+ypos 1121
+disable {{"\[exists parent.input1]"}}
+}
+Input {
+inputs 0
+name img
+xpos -295
+ypos -414
+}
+Dot {
+name Dot5
+xpos -261
+ypos -295
+}
+set N366f1b70 [stack 0]
+Remove {
+operation keep
+channels rgba
+name Remove1
+xpos -621
+ypos -299
+}
+Unpremult {
+name Unpremult1
+xpos -621
+ypos -235
+disable {{1-unpre}}
+}
+set N36703370 [stack 0]
+Saturation {
+saturation 0.63
+name Saturation1
+label "v saturation"
+xpos -621
+ypos -155
+disable {{parent.satmode}}
+}
+set N366e94c0 [stack 0]
+push $N36703370
+Dissolve {
+inputs 2
+which {{parent.Dissolve2.which}}
+name Dissolve3
+xpos -445
+ypos -155
+disable {{parent.satmode?1:parent.Dissolve2.disable}}
+}
+Colorspace {
+illuminant_in {{parent.Colorspace1.illuminant_in x1028 6}}
+colorspace_out YCbCr
+name Colorspace4
+label "input \[value colorspace_in]\noutput \[value colorspace_out]"
+xpos -445
+ypos 656
+}
+push $N366e94c0
+Colorspace {
+colorspace_out HSV
+name Colorspace1
+label "input \[value colorspace_in]\noutput \[value colorspace_out]"
+xpos -621
+ypos -84
+addUserKnob {20 User}
+addUserKnob {3 hbias}
+hbias {{parent.greybias}}
+}
+Multiply {
+channels {-rgba.red rgba.green -rgba.blue none}
+value {{parent.Saturation1.saturation}}
+name Multiply3
+label "h saturation"
+xpos -621
+ypos 18
+disable {{!parent.satmode}}
+dope_sheet true
+}
+Gamma {
+channels {-rgba.red rgba.green -rgba.blue none}
+value {{parent.vibrance}}
+name Gamma1
+label vibrance
+xpos -621
+ypos 100
+}
+Colorspace {
+colorspace_in {{parent.Colorspace1.colorspace_out}}
+illuminant_in {{parent.Colorspace1.illuminant_out}}
+primary_in {{parent.Colorspace1.primary_out}}
+colorspace_out CIE-XYZ
+name Colorspace2
+label "input \[value colorspace_in]\noutput \[value colorspace_out]"
+xpos -621
+ypos 179
+}
+push $N36703370
+Dot {
+name Dot7
+xpos -752
+ypos -146
+}
+Colorspace {
+colorspace_in {{parent.Colorspace1.colorspace_in}}
+illuminant_in {{parent.Colorspace1.illuminant_in}}
+primary_in {{parent.Colorspace1.primary_in}}
+colorspace_out CIE-XYZ
+name Colorspace5
+label "input \[value colorspace_in]\noutput \[value colorspace_out]"
+xpos -786
+ypos 180
+}
+Dissolve {
+inputs 2
+which 1
+name Dissolve2
+xpos -621
+ypos 287
+}
+set N3dfafb60 [stack 0]
+Multiply {
+channels {-rgba.red -rgba.green rgba.blue none}
+value {{-parent.temp*2+1}}
+name Multiply1
+label temperature
+xpos -621
+ypos 398
+}
+Multiply {
+channels {-rgba.red rgba.green -rgba.blue none}
+value {{exp(-(parent.tint)/2)}}
+name Multiply2
+label tint
+xpos -621
+ypos 477
+}
+push $N3dfafb60
+Dot {
+name Dot1
+xpos -753
+ypos 385
+}
+Dot {
+name Dot8
+xpos -753
+ypos 486
+}
+Dissolve {
+inputs 2
+which 1
+name Dissolve1
+xpos -621
+ypos 570
+}
+Colorspace {
+colorspace_in CIE-XYZ
+colorspace_out YCbCr
+name Colorspace6
+label "input \[value colorspace_in]\noutput \[value colorspace_out]"
+xpos -621
+ypos 665
+}
+Dissolve {
+inputs 2
+channels {rgba.red -rgba.green -rgba.blue none}
+which 1
+name Dissolve6
+label "Luminance Mix"
+xpos -621
+ypos 777
+}
+Grade {
+channels {rgba.red -rgba.green -rgba.blue none}
+black {{parent.lumblack}}
+white {{sqrt(parent.lumwhite)}}
+add {{parent.lumoffset}}
+gamma {{parent.lumgamma}}
+black_clamp false
+name Grade1
+label Value
+xpos -621
+ypos 871
+}
+Colorspace {
+colorspace_in YCbCr
+colorspace_out {{parent.Colorspace1.colorspace_in}}
+illuminant_out {{parent.Colorspace1.illuminant_in}}
+primary_out {{parent.Colorspace1.primary_in}}
+name Colorspace3
+label "input \[value colorspace_in]\noutput \[value colorspace_out]"
+xpos -621
+ypos 954
+}
+Expression {
+expr0 max(0,r)
+expr1 max(0,g)
+expr2 max(0,b)
+name Expression1
+label "black clamp"
+xpos -621
+ypos 1042
+disable {{!parent.black_clamp}}
+}
+Premult {
+name Premult1
+xpos -621
+ypos 1132
+disable {{1-parent.unpre}}
+}
+push $N366f1b70
+Copy {
+inputs 2+1
+channels rgb
+name Copy2
+xpos -295
+ypos 1119
+}
+Output {
+name Output1
+xpos -295
+ypos 1283
+}
+end_group

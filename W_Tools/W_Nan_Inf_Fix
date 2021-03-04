@@ -1,0 +1,310 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name Nan_Inf_Fix
+onCreate "nuke.thisNode()\['blend'].setFlag(0x0000000000000004)"
+tile_color 0xff7e31ff
+label "Fix: \[value fix]"
+selected true
+xpos 1766
+ypos 8237
+addUserKnob {20 User}
+addUserKnob {4 fix l INVISIBLE t "fixes nan, inf, or both" +INVISIBLE M {Nan Inf "Both    " "" "" "" "" "" "" "" "" ""}}
+addUserKnob {26 fixit l "" +STARTLINE T "              Fix "}
+addUserKnob {22 fixnan l <b>Nan</b> t "fix nan pixels only" -STARTLINE T "nuke.thisNode().knob(\"fix\").setValue(0)\nnuke.thisNode().knob(\"fixnan\").setLabel(\"<b>Nan</b>\")\nnuke.thisNode().knob(\"fixinf\").setLabel(\"<font color=gray>Inf</font>\")\nnuke.thisNode().knob(\"fixboth\").setLabel(\"<font color=gray>Both</font>\") "}
+addUserKnob {22 fixinf l "<font color=gray>Inf</font>" t "fix inf pixels only" -STARTLINE T "nuke.thisNode().knob(\"fix\").setValue(1)\nnuke.thisNode().knob(\"fixnan\").setLabel(\"<font color=gray>Nan</font>\")\nnuke.thisNode().knob(\"fixinf\").setLabel(\"<b>Inf</b>\")\nnuke.thisNode().knob(\"fixboth\").setLabel(\"<font color=gray>Both</font>\") "}
+addUserKnob {22 fixboth l "<font color=gray>Both</font>" t "fix both nan and inf pixels" -STARTLINE T "nuke.thisNode().knob(\"fix\").setValue(2)\nnuke.thisNode().knob(\"fixnan\").setLabel(\"<font color=gray>Nan</font>\")\nnuke.thisNode().knob(\"fixinf\").setLabel(\"<font color=gray>Inf</font>\")\nnuke.thisNode().knob(\"fixboth\").setLabel(\"<b>Both</b>\") \n"}
+addUserKnob {26 spacer l "" -STARTLINE T "   "}
+addUserKnob {6 fixalpha l "Fix alpha too" t "check if alpha has nan/inf pixels" -STARTLINE}
+addUserKnob {26 divider_1 l "" +STARTLINE T " "}
+addUserKnob {4 out l INVISIBLE t "outputs either the fixed frame or \npixels with nan/inf values" +INVISIBLE M {"Fixed frame" "Nan/Inf pixels" "" "" ""}}
+addUserKnob {26 outtitle l "" +STARTLINE T "         Output "}
+addUserKnob {22 outframe l "<b>Fixed frame</b>" -STARTLINE T "nuke.thisNode().knob(\"out\").setValue(0)\nnuke.thisNode().knob(\"outframe\").setLabel(\"<b>Fixed frame</b>\")\nnuke.thisNode().knob(\"outpixel\").setLabel(\"<font color=gray>Nan/Inf pixels</font>\")"}
+addUserKnob {22 outpixel l "<font color=gray>Nan/Inf pixels</font>" -STARTLINE T "nuke.thisNode().knob(\"out\").setValue(1)\nnuke.thisNode().knob(\"outframe\").setLabel(\"<font color=gray>Fixed frame</font>\")\nnuke.thisNode().knob(\"outpixel\").setLabel(\"<b>Nan/Inf pixels</b>\")"}
+addUserKnob {26 divider l "" +STARTLINE T " "}
+addUserKnob {7 blend l "Blend Radius" t "blur amount from surrounding \npixels. increase if the default value still leaves some pixels unfixed." R 1 50}
+blend 2
+addUserKnob {26 ""}
+addUserKnob {26 text l "" +STARTLINE T "v1.3 - Wes Heo - 2018"}
+}
+Input {
+inputs 0
+name Input1
+xpos -1014
+ypos 440
+}
+set N3e6a8ff0 [stack 0]
+AddChannels {
+channels alpha
+name AddChannels1
+xpos -790
+ypos 501
+}
+Remove {
+operation keep
+channels rgba
+name Remove1
+label "\[value channels]"
+xpos -790
+ypos 578
+}
+set N3e6b6870 [stack 0]
+Dot {
+name Dot16
+xpos -295
+ypos 588
+}
+set N3e6bf180 [stack 0]
+Expression {
+expr0 isnan(r)
+expr1 isnan(g)
+expr2 isnan(b)
+expr3 isnan(a)
+name Expression1
+label Nan
+xpos -329
+ypos 645
+addUserKnob {20 User}
+addUserKnob {3 xo l "x offset"}
+xo 2
+addUserKnob {3 yo l "y offset"}
+yo 2
+}
+set N3e6c3d90 [stack 0]
+push $N3e6bf180
+Expression {
+expr0 isinf(r)
+expr1 isinf(g)
+expr2 isinf(b)
+expr3 isinf(a)
+name Expression2
+label Inf
+xpos -192
+ypos 643
+addUserKnob {20 User}
+addUserKnob {3 xo l "x offset"}
+xo 2
+addUserKnob {3 yo l "y offset"}
+yo 2
+}
+set N3e6d2a00 [stack 0]
+Switch {
+inputs 2
+which {{parent.fix}}
+name Switch2
+xpos -192
+ypos 729
+}
+push $N3e6d2a00
+push $N3e6c3d90
+Switch {
+inputs 2
+which {{parent.fix}}
+name Switch1
+xpos -329
+ypos 729
+}
+Merge2 {
+inputs 2
+operation max
+name Merge5
+xpos -329
+ypos 800
+disable {{parent.fix!=2}}
+}
+set N3e6f1510 [stack 0]
+Dot {
+name Dot15
+xpos -295
+ypos 1025
+}
+set N3e701a10 [stack 0]
+Expression {
+channel3 alpha
+expr3 max(r,g,b,a)
+name Expression3
+xpos -329
+ypos 1090
+}
+set N3e706620 [stack 0]
+Dot {
+name Dot13
+tile_color 0xff0000ff
+xpos -295
+ypos 1266
+}
+set N3e714710 [stack 0]
+Dot {
+name Dot14
+tile_color 0xff00ff
+xpos -295
+ypos 1352
+}
+set N3e7190c0 [stack 0]
+Dot {
+name Dot12
+tile_color 0xffff
+xpos -295
+ypos 1431
+}
+set N3e71dc60 [stack 0]
+push $N3e71dc60
+push $N3e706620
+push $N3e701a10
+push $N3e6f1510
+push $N3e6b6870
+ChannelMerge {
+inputs 2
+operation stencil
+name ChannelMerge2
+xpos -790
+ypos 787
+disable {{1-parent.fixalpha}}
+}
+set N3e722800 [stack 0]
+Blur {
+channels alpha
+size {{parent.blend}}
+name Blur1
+xpos -603
+ypos 863
+}
+push $N3e6f1510
+Invert {
+name Invert1
+xpos -463
+ypos 866
+}
+Blur {
+channels rgba
+size {{parent.blend}}
+name Blur2
+xpos -463
+ypos 943
+}
+set N3e748680 [stack 0]
+ChannelMerge {
+inputs 2
+operation divide
+name ChannelMerge1
+xpos -603
+ypos 930
+}
+push $N3e722800
+Keymix {
+inputs 3
+channels alpha
+bbox B
+name Keymix1
+xpos -790
+ypos 1015
+disable {{1-parent.fixalpha}}
+}
+set N3e7639b0 [stack 0]
+Merge2 {
+inputs 2
+operation stencil
+bbox B
+output rgb
+name Merge6
+xpos -603
+ypos 1090
+}
+Blur {
+channels rgb
+size {{parent.blend}}
+name Blur5
+xpos -603
+ypos 1133
+}
+push $N3e748680
+Dot {
+name Dot5
+xpos -429
+ypos 1192
+}
+Merge2 {
+inputs 2
+operation divide
+output rgb
+name Merge1
+xpos -603
+ypos 1188
+}
+set N3e78f5f0 [stack 0]
+Dot {
+name Dot8
+xpos -569
+ypos 1293
+}
+set N3e79f9b0 [stack 0]
+Dot {
+name Dot7
+xpos -569
+ypos 1388
+}
+push $N3e7190c0
+push $N3e79f9b0
+push $N3e714710
+push $N3e78f5f0
+push $N3e7639b0
+Keymix {
+inputs 3
+channels {rgba.red -rgba.green -rgba.blue none}
+maskChannel rgba.red
+bbox B
+name Keymix2
+xpos -790
+ypos 1262
+}
+Keymix {
+inputs 3
+channels {-rgba.red rgba.green -rgba.blue none}
+maskChannel rgba.green
+bbox B
+name Keymix3
+xpos -790
+ypos 1348
+}
+Keymix {
+inputs 3
+channels {-rgba.red -rgba.green rgba.blue none}
+maskChannel rgba.blue
+bbox B
+name Keymix4
+xpos -790
+ypos 1427
+}
+push $N3e7639b0
+push $N3e6a8ff0
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 rgba.alpha
+bbox B
+name Copy1
+xpos -1014
+ypos 1015
+disable {{1-parent.fixalpha}}
+}
+Copy {
+inputs 2
+channels rgb
+name Copy2
+xpos -1014
+ypos 1478
+}
+Switch {
+inputs 2
+which {{parent.out}}
+name Switch3
+xpos -1014
+ypos 1600
+}
+Output {
+name Output1
+xpos -1014
+ypos 1701
+}
+end_group

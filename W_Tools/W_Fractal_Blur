@@ -1,0 +1,207 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name W_Fractal_Blur
+onCreate "n=nuke.thisNode()\nn\['speed'].setFlag(0x0000000000000004)\nn\['gamma'].setFlag(0x0000000000000004)"
+tile_color 0xcc7f4eff
+selected true
+xpos 1771
+ypos 9080
+addUserKnob {20 User}
+addUserKnob {26 source l "Noise Source" -STARTLINE T " "}
+addUserKnob {22 intn l <b>Internal</b> -STARTLINE T "n = nuke.thisNode()\nk = n.knob\nk(\"intn\").setLabel(\"<b>Internal</b>\")\nk(\"extn\").setLabel(\"<font color = gray>External</font>\")\nn\[\"extn\"].setEnabled(True)\nn.knobs()\['intnoise'].setVisible(True)\nn.knobs()\['transform'].setVisible(True)\n\nswitch = nuke.toNode(\"Switch1\")\nswitch\[\"which\"].setValue(0)\n\ninputnode = nuke.toNode(\"InputNoise\")\nnuke.delete(inputnode)"}
+addUserKnob {22 extn l "<font color = gray>External</font>" -STARTLINE T "n = nuke.thisNode()\nk = n.knob\nk(\"intn\").setLabel(\"<font color = gray>Internal</font>\")\nk(\"extn\").setLabel(\"<b>External</b>\")\nn\[\"extn\"].setEnabled(False)\nn.knobs()\['intnoise'].setVisible(False)\nn.knobs()\['transform'].setVisible(False)\n\nswitch = nuke.toNode(\"Switch1\")\nswitch\[\"which\"].setValue(1)\n\ninputnode = nuke.nodes.Input()\ninputnode\[\"name\"].setValue(\"InputNoise\")\n\nswitch.setInput(1,inputnode)"}
+addUserKnob {26 spacer l "" -STARTLINE T "     "}
+addUserKnob {6 invertmatte l "Invert Matte" -STARTLINE}
+addUserKnob {20 intnoise l "Internal Noise" n 1}
+addUserKnob {26 noisetype l "Noise Type" T " "}
+addUserKnob {22 noise0 l " <b>fBm  </b>" -STARTLINE T "n = nuke.thisNode()\nk = n.knob\nk(\"noise0\").setLabel(\" <b>fBm  </b>\")\nk(\"noise1\").setLabel(\"<font color = gray>turbulence</font>\")\n\nnuke.toNode(\"Noise1\")\[\"type\"].setValue(\"fBm\")"}
+addUserKnob {22 noise1 l "<font color = gray>turbulence</font>" -STARTLINE T "n = nuke.thisNode()\nk = n.knob\nk(\"noise0\").setLabel(\"  <font color = gray>fBm </font>\")\nk(\"noise1\").setLabel(\"<b>turbulence</b>\")\n\nnuke.toNode(\"Noise1\")\[\"type\"].setValue(\"turbulence\")"}
+addUserKnob {26 animate l "     Animation" -STARTLINE T " "}
+addUserKnob {22 animon l "<font color = gray>On </font>" -STARTLINE T "n = nuke.thisNode()\nk = n.knob\nk(\"animon\").setLabel(\"<b>On </b>\")\nk(\"animoff\").setLabel(\"<font color = gray>Off </font>\")\nn.knobs()\['speed'].setVisible(True)\nk(\"anim\").setValue(1)"}
+addUserKnob {22 animoff l "<b>Off </b>" -STARTLINE T "n = nuke.thisNode()\nk = n.knob\nk(\"animon\").setLabel(\"<font color = gray>On </font>\")\nk(\"animoff\").setLabel(\"<b>Off </b>\")\nn.knobs()\['speed'].setVisible(False)\nk(\"anim\").setValue(0)"}
+addUserKnob {6 anim l INVISIBLE +INVISIBLE +STARTLINE}
+addUserKnob {14 nsize l Size R 0 500}
+nsize 50
+addUserKnob {41 lacunarity l "Detail Freq" T Noise1.lacunarity}
+addUserKnob {41 gain l "Detail Gain" T Noise1.gain}
+addUserKnob {7 seed l Seed R 0 10}
+addUserKnob {7 speed l Speed +HIDDEN R 0 10}
+speed 1
+addUserKnob {20 endGroup n -1}
+addUserKnob {41 size_1 l Blur T Blur2.size}
+addUserKnob {20 transform l Transform n 1}
+transform 0
+addUserKnob {41 translate l Translate T Noise1.translate}
+addUserKnob {41 rotate l Rotate T Noise1.rotate}
+addUserKnob {41 scale l Scale T Noise1.scale}
+addUserKnob {41 center l Center T Noise1.center}
+addUserKnob {20 endGroup_1 l endGroup n -1}
+addUserKnob {26 feather l "@b;Feather"}
+addUserKnob {14 fsize l Size R 0 250}
+fsize 50
+addUserKnob {7 gamma l Gamma R 0 4}
+gamma 1
+addUserKnob {7 solidamount l "Harden Edge"}
+addUserKnob {7 threshold l Threshold R 0 0.999}
+threshold 0.5
+addUserKnob {41 size_2 l Blur T Blur3.size}
+addUserKnob {20 FractalBlur_credit l Credits}
+addUserKnob {26 FractalBlur_Credit l "" +STARTLINE T "Fractal Blur v1.8 \nby Richard Frazer - www.richardfrazer.com\n\nmod-v1 by Holger Hummel - www.celluloid-vfx.com\n"}
+addUserKnob {20 v2_1 l "v2.1 - Wes Heo - 2019" n 1}
+v2_1 0
+addUserKnob {26 v2_1text l "" +STARTLINE T "-simplified internal setup while adding more features\n-new button-based UI\n-all the internal operations are done on alpha channel only"}
+addUserKnob {20 endGroup_3 l endGroup n -1}
+addUserKnob {20 v2_0 l "v2.0 - Wes Heo - 2017" n 1}
+v2_0 0
+addUserKnob {26 v2_0text l "" +STARTLINE T "-reorganized UI   \n-cleaned up some expressions\n-added xy size controls for grain size \n and feather spread\n"}
+addUserKnob {20 endGroup_2 l endGroup n -1}
+}
+Input {
+inputs 0
+name Matte
+xpos 1516
+ypos -473
+}
+Remove {
+operation keep
+channels alpha
+name Remove1
+xpos 1516
+ypos -438
+}
+Invert {
+channels alpha
+name Invert2
+selected true
+xpos 1516
+ypos -368
+disable {{!parent.invertmatte}}
+}
+set N3e17a0c0 [stack 0]
+Shuffle {
+red black
+green black
+blue black
+alpha black
+name Shuffle10
+xpos 1812
+ypos -362
+}
+Noise {
+cliptype none
+size {{parent.nsize} {parent.nsize}}
+zoffset {{parent.seed+(parent.anim*((t-first_frame+1)*(parent.speed*.01)))}}
+center {1024 778}
+name Noise1
+xpos 1812
+ypos -289
+}
+Switch {
+name Switch1
+xpos 1812
+ypos -231
+}
+Remove {
+operation keep
+channels alpha
+name Remove2
+xpos 1812
+ypos -181
+disable {{!parent.Switch1.which}}
+}
+Blur {
+channels alpha
+name Blur2
+label "\[value size]"
+xpos 1812
+ypos -125
+}
+Invert {
+name Invert4
+xpos 1812
+ypos -67
+}
+push $N3e17a0c0
+Blur {
+channels alpha
+size {{parent.fsize} {parent.fsize}}
+name Blur1
+xpos 1516
+ypos -300
+}
+FilterErode {
+channels alpha
+size {{-parent.fsize/2} {-parent.fsize/2}}
+filter gaussian
+name FilterErode7
+xpos 1516
+ypos -216
+}
+Dot {
+name Dot10
+xpos 1550
+ypos -133
+}
+set N28076380 [stack 0]
+ChannelMerge {
+inputs 2
+operation minus
+name ChannelMerge1
+xpos 1663
+ypos -74
+}
+Invert {
+channels alpha
+name Invert1
+xpos 1663
+}
+push $N28076380
+MergeExpression {
+inputs 2
+channel0 alpha
+expr0 min(Aa*Ba,1)
+channel1 none
+channel2 none
+name MergeExpression1
+xpos 1517
+ypos 55
+}
+Gamma {
+channels alpha
+value {{parent.gamma}}
+name Gamma1
+xpos 1517
+ypos 111
+}
+Grade {
+channels alpha
+blackpoint {{max(0,parent.threshold-(1-parent.solidamount)/2)}}
+whitepoint {{min(1,parent.threshold+(1-parent.solidamount)/2)}}
+white_clamp true
+name Grade1
+xpos 1517
+ypos 182
+}
+Blur {
+channels alpha
+name Blur3
+label "\[value size]"
+xpos 1517
+ypos 263
+}
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle15
+xpos 1517
+ypos 346
+}
+Output {
+name Output1
+xpos 1517
+ypos 410
+}
+end_group

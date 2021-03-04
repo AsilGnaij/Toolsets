@@ -2,52 +2,43 @@ set cut_paste_input [stack 0]
 version 11.3 v4
 push $cut_paste_input
 Group {
-name Spill_Correct8
+name Spill_Correct1
 help "Use this tool to \"despill\" or mute colors introduced from Red/Green/Blue screens."
 knobChanged "n = nuke.thisNode()\nk = nuke.thisKnob()\nkName = k.name()\nif kName == \"neutralize\":\n    n.knob('neutral_color').setEnabled(k.value())\n    n.knob('plate_only').setEnabled(k.value())"
 selected true
-xpos -3946
-ypos 668
+xpos 1941
+ypos 9001
 addUserKnob {20 Spill_Correct}
 addUserKnob {68 algorithm l Algorithm t "Choose Algorithm to perform Despill.\nKillspill is using an IBK inspired process.\nAverage/Double Average/Limits are algorithms taken from Despill_Madness, extrapolated to work on red despill as well." M {KeySpill Average "Double Average R>G>B" "Double Average B>G>R" "Limit R>G>B" "Limit B>G>R" "" ""}}
 addUserKnob {18 screen_color l "Screen Color" t "Pick the color of the spill to remove."}
-screen_color {0.1045227051 0.2666015625 0.7983398438}
+screen_color {0 1 0}
 addUserKnob {6 screen_color_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
 addUserKnob {6 screen_color_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
-addUserKnob {6 screen_color_panelDropped_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
-addUserKnob {6 screen_color_panelDropped_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
 addUserKnob {7 fine_tune l "Fine Tune" t "Tweak for the algorithms." R 0.5 1.5}
 fine_tune 1
 addUserKnob {26 ""}
 addUserKnob {6 neutralize l "Neutralize Color" t "On a plate with an overall color tint, the despill might affect more than the spill areas. \nNeutralizing the color before the despill can solve these this problem." +STARTLINE}
 addUserKnob {18 neutral_color l "Neutral Color" t "Pick the color to protect.\nNote: No Neutralize will happen if one of the color values is 0, as this would break the math." +DISABLED}
-neutral_color {0 0 0}
+neutral_color {1 1 1}
 addUserKnob {6 neutral_color_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
 addUserKnob {6 neutral_color_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
-addUserKnob {6 neutral_color_panelDropped_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
-addUserKnob {6 neutral_color_panelDropped_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
 addUserKnob {6 plate_only l "Plate Only" t "By cheking this box, the Neutralize will leave the replacement color untouched. \nOtherwise, the replacement color will be tinted according to the original plate tint." -STARTLINE +DISABLED}
+plate_only true
 addUserKnob {26 ""}
-addUserKnob {18 replace l "Replacement Color" t "Spill color is replaced by this color.\nGain this up or down to fix dark/bright edges."}
-replace 0.5
+addUserKnob {18 replace l "Replacement Gain" t "Spill color is desaturated to preserve brightness.\nGain this up or down to fix dark/bright edges." R 0 2}
+replace 1
 addUserKnob {6 replace_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
 addUserKnob {6 replace_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
-addUserKnob {6 replace_panelDropped_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
-addUserKnob {6 replace_panelDropped_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
-addUserKnob {7 saturation l Saturation t "More or less saturation for your replacement color. (Will not do anything if the replacement color is monochromatic)" R 0 4}
-saturation 1
-addUserKnob {18 gamma l Gamma t "Gamma correct your spill replacement." R 0.5 1.5}
+addUserKnob {18 gamma l "Replacement Gamma" t "Gamma correct your spill replacement." R 0.5 1.5}
 gamma 1
 addUserKnob {6 gamma_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
 addUserKnob {6 gamma_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
-addUserKnob {6 gamma_panelDropped_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
-addUserKnob {6 gamma_panelDropped_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
 addUserKnob {26 ""}
 addUserKnob {6 out_alpha l "Output Spill Alpha" t "If checked, the node will output an alpha of the area despilled. Otherwise the original alpha will be left untouched." +STARTLINE}
 addUserKnob {7 mix l Mix t "Mix between original and despilled version."}
 mix 1
 addUserKnob {26 spin_copyright_div l "" +STARTLINE}
-addUserKnob {26 spin_copyright l "" t "© <b>SPIN<span style=\"color:#b32026\">VFX</span></b>\nSpill_Correct\nVersion 1.3\n2017\nhttps://wiki.spinvfx.com/xwiki/bin/view/Departments/Compositing%20Department/Nuke%20tools/Spill_Correct" +STARTLINE T "<span style=\"color:#aaa;font-family:sans-serif;font-size:8pt\"><b>SPIN<span style=\"color:#b32026\">VFX</span></b> - Version 1.3 - 2017 - <a href=\"https://wiki.spinvfx.com/xwiki/bin/view/Departments/Compositing%20Department/Nuke%20tools/Spill_Correct\" style=\"color:#aaa\">Wiki Page</a></span>"}
+addUserKnob {26 spin_copyright l "" t "© <b>SPIN<span style=\"color:#b32026\">VFX</span></b>\nSpill_Correct\nVersion 2.0" +STARTLINE T "<span style=\"color:#aaa;font-family:sans-serif;font-size:8pt\"><b>SPIN<span style=\"color:#b32026\">VFX</span></b> - Version 2.0 - 2017-2019 - <a href=\"https://github.com/SpinVFX/spin_nuke_gizmos/\" style=\"color:#aaa\">Github Page</a></span>"}
 }
 BackdropNode {
 inputs 0
@@ -123,7 +114,7 @@ z_order 2
 Input {
 inputs 0
 name mask
-xpos 127
+xpos 151
 ypos 1031
 number 1
 }
@@ -148,35 +139,35 @@ tile_color 0x7aa9ff00
 xpos 296
 ypos -725
 }
-set Ne5c28610 [stack 0]
+set N3a647d50 [stack 0]
 Dot {
 name Dot13
 tile_color 0x7aa9ff00
 xpos 616
 ypos -725
 }
-set Nfe3dc360 [stack 0]
+set N3a64c6d0 [stack 0]
 Dot {
 name Dot24
 tile_color 0x7aa9ff00
 xpos 1061
 ypos -725
 }
-set N4df6b160 [stack 0]
+set N3a651350 [stack 0]
 Dot {
 name Dot26
 tile_color 0x7aa9ff00
 xpos 1472
 ypos -725
 }
-set N22ee44b0 [stack 0]
+set N3a655eb0 [stack 0]
 Dot {
 name Dot31
 tile_color 0x7aa9ff00
 xpos 1918
 ypos -725
 }
-set N23678440 [stack 0]
+set N3a65aa70 [stack 0]
 Dot {
 name Dot36
 tile_color 0x7aa9ff00
@@ -189,7 +180,7 @@ tile_color 0x7aa9ff00
 xpos 2329
 ypos -559
 }
-set Nbf644a0 [stack 0]
+set N3a6641f0 [stack 0]
 Dot {
 name Dot38
 tile_color 0x7aa9ff00
@@ -204,7 +195,7 @@ name Limit_BG
 xpos 2405
 ypos -457
 }
-push $Nbf644a0
+push $N3a6641f0
 Expression {
 temp_name0 LimitPercentage
 temp_expr0 parent.fine_tune
@@ -213,7 +204,7 @@ name Limit_GR
 xpos 2295
 ypos -459
 }
-push $Nbf644a0
+push $N3a6641f0
 Dot {
 name Dot39
 tile_color 0x7aa9ff00
@@ -240,14 +231,14 @@ name Dot40
 xpos 2329
 ypos -130
 }
-push $N23678440
+push $N3a65aa70
 Dot {
 name Dot32
 tile_color 0x7aa9ff00
 xpos 1918
 ypos -557
 }
-set N1eeeade0 [stack 0]
+set N3a6a9230 [stack 0]
 Dot {
 name Dot33
 tile_color 0x7aa9ff00
@@ -262,7 +253,7 @@ name Limit_BR
 xpos 1994
 ypos -455
 }
-push $N1eeeade0
+push $N3a6a9230
 Expression {
 temp_name0 LimitPercentage
 temp_expr0 parent.fine_tune
@@ -271,7 +262,7 @@ name Limit_GB
 xpos 1884
 ypos -457
 }
-push $N1eeeade0
+push $N3a6a9230
 Dot {
 name Dot34
 tile_color 0x7aa9ff00
@@ -298,14 +289,14 @@ name Dot35
 xpos 1918
 ypos -119
 }
-push $N22ee44b0
+push $N3a655eb0
 Dot {
 name Dot27
 tile_color 0x7aa9ff00
 xpos 1472
 ypos -558
 }
-set Nafc376b0 [stack 0]
+set N3a6ee0b0 [stack 0]
 Dot {
 name Dot28
 tile_color 0x7aa9ff00
@@ -320,7 +311,7 @@ name DoubleAverage_B_2
 xpos 1548
 ypos -456
 }
-push $Nafc376b0
+push $N3a6ee0b0
 Expression {
 temp_name0 LimitPercentage
 temp_expr0 parent.fine_tune
@@ -329,7 +320,7 @@ name DoubleAverage_G_2
 xpos 1438
 ypos -458
 }
-push $Nafc376b0
+push $N3a6ee0b0
 Dot {
 name Dot29
 tile_color 0x7aa9ff00
@@ -356,14 +347,14 @@ name Dot30
 xpos 1472
 ypos -130
 }
-push $N4df6b160
+push $N3a651350
 Dot {
 name Dot21
 tile_color 0x7aa9ff00
 xpos 1061
 ypos -557
 }
-set N72ad3410 [stack 0]
+set N3a7330d0 [stack 0]
 Dot {
 name Dot22
 tile_color 0x7aa9ff00
@@ -378,7 +369,7 @@ name DoubleAverage_B_1
 xpos 1137
 ypos -455
 }
-push $N72ad3410
+push $N3a7330d0
 Expression {
 temp_name0 LimitPercentage
 temp_expr0 parent.fine_tune
@@ -387,7 +378,7 @@ name DoubleAverage_G_1
 xpos 1027
 ypos -457
 }
-push $N72ad3410
+push $N3a7330d0
 Dot {
 name Dot23
 tile_color 0x7aa9ff00
@@ -414,14 +405,14 @@ name Dot25
 xpos 1061
 ypos -119
 }
-push $Nfe3dc360
+push $N3a64c6d0
 Dot {
 name Dot6
 tile_color 0x7aa9ff00
 xpos 616
 ypos -560
 }
-set N5b1209b0 [stack 0]
+set N3a778230 [stack 0]
 Dot {
 name Dot15
 tile_color 0x7aa9ff00
@@ -436,7 +427,7 @@ name Average_B
 xpos 692
 ypos -458
 }
-push $N5b1209b0
+push $N3a778230
 Expression {
 temp_name0 LimitPercentage
 temp_expr0 parent.fine_tune
@@ -445,7 +436,7 @@ name Average_G
 xpos 582
 ypos -460
 }
-push $N5b1209b0
+push $N3a778230
 Dot {
 name Dot14
 tile_color 0x7aa9ff00
@@ -472,28 +463,28 @@ name Dot20
 xpos 616
 ypos -130
 }
-push $Ne5c28610
+push $N3a647d50
 Dot {
 name Dot9
 tile_color 0x7aa9ff00
 xpos 296
 ypos -560
 }
-set Ne4c65d60 [stack 0]
+set N3a7bd050 [stack 0]
 Dot {
 name Dot3
 tile_color 0x7aa9ff00
 xpos 296
 ypos -505
 }
-set N66f1c600 [stack 0]
+set N3a7c1c10 [stack 0]
 Dot {
 name Dot11
 tile_color 0x7aa9ff00
 xpos 229
 ypos -505
 }
-set Ne3b52b40 [stack 0]
+set N3a7c67d0 [stack 0]
 Expression {
 temp_name0 weight
 temp_expr0 parent.fine_tune-0.5
@@ -503,14 +494,14 @@ name SpillMatte_B
 xpos 195
 ypos -451
 }
-push $Ne3b52b40
+push $N3a7c67d0
 Dot {
 name Dot10
 tile_color 0x7aa9ff00
 xpos 122
 ypos -505
 }
-set Nc78c8f0 [stack 0]
+set N3a7d93a0 [stack 0]
 Expression {
 temp_name0 weight
 temp_expr0 parent.fine_tune-0.5
@@ -520,7 +511,7 @@ name SpillMatte_G
 xpos 88
 ypos -451
 }
-push $Nc78c8f0
+push $N3a7d93a0
 Dot {
 name Dot1
 tile_color 0x7aa9ff00
@@ -573,7 +564,7 @@ name Dot7
 xpos -50
 ypos -276
 }
-push $Ne4c65d60
+push $N3a7bd050
 Dot {
 name Dot2
 tile_color 0x7aa9ff00
@@ -586,8 +577,14 @@ expr1 parent.screen_color.g
 expr2 parent.screen_color.b
 name Screen_Color
 xpos -118
-ypos -480
+ypos -479
 }
+Dot {
+name Dot47
+xpos -84
+ypos -419
+}
+set N3a84d650 [stack 0]
 Merge2 {
 inputs 2
 operation multiply
@@ -596,7 +593,7 @@ name Merge1
 xpos -118
 ypos -251
 }
-push $N66f1c600
+push $N3a7c1c10
 Merge2 {
 inputs 2
 operation from
@@ -623,8 +620,8 @@ tile_color 0xcccccc00
 xpos 616
 ypos 310
 }
-set N66f235b0 [stack 0]
-push $Ne5c28610
+set N3a87fba0 [stack 0]
+push $N3a647d50
 Dot {
 name Dot17
 tile_color 0x7aa9ff00
@@ -637,7 +634,7 @@ tile_color 0x7aa9ff00
 xpos -236
 ypos 310
 }
-set N67f92480 [stack 0]
+set N3a888f90 [stack 0]
 Merge2 {
 inputs 2
 operation from
@@ -650,32 +647,73 @@ Saturation {
 saturation 0
 name DeSaturate
 xpos 371
-ypos 369
+ypos 362
+}
+set N3a89dfb0 [stack 0]
+Input {
+inputs 0
+name Inputbg
+xpos -198
+ypos 364
+number 2
+}
+push $N3a84d650
+Dot {
+name Dot48
+xpos -155
+ypos -419
+}
+Saturation {
+saturation 0
+name DeSaturate1
+xpos -68
+ypos 211
+}
+Merge2 {
+inputs 2
+operation divide
+name Merge7
+xpos -68
+ypos 362
+}
+Merge2 {
+inputs 2
+operation multiply
+name Merge6
+xpos 88
+ypos 362
+}
+Dot {
+name Dot49
+xpos 122
+ypos 416
+}
+push $N3a89dfb0
+Switch {
+inputs 2
+which {{"\[exists parent.input2]"}}
+name Switch2
+xpos 371
+ypos 412
 }
 Dot {
 name Dot43
 tile_color 0x7aa9ff00
 xpos 405
-ypos 403
+ypos 450
 }
-set Nbf5e970 [stack 0]
+set N3a8ed080 [stack 0]
 Multiply {
-value {{parent.replace*2} {parent.replace*2} {parent.replace*2} {parent.replace*2}}
+value {{parent.replace} {parent.replace} {parent.replace} {parent.replace}}
 name Replace_color_Mult
 xpos 371
-ypos 436
+ypos 484
 }
 Gamma {
 value {{parent.gamma} {parent.gamma} {parent.gamma} {parent.gamma}}
 name Gamma
 xpos 371
-ypos 530
-}
-Saturation {
-saturation {{parent.saturation}}
-name Saturation
-xpos 371
-ypos 578
+ypos 536
 }
 Dot {
 name Dot16
@@ -683,7 +721,7 @@ tile_color 0x7aa9ff00
 xpos 405
 ypos 609
 }
-push $N66f235b0
+push $N3a87fba0
 Grade {
 whitepoint {{parent.neutral_color} {parent.neutral_color} {parent.neutral_color} {parent.neutral_color}}
 white {{parent.neutral_color.r*0.2126+parent.neutral_color.g*0.7152+parent.neutral_color.b*0.0722}}
@@ -709,7 +747,7 @@ tile_color 0x4b5ec600
 xpos 616
 ypos 692
 }
-push $N67f92480
+push $N3a888f90
 Copy {
 inputs 2
 from0 rgba.red
@@ -723,7 +761,7 @@ name Copy2
 xpos -270
 ypos 670
 }
-push $N67f92480
+push $N3a888f90
 Dot {
 name Dot46
 tile_color 0x7aa9ff00
@@ -736,7 +774,7 @@ tile_color 0x7aa9ff00
 xpos -346
 ypos 879
 }
-set N3bd99f10 [stack 0]
+set N3a948470 [stack 0]
 Dissolve {
 inputs 2
 which {{parent.mix}}
@@ -744,36 +782,36 @@ name Dissolve1
 xpos -270
 ypos 869
 }
-set Nf2a379a0 [stack 0]
+set N3a94ceb0 [stack 0]
 Expression {
 expr0 0
 expr1 0
 expr2 0
 expr3 1
 name Expression1
-xpos -24
+xpos 26
 ypos 875
 }
 Switch {
 inputs 2
 which {{"\[exists parent.input1] "}}
 name Switch1
-xpos -24
+xpos 26
 ypos 1031
 }
 Invert {
 channels alpha
 name Invert1
-xpos -138
+xpos -88
 ypos 1025
 }
-set N719a1540 [stack 0]
-push $Nbf5e970
+set N3a96e480 [stack 0]
+push $N3a8ed080
 Dot {
 name Dot5
 tile_color 0x7aa9ff00
 xpos 295
-ypos 403
+ypos 450
 }
 Multiply {
 value {{parent.mix}}
@@ -792,18 +830,24 @@ inputs 2
 operation stencil
 bbox B
 name Merge4
-xpos -138
+xpos -88
 ypos 1158
 }
-push $N719a1540
-push $N3bd99f10
+Clamp {
+channels alpha
+name Clamp2
+xpos -88
+ypos 1238
+}
+push $N3a96e480
+push $N3a948470
 Dot {
 name Dot42
 tile_color 0x7aa9ff00
 xpos -346
 ypos 1035
 }
-push $Nf2a379a0
+push $N3a94ceb0
 Keymix {
 inputs 3
 bbox B
@@ -818,7 +862,7 @@ to0 rgba.alpha
 bbox B
 name Copy1
 xpos -270
-ypos 1152
+ypos 1238
 disable {{!parent.out_alpha}}
 }
 Grade {
@@ -828,12 +872,12 @@ reverse true
 black_clamp false
 name Neutralize2
 xpos -270
-ypos 1246
+ypos 1332
 disable {{((parent.neutral_color.r==0|parent.neutral_color.g==0|parent.neutral_color.b==0)|!parent.neutralize)|parent.plate_only}}
 }
 Output {
 name Output1
 xpos -270
-ypos 1343
+ypos 1429
 }
 end_group

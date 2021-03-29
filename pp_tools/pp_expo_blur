@@ -1,0 +1,2842 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Group {
+name pp_expo_blur
+tile_color 0xcc804e00
+selected true
+xpos -1824
+ypos -2051
+addUserKnob {20 controls l Controls}
+addUserKnob {41 channels T Blur_master.channels}
+addUserKnob {14 blur l size R 0 100}
+blur 200
+addUserKnob {7 weighting}
+addUserKnob {7 normalize}
+addUserKnob {41 filter T Blur_master.filter}
+addUserKnob {41 quality_1 l "" -STARTLINE T Blur_master.quality}
+addUserKnob {41 crop l "crop to format" T Blur_master.crop}
+addUserKnob {26 ""}
+addUserKnob {3 quality l Quality}
+quality 20
+addUserKnob {6 exp l Expo -STARTLINE}
+addUserKnob {41 mix T Merge1.mix}
+addUserKnob {6 merge l "Merge on original" +STARTLINE}
+merge true
+addUserKnob {20 info}
+addUserKnob {26 author l Author: T "Phil Prates - pratesphil@gmail.com"}
+addUserKnob {26 ver l Version: T 1.0}
+addUserKnob {26 changelog l "" +STARTLINE +INVISIBLE T "1.0 - First public release of pp_expo_blur"}
+}
+Blur {
+inputs 0
+channels rgba
+name Blur_master
+label "\[value size]"
+xpos 3013
+ypos -168
+addUserKnob {20 User}
+addUserKnob {3 quality_1 l Quality}
+quality_1 {{parent.quality}}
+}
+Input {
+inputs 0
+name Inputmask
+xpos -992
+ypos 451
+number 1
+}
+Shuffle {
+alpha white
+name add_alpha
+xpos -992
+ypos 643
+disable {{"\[string first \".a\" \[channels \[input this 0]]]>-1"}}
+}
+Dot {
+name Dot8
+xpos -961
+ypos 797
+}
+Dot {
+name Dot6
+xpos -642
+ypos 797
+}
+set Nd19cd20 [stack 0]
+Dot {
+name Dot1
+xpos -453
+ypos 797
+}
+set Nd1a18b0 [stack 0]
+Dot {
+name Dot7
+xpos -251
+ypos 797
+}
+set Nd1a6450 [stack 0]
+Dot {
+name Dot10
+xpos -51
+ypos 797
+}
+set Nd1aafd0 [stack 0]
+Dot {
+name Dot16
+xpos 133
+ypos 797
+}
+set N10cd67a0 [stack 0]
+Dot {
+name Dot15
+xpos 333
+ypos 797
+}
+set N10cdb450 [stack 0]
+Dot {
+name Dot13
+xpos 535
+ypos 797
+}
+set N10cdfee0 [stack 0]
+Dot {
+name Dot12
+xpos 724
+ypos 797
+}
+set N10ce4b50 [stack 0]
+Dot {
+name Dot28
+xpos 918
+ypos 797
+}
+set N10ce9660 [stack 0]
+Dot {
+name Dot27
+xpos 1107
+ypos 797
+}
+set N10d0e220 [stack 0]
+Dot {
+name Dot26
+xpos 1309
+ypos 797
+}
+set N10d12da0 [stack 0]
+Dot {
+name Dot25
+xpos 1509
+ypos 797
+}
+set N10d17920 [stack 0]
+Dot {
+name Dot24
+xpos 1693
+ypos 797
+}
+set N10d1c4a0 [stack 0]
+Dot {
+name Dot23
+xpos 1893
+ypos 797
+}
+set N10d21100 [stack 0]
+Dot {
+name Dot22
+xpos 2095
+ypos 797
+}
+set N10d25c30 [stack 0]
+Dot {
+name Dot21
+xpos 2284
+ypos 797
+}
+set N10d2a7b0 [stack 0]
+Dot {
+name Dot37
+xpos 2465
+ypos 797
+}
+set N10d2f330 [stack 0]
+Dot {
+name Dot39
+xpos 2654
+ypos 797
+}
+set N10d33eb0 [stack 0]
+Dot {
+name Dot41
+xpos 2856
+ypos 797
+}
+set N10d38a30 [stack 0]
+Dot {
+name Dot43
+xpos 3056
+ypos 797
+}
+set N10d3d700 [stack 0]
+Dot {
+name Dot45
+xpos 3240
+ypos 797
+}
+set N10d421f0 [stack 0]
+Dot {
+name Dot47
+xpos 3440
+ypos 797
+}
+set N10d46d70 [stack 0]
+Dot {
+name Dot49
+xpos 3642
+ypos 797
+}
+set N10d4b8f0 [stack 0]
+Dot {
+name Dot51
+xpos 3831
+ypos 797
+}
+set N10d50470 [stack 0]
+Dot {
+name Dot53
+xpos 4013
+ypos 797
+}
+set N10d54ff0 [stack 0]
+Dot {
+name Dot55
+xpos 4202
+ypos 797
+}
+set N10d59b70 [stack 0]
+Dot {
+name Dot57
+xpos 4404
+ypos 797
+}
+set N10d5e6f0 [stack 0]
+Dot {
+name Dot59
+xpos 4604
+ypos 797
+}
+set N10d63270 [stack 0]
+Dot {
+name Dot61
+xpos 4788
+ypos 797
+}
+set N10d67df0 [stack 0]
+Dot {
+name Dot63
+xpos 4988
+ypos 797
+}
+set N10d6cb50 [stack 0]
+Dot {
+name Dot65
+xpos 5190
+ypos 797
+}
+set N10d715f0 [stack 0]
+Dot {
+name Dot67
+xpos 5379
+ypos 797
+}
+set N10d76170 [stack 0]
+Dot {
+name Dot76
+xpos 5562
+ypos 797
+}
+set N10d7acf0 [stack 0]
+Dot {
+name Dot75
+xpos 5751
+ypos 797
+}
+set N10d7f870 [stack 0]
+Dot {
+name Dot74
+xpos 5953
+ypos 797
+}
+set N10d843f0 [stack 0]
+Dot {
+name Dot73
+xpos 6153
+ypos 797
+}
+set N10d88f70 [stack 0]
+Dot {
+name Dot72
+xpos 6337
+ypos 797
+}
+set N10d8daf0 [stack 0]
+Dot {
+name Dot71
+xpos 6537
+ypos 797
+}
+set N10d92670 [stack 0]
+Dot {
+name Dot70
+xpos 6739
+ypos 797
+}
+set N10d971f0 [stack 0]
+Dot {
+name Dot69
+xpos 6928
+ypos 797
+}
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_40
+xpos 6897
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Input {
+inputs 0
+name Input
+xpos -760
+ypos 344
+}
+Dot {
+name Dot2
+xpos -729
+ypos 596
+}
+set N10db7d60 [stack 0]
+Dot {
+name Dot3
+xpos -538
+ypos 596
+}
+set N10dbcb70 [stack 0]
+Dot {
+name Dot5
+xpos -349
+ypos 596
+}
+set N10dc1550 [stack 0]
+Dot {
+name Dot9
+xpos -147
+ypos 596
+}
+set N10dc6120 [stack 0]
+Dot {
+name Dot11
+xpos 53
+ypos 596
+}
+set N10dcaca0 [stack 0]
+Dot {
+name Dot20
+xpos 225
+ypos 596
+}
+set N10dcf820 [stack 0]
+Dot {
+name Dot19
+xpos 425
+ypos 596
+}
+set N10dd43a0 [stack 0]
+Dot {
+name Dot18
+xpos 627
+ypos 596
+}
+set N10dd8f20 [stack 0]
+Dot {
+name Dot17
+xpos 816
+ypos 596
+}
+set N10dddaa0 [stack 0]
+Dot {
+name Dot36
+xpos 1010
+ypos 596
+}
+set N10de2620 [stack 0]
+Dot {
+name Dot35
+xpos 1199
+ypos 596
+}
+set N10de71a0 [stack 0]
+Dot {
+name Dot34
+xpos 1401
+ypos 596
+}
+set N10debd20 [stack 0]
+Dot {
+name Dot33
+xpos 1601
+ypos 596
+}
+set N10df08a0 [stack 0]
+Dot {
+name Dot32
+xpos 1773
+ypos 596
+}
+set N10df5420 [stack 0]
+Dot {
+name Dot31
+xpos 1973
+ypos 596
+}
+set N10df9fa0 [stack 0]
+Dot {
+name Dot30
+xpos 2175
+ypos 596
+}
+set N10dfeb20 [stack 0]
+Dot {
+name Dot29
+xpos 2364
+ypos 596
+}
+set N10e036a0 [stack 0]
+Dot {
+name Dot38
+xpos 2569
+ypos 596
+}
+set N10e08220 [stack 0]
+Dot {
+name Dot40
+xpos 2758
+ypos 596
+}
+set N10e0cda0 [stack 0]
+Dot {
+name Dot42
+xpos 2960
+ypos 596
+}
+set N10e11cd0 [stack 0]
+Dot {
+name Dot44
+xpos 3160
+ypos 596
+}
+set N10e166c0 [stack 0]
+Dot {
+name Dot46
+xpos 3332
+ypos 596
+}
+set N10e1b240 [stack 0]
+Dot {
+name Dot48
+xpos 3532
+ypos 596
+}
+set N10e1fdc0 [stack 0]
+Dot {
+name Dot50
+xpos 3734
+ypos 596
+}
+set N10e24940 [stack 0]
+Dot {
+name Dot52
+xpos 3923
+ypos 596
+}
+set N10e294c0 [stack 0]
+Dot {
+name Dot54
+xpos 4117
+ypos 596
+}
+set N10e2e040 [stack 0]
+Dot {
+name Dot56
+xpos 4306
+ypos 596
+}
+set N10e32bc0 [stack 0]
+Dot {
+name Dot58
+xpos 4508
+ypos 596
+}
+set N10e37740 [stack 0]
+Dot {
+name Dot60
+xpos 4708
+ypos 596
+}
+set N10e3c2c0 [stack 0]
+Dot {
+name Dot62
+xpos 4880
+ypos 596
+}
+set N10e40e40 [stack 0]
+Dot {
+name Dot64
+xpos 5080
+ypos 596
+}
+set N10e459c0 [stack 0]
+Dot {
+name Dot66
+xpos 5282
+ypos 596
+}
+set N10e4a540 [stack 0]
+Dot {
+name Dot68
+xpos 5471
+ypos 596
+}
+set N10e4f0c0 [stack 0]
+Dot {
+name Dot84
+xpos 5651
+ypos 596
+}
+set N10e53c40 [stack 0]
+Dot {
+name Dot83
+xpos 5840
+ypos 596
+}
+set N10e587c0 [stack 0]
+Dot {
+name Dot82
+xpos 6042
+ypos 596
+}
+set N10e5d340 [stack 0]
+Dot {
+name Dot81
+xpos 6242
+ypos 596
+}
+set N10e61ec0 [stack 0]
+Dot {
+name Dot80
+xpos 6415
+ypos 596
+}
+set N10e66a40 [stack 0]
+Dot {
+name Dot79
+xpos 6615
+ypos 596
+}
+set N10e6b5c0 [stack 0]
+Dot {
+name Dot78
+xpos 6817
+ypos 596
+}
+set N10e70140 [stack 0]
+Dot {
+name Dot77
+xpos 7006
+ypos 596
+}
+set N10e74cc0 [stack 0]
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_40
+xpos 6976
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply40
+xpos 6975
+ypos 930
+}
+push $N10e74cc0
+Dot {
+name Dot85
+xpos 7141
+ypos 596
+}
+Remove {
+name Remove2
+xpos 7110
+ypos 994
+}
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_40
+xpos 6975
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N10ea44f0 [stack 0]
+push $N10d971f0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_39
+xpos 6708
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e70140
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_39
+xpos 6787
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply39
+xpos 6786
+ypos 937
+}
+push $N10ea44f0
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_39
+xpos 6785
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N10ee3560 [stack 0]
+push $N10d92670
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_38
+xpos 6506
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e6b5c0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_38
+xpos 6585
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply38
+xpos 6584
+ypos 935
+}
+push $N10ee3560
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_38
+xpos 6584
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N10f22930 [stack 0]
+push $N10d8daf0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_37
+xpos 6306
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e66a40
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_37
+xpos 6385
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply37
+xpos 6384
+ypos 930
+}
+push $N10f22930
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_37
+xpos 6384
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N10f619d0 [stack 0]
+push $N10d88f70
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_36
+xpos 6122
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e61ec0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_36
+xpos 6212
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply36
+xpos 6211
+ypos 930
+}
+push $N10f619d0
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_36
+xpos 6211
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N10fa0a70 [stack 0]
+push $N10d843f0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_35
+xpos 5922
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e5d340
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_35
+xpos 6012
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply35
+xpos 6011
+ypos 933
+}
+push $N10fa0a70
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_35
+xpos 6011
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N10fdfb20 [stack 0]
+push $N10d7f870
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_34
+xpos 5720
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e587c0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_34
+xpos 5810
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply34
+xpos 5817
+ypos 933
+}
+push $N10fdfb20
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_34
+xpos 5817
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N1101ebc0 [stack 0]
+push $N10d7acf0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_33
+xpos 5531
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e53c40
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_33
+xpos 5621
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply33
+xpos 5620
+ypos 932
+}
+push $N1101ebc0
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_33
+xpos 5620
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N1105dc60 [stack 0]
+push $N10d76170
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_32
+xpos 5348
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e4f0c0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_32
+xpos 5441
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply32
+xpos 5446
+ypos 934
+}
+push $N1105dc60
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_32
+xpos 5440
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N1109cd00 [stack 0]
+push $N10d715f0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_31
+xpos 5159
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e4a540
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_31
+xpos 5252
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply31
+xpos 5251
+ypos 931
+}
+push $N1109cd00
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_31
+xpos 5251
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N110dbda0 [stack 0]
+push $N10d6cb50
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_30
+xpos 4957
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e459c0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_30
+xpos 5050
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply30
+xpos 5049
+ypos 932
+}
+push $N110dbda0
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_30
+xpos 5049
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N1111b250 [stack 0]
+push $N10d67df0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_29
+xpos 4757
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e40e40
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_29
+xpos 4850
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply29
+xpos 4849
+ypos 928
+}
+push $N1111b250
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_29
+xpos 4849
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N1115a300 [stack 0]
+push $N10d63270
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_28
+xpos 4573
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e3c2c0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_28
+xpos 4677
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply28
+xpos 4672
+ypos 926
+}
+push $N1115a300
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_28
+xpos 4676
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N111993a0 [stack 0]
+push $N10d5e6f0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_27
+xpos 4373
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e37740
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_27
+xpos 4477
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply27
+xpos 4476
+ypos 921
+}
+push $N111993a0
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_27
+xpos 4476
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N111d8470 [stack 0]
+push $N10d59b70
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_26
+xpos 4171
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e32bc0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_26
+xpos 4275
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply26
+xpos 4274
+ypos 931
+}
+push $N111d8470
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_26
+xpos 4274
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N11217510 [stack 0]
+push $N10d54ff0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_25
+xpos 3982
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e2e040
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_25
+xpos 4086
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply25
+xpos 4085
+ypos 927
+}
+push $N11217510
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_25
+xpos 4085
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N112565b0 [stack 0]
+push $N10d50470
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_24
+xpos 3800
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e294c0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_24
+xpos 3893
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply24
+xpos 3892
+ypos 923
+}
+push $N112565b0
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_24
+xpos 3892
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N11295650 [stack 0]
+push $N10d4b8f0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_23
+xpos 3611
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e24940
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_23
+xpos 3704
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply23
+xpos 3703
+ypos 925
+}
+push $N11295650
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_23
+xpos 3703
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N112d46f0 [stack 0]
+push $N10d46d70
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_22
+xpos 3409
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e1fdc0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_22
+xpos 3502
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply22
+xpos 3501
+ypos 923
+}
+push $N112d46f0
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_22
+xpos 3501
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N11313790 [stack 0]
+push $N10d421f0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_21
+xpos 3209
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e1b240
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_21
+xpos 3302
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply21
+xpos 3301
+ypos 922
+}
+push $N11313790
+Merge2 {
+inputs 2+1
+operation plus
+mix 0
+name Merge_21
+xpos 3301
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N11352830 [stack 0]
+push $N10d3d700
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_20
+xpos 3025
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e166c0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_20
+xpos 3129
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply20
+xpos 3128
+ypos 923
+}
+push $N11352830
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_20
+xpos 3128
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N113918d0 [stack 0]
+push $N10d38a30
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_19
+xpos 2825
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e11cd0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_19
+xpos 2929
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply19
+xpos 2927
+ypos 920
+}
+push $N113918d0
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_19
+xpos 2928
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N113d0970 [stack 0]
+push $N10d33eb0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_18
+xpos 2623
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e0cda0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_18
+xpos 2727
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply18
+xpos 2726
+ypos 920
+}
+push $N113d0970
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_18
+xpos 2726
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N1140fa10 [stack 0]
+push $N10d2f330
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_17
+xpos 2434
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e08220
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_17
+xpos 2538
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply17
+xpos 2537
+ypos 921
+}
+push $N1140fa10
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_17
+xpos 2537
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N1144eab0 [stack 0]
+push $N10d2a7b0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_16
+xpos 2253
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10e036a0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_16
+xpos 2335
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply16
+xpos 2334
+ypos 913
+}
+push $N1144eab0
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_16
+xpos 2334
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N1148db70 [stack 0]
+push $N10d25c30
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_15
+xpos 2064
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10dfeb20
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_15
+xpos 2146
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply15
+xpos 2145
+ypos 915
+}
+push $N1148db70
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_15
+xpos 2145
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N114ccc10 [stack 0]
+push $N10d21100
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_14
+xpos 1862
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10df9fa0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_14
+xpos 1943
+ypos 669
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply14
+xpos 1943
+ypos 910
+}
+push $N114ccc10
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_14
+xpos 1943
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N1150bcb0 [stack 0]
+push $N10d1c4a0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_13
+xpos 1662
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10df5420
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_13
+xpos 1744
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply13
+xpos 1743
+ypos 910
+}
+push $N1150bcb0
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_13
+xpos 1743
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N1154b5d0 [stack 0]
+push $N10d17920
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_12
+xpos 1478
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10df08a0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_12
+xpos 1571
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply12
+xpos 1570
+ypos 909
+}
+push $N1154b5d0
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_12
+xpos 1570
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N1158a4c0 [stack 0]
+push $N10d12da0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_11
+xpos 1278
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10debd20
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_11
+xpos 1371
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply11
+xpos 1370
+ypos 912
+}
+push $N1158a4c0
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_11
+xpos 1370
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N115c9570 [stack 0]
+push $N10d0e220
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_10
+xpos 1076
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10de71a0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_10
+xpos 1169
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply10
+xpos 1168
+ypos 912
+}
+push $N115c9570
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_10
+xpos 1168
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N11608610 [stack 0]
+push $N10ce9660
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_9
+xpos 887
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10de2620
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_9
+xpos 980
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply9
+xpos 979
+ypos 906
+}
+push $N11608610
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_9
+xpos 979
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N116476b0 [stack 0]
+push $N10ce4b50
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_8
+xpos 693
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10dddaa0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_8
+xpos 786
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply8
+xpos 785
+ypos 915
+}
+push $N116476b0
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_8
+xpos 785
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N11686750 [stack 0]
+push $N10cdfee0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_7
+xpos 504
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10dd8f20
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_7
+xpos 596
+ypos 669
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply7
+xpos 596
+ypos 912
+}
+push $N11686750
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_7
+xpos 596
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N116c57f0 [stack 0]
+push $N10cdb450
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_6
+xpos 302
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10dd43a0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_6
+xpos 395
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply6
+xpos 394
+ypos 915
+}
+push $N116c57f0
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_6
+xpos 394
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N11704890 [stack 0]
+push $N10cd67a0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_5
+xpos 102
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10dcf820
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_5
+xpos 195
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply5
+xpos 194
+ypos 913
+}
+push $N11704890
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_5
+xpos 194
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N11743950 [stack 0]
+push $Nd1aafd0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_4
+xpos -82
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10dcaca0
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_4
+xpos 22
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply4
+xpos 21
+ypos 914
+}
+push $N11743950
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_4
+xpos 21
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N117829f0 [stack 0]
+push $Nd1a6450
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_3
+xpos -282
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10dc6120
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_3
+xpos -178
+ypos 669
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply3
+xpos -179
+ypos 913
+}
+push $N117829f0
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_3
+xpos -179
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N117c1a90 [stack 0]
+push $Nd1a18b0
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_2
+xpos -484
+ypos 850
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10dc1550
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_2
+xpos -380
+ypos 668
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply2
+xpos -381
+ypos 917
+}
+push $N117c1a90
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_2
+xpos -381
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N11800b30 [stack 0]
+push 0
+push $Nd19cd20
+Grade {
+channels alpha
+blackpoint {{parent.exp==1?expAmnt.x:linAmnt.x}}
+whitepoint {{parent.exp==1?expAmnt.y:linAmnt.y}}
+name Grade_1
+xpos -673
+ypos 853
+disable {{!parent.add_alpha.disable}}
+addUserKnob {20 User}
+addUserKnob {12 linAmnt l "" +STARTLINE}
+linAmnt {{(ittNum-1)/parent.Blur_master.quality_1} {ittNum/parent.Blur_master.quality_1}}
+addUserKnob {12 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum-1)/pow2(parent.Blur_master.quality_1)} {pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+push $N10dbcb70
+Blur {
+channels {{{parent.Blur_master.channels}}}
+size {{parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt} {parent.exp==1?parent.blur*expAmnt:parent.blur*linAmnt}}
+filter {{parent.Blur_master.filter}}
+quality {{parent.Blur_master.quality}}
+crop {{parent.Blur_master.crop}}
+name Blur_1
+xpos -569
+ypos 670
+addUserKnob {20 User}
+addUserKnob {7 linAmnt l "" +STARTLINE}
+linAmnt {{ittNum/parent.Blur_master.quality_1}}
+addUserKnob {7 expAmnt l "" +STARTLINE}
+expAmnt {{pow2(ittNum)/pow2(parent.Blur_master.quality_1)}}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+Multiply {
+value {{1/parent.quality}}
+mix {{parent.normalize}}
+name Multiply1
+xpos -570
+ypos 922
+}
+push $N11800b30
+Merge2 {
+inputs 2+1
+operation plus
+name Merge_1
+xpos -570
+ypos 1000
+disable {{!(ittNum<=parent.quality)}}
+addUserKnob {20 User}
+addUserKnob {3 ittNum l "" +STARTLINE}
+ittNum {{"\[lrange \[split \[value name] _] 1 1]"}}
+}
+set N1183fbe0 [stack 0]
+push $N1183fbe0
+Dissolve {
+inputs 41+1
+which {{(parent.weighting*(parent.quality))}}
+name Dissolve1
+xpos 3013
+ypos 1845
+}
+Multiply {
+channels alpha
+value {{1/parent.quality}}
+name Multiply42
+xpos 3013
+ypos 1883
+}
+set N1185c970 [stack 0]
+push $N10db7d60
+Dot {
+name Dot4
+xpos -729
+ypos 1945
+}
+Merge2 {
+inputs 2
+bbox A
+mix 0.05
+name Merge1
+xpos 2921
+ypos 1944
+}
+set N1186d2c0 [stack 0]
+push $N1185c970
+Multiply {
+value {{parent.Merge1.mix}}
+name Multiply41
+xpos 3096
+ypos 1941
+}
+set N1187d6f0 [stack 0]
+Switch {
+inputs 2
+which {{parent.merge}}
+name Switch1
+selected true
+xpos 3013
+ypos 2029
+}
+Output {
+name Output1
+xpos 3013
+ypos 2104
+}
+push $N1187d6f0
+push $N1186d2c0
+Viewer {
+inputs 2
+frame_range 1017-1141
+name Viewer1
+xpos 2356
+ypos 2452
+}
+end_group

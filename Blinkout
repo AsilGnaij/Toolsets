@@ -1,0 +1,7112 @@
+set cut_paste_input [stack 0]
+version 10.5 v7
+BackdropNode {
+inputs 0
+name BackdropNode10
+tile_color 0x71c67100
+label "Global FX Scale = 1 Example"
+note_font_size 35
+selected true
+xpos 4561
+ypos -1446
+bdwidth 484
+bdheight 271
+}
+BackdropNode {
+inputs 0
+name BackdropNode11
+tile_color 0x4c3f1eff
+gl_color 0x76764aff
+note_font_size 100
+selected true
+xpos 2292
+ypos 7640
+bdwidth 453
+bdheight 251
+}
+BackdropNode {
+inputs 0
+name BackdropNode12
+tile_color 0x4c3f1eff
+gl_color 0x76764aff
+label "No. 5 Roto"
+note_font_size 100
+selected true
+xpos 3017
+ypos 4526
+bdwidth 568
+bdheight 528
+}
+BackdropNode {
+inputs 0
+name BackdropNode14
+tile_color 0x4c3f1eff
+gl_color 0x76764aff
+label "Reveal Roto"
+note_font_size 100
+selected true
+xpos 2209
+ypos 4543
+bdwidth 583
+bdheight 515
+}
+BackdropNode {
+inputs 0
+name BackdropNode3
+tile_color 0x4c262dff
+gl_color 0x76764aff
+note_font_size 100
+selected true
+xpos 2473
+ypos -267
+bdwidth 477
+bdheight 253
+}
+BackdropNode {
+inputs 0
+name BackdropNode4
+tile_color 0x4c262dff
+gl_color 0x76764aff
+note_font_size 100
+selected true
+xpos 2799
+ypos 3140
+bdwidth 429
+bdheight 193
+}
+BackdropNode {
+inputs 0
+name BackdropNode5
+tile_color 0x4c262dff
+gl_color 0x76764aff
+note_font_size 100
+selected true
+xpos 2807
+ypos 1324
+bdwidth 429
+bdheight 193
+}
+BackdropNode {
+inputs 0
+name BackdropNode6
+tile_color 0x193754ff
+gl_color 0x76764aff
+note_font_size 100
+selected true
+xpos 3209
+ypos 6252
+bdwidth 634
+bdheight 268
+}
+BackdropNode {
+inputs 0
+name BackdropNode8
+tile_color 0x388e8e00
+label "Master Cornerpin"
+note_font_size 42
+selected true
+xpos 2475
+ypos -508
+bdwidth 448
+bdheight 207
+}
+StickyNote {
+inputs 0
+name StickyNote3
+label " 	Surface break-through frames 	\nclone"
+note_font_size 15
+selected true
+xpos 2530
+ypos 4955
+}
+push $cut_paste_input
+Dot {
+name Dot7
+label Portal
+note_font_size 100
+selected true
+xpos 2795
+ypos 2669
+hide_input true
+}
+StickyNote {
+inputs 0
+name StickyNote5
+label " 	Place this cornerpin 	\nin perspective\nbehind character"
+note_font_size 25
+selected true
+xpos 2625
+ypos -436
+}
+Dot {
+inputs 0
+name Dot4
+label "Pull Back"
+note_font_size 100
+selected true
+xpos 2459
+ypos -952
+hide_input true
+}
+Dot {
+inputs 0
+name Dot10
+label "Soft Glow"
+note_font_size 100
+selected true
+xpos 2392
+ypos 8314
+hide_input true
+}
+Dot {
+inputs 0
+name Dot12
+label "Detail Glow"
+note_font_size 100
+selected true
+xpos 2387
+ypos 8969
+hide_input true
+}
+StickyNote {
+inputs 0
+name StickyNote17
+label "This is not part of the controller. Just a quick transform offset \nafter he breaks through the surface to place the distortion\n      	behind him insead of around him. Depending on the perspective       	\nyou may need something similar for your shot"
+note_font_size 15
+selected true
+xpos 3348
+ypos 6379
+}
+Dot {
+inputs 0
+name Dot13
+label "Bubble Distortion"
+note_font_size 100
+selected true
+xpos 2519
+ypos 4476
+hide_input true
+}
+Dot {
+inputs 0
+name Dot64
+label "Directional \nPush"
+note_font_size 100
+selected true
+xpos 2090
+ypos 3418
+hide_input true
+}
+StickyNote {
+inputs 0
+name StickyNote4
+label " 	Surface break-through frames 	\nclone"
+note_font_size 15
+selected true
+xpos 3330
+ypos 4924
+}
+Dot {
+inputs 0
+name Dot100
+label Previews
+note_font_size 100
+selected true
+xpos 2196
+ypos 9812
+hide_input true
+}
+Dot {
+inputs 0
+name Dot11
+label "Wrinkle Glow"
+note_font_size 100
+selected true
+xpos 2194
+ypos 1809
+hide_input true
+}
+Dot {
+inputs 0
+name Dot46
+selected true
+xpos 1989
+ypos -1353
+}
+Dot {
+name Dot116
+label Plate
+note_font_size 25
+selected true
+xpos 1989
+ypos -1267
+}
+set N6d47aa20 [stack 0]
+Dot {
+name Dot68
+selected true
+xpos 1832
+ypos -1267
+}
+Dot {
+inputs 0
+name Dot114
+label "Premulted\nClean Plate"
+note_font_size 25
+selected true
+xpos 2674
+ypos -1251
+}
+set Nb9cdeae0 [stack 0]
+Dot {
+name Dot115
+selected true
+xpos 2674
+ypos -1117
+}
+set Nb9ce3630 [stack 0]
+push $N6d47aa20
+Merge2 {
+inputs 2
+bbox B
+mix {{frame>offf?0:frame>onn?1:frame<switch?0:abs((frame-switch)/(onn!=switch?onn-switch:1))}}
+name Merge4
+selected true
+xpos 1955
+ypos -1121
+disable {{parent.blinkout.clean}}
+addUserKnob {20 User}
+addUserKnob {3 switch l "First Clean Plate Frame"}
+switch {{parent.blinkout.fx0}}
+addUserKnob {3 onn l "FX Starts at"}
+onn {{parent.blinkout.fx1}}
+addUserKnob {3 offf l "Back to Plate at"}
+offf {{parent.blinkout.fx5}}
+}
+Dot {
+name Dot85
+tile_color 0x4b5ec600
+selected true
+xpos 1989
+ypos -585
+}
+set Nb9d14590 [stack 0]
+Dot {
+name Dot84
+tile_color 0xcccccc00
+label "\nplates"
+note_font_size 12
+selected true
+xpos 1811
+ypos 10495
+hide_input true
+}
+Invert {
+inputs 0
+name Invert4
+selected true
+xpos 2423
+ypos 4807
+}
+Dot {
+name Dot15
+tile_color 0x7aa9ff00
+label "do not delete this dot"
+note_font_size 15
+selected true
+xpos 2457
+ypos 5174
+}
+set Nb9d21f80 [stack 0]
+Dot {
+name Dot17
+tile_color 0x7aa9ff00
+label "Reveal Roto"
+note_font_size 25
+selected true
+xpos 2958
+ypos 7576
+hide_input true
+}
+Blur {
+size 7.4
+name Blur2
+label "size \[value size]"
+selected true
+xpos 2924
+ypos 7651
+}
+Dot {
+name Dot18
+tile_color 0xcc804e00
+selected true
+xpos 2958
+ypos 7776
+}
+Dot {
+inputs 0
+name Dot19
+label "do not delete this dot"
+note_font_size 15
+selected true
+xpos 3257
+ypos 5088
+}
+set Nddcc58b0 [stack 0]
+Dot {
+name Dot21
+tile_color 0x71c67100
+label "No.5 Roto"
+note_font_size 25
+selected true
+xpos 3257
+ypos 7582
+hide_input true
+}
+Blur {
+size 3.6
+name Blur3
+label "size \[value size]"
+selected true
+xpos 3223
+ypos 7661
+}
+ChannelMerge {
+inputs 2
+operation in
+mix {{frame>=offf?0:frame<parent.blinkout.fx2?0:1}}
+name ChannelMerge3
+selected true
+xpos 3223
+ypos 7760
+addUserKnob {20 User}
+addUserKnob {3 offf l "Turn off at"}
+offf {{parent.blinkout.fx3}}
+}
+Dot {
+name Dot22
+tile_color 0x4b5ec600
+selected true
+xpos 3257
+ypos 7940
+}
+set Nddce8940 [stack 0]
+push $Nb9ce3630
+Dot {
+name Dot143
+tile_color 0xcccccc00
+label Element
+note_font_size 25
+selected true
+xpos 2580
+ypos 7474
+hide_input true
+}
+Dot {
+name Dot228
+tile_color 0xcccccc00
+selected true
+xpos 2580
+ypos 7583
+}
+push $N6d47aa20
+Dot {
+name Dot242
+tile_color 0x4b5ec600
+label Plate
+note_font_size 25
+selected true
+xpos 2367
+ypos 7473
+hide_input true
+}
+Switch {
+inputs 2
+which {{parent.blinkout.clean}}
+name Switch1
+selected true
+xpos 2333
+ypos 7579
+}
+Dot {
+name Dot243
+tile_color 0xcccccc00
+label "Replace for your shot and \napply the same to the rotos"
+note_font_size 25
+note_font_color 0xe9e9e9ff
+selected true
+xpos 2367
+ypos 7711
+}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 rgba.alpha
+bbox B
+name Copy10
+selected true
+xpos 2333
+ypos 7930
+}
+Premult {
+name Premult4
+selected true
+xpos 2333
+ypos 8003
+}
+Dot {
+name Dot244
+tile_color 0xcccccc00
+selected true
+xpos 2367
+ypos 8096
+}
+set Nc86b2220 [stack 0]
+Dot {
+name Dot66
+tile_color 0xcccccc00
+selected true
+xpos 1801
+ypos -598
+hide_input true
+}
+set Nc86b6d30 [stack 0]
+push $Nc86b6d30
+add_layer {No5Distorted No5Distorted.matte}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 No5Distorted.matte
+bbox B
+name Copy9
+selected true
+xpos 1767
+ypos -558
+}
+Dot {
+name Dot75
+tile_color 0x9e3c6300
+label "\nDistort No.5"
+note_font_size 12
+selected true
+xpos 1801
+ypos -477
+}
+push $Nb9d14590
+Merge2 {
+inputs 2
+bbox B
+also_merge {No5Distorted.matte none none No5Distorted.matte}
+mix {{frame<onn?0:frame>=offf?0:1}}
+name Merge13
+selected true
+xpos 1955
+ypos -481
+disable {{1-parent.blinkout.no5distort}}
+addUserKnob {20 User}
+addUserKnob {3 onn l "Turn On at"}
+onn {{parent.blinkout.fx0}}
+addUserKnob {3 offf l "Turn Off at"}
+offf {{parent.blinkout.fx3}}
+}
+Dot {
+name Dot117
+tile_color 0x4b5ec600
+selected true
+xpos 1989
+ypos -406
+}
+set Nc86deae0 [stack 0]
+Dot {
+name Dot118
+tile_color 0x4b5ec600
+selected true
+xpos 2239
+ypos -406
+}
+Crop {
+box {{curve} {curve} {input.width} {input.height}}
+reformat true
+crop false
+name Crop2
+selected true
+xpos 2205
+ypos -322
+}
+Shuffle {
+red black
+green black
+blue black
+alpha white
+name Shuffle13
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 2205
+ypos -271
+}
+Transform {
+scale 0.99
+center {{input.width/2} {input.height/2}}
+shutteroffset centred
+name Transform20
+label "\[if \{\[value translate.x] != 0 || \[value translate.y] != 0\} then \{return \"t \[value translate.x] \[value translate.y]\n\"\} else \{return \"\"\}]\[if \{\[value rotate] != 0\} then \{return \"r \[value rotate]\n\"\} else \{return \"\"\}] \[if \{\[value scale] != 1\} then \{return \"s \[value scale]\"\} else \{return \"\"\}]\[if \{\[value skewX] != 0 || \[value skewY] != 0\} then \{return \"sk \[value skewX] \[value skewY]\n\"\} else \{return \"\"\}]\[if \{\[value motionblur] != 0\} then \{return \"mb \[value motionblur] sh \[value shutter] \[value shutteroffset]\n\"\} else \{return \"\"\}]"
+selected true
+xpos 2205
+ypos -203
+}
+set Nc8701040 [stack 0]
+FilterErode {
+size {{parent.blinkout.sbs}}
+filter gaussian
+name FilterErode9
+label "size \[value size]"
+selected true
+xpos 2205
+ypos -134
+}
+Grade {
+channels alpha
+gamma {{parent.blinkout.sbst}}
+white_clamp true
+name Grade18
+selected true
+xpos 2205
+ypos -66
+}
+Invert {
+name Invert3
+selected true
+xpos 2205
+ypos 24
+}
+Dot {
+name Dot123
+tile_color 0x7aa9ff00
+label "\nSafe Border"
+note_font_size 12
+selected true
+xpos 2239
+ypos 174
+}
+set Nc85b9120 [stack 0]
+Dot {
+name Dot124
+tile_color 0x7aa9ff00
+label "\nSafe Border"
+note_font_size 12
+selected true
+xpos 2687
+ypos 3698
+hide_input true
+}
+Reformat {
+inputs 0
+format "4096 4096 0 0 4096 4096 1 Square4k"
+black_outside true
+name Reformat3
+selected true
+xpos 2525
+ypos -865
+}
+Dot {
+name Dot6
+tile_color 0xa57aaa00
+selected true
+xpos 2559
+ypos -780
+}
+set Nc85d11b0 [stack 0]
+Dot {
+name Dot14
+tile_color 0xa57aaa00
+selected true
+xpos 2851
+ypos 2780
+hide_input true
+}
+set Nc85d5cc0 [stack 0]
+Dot {
+name Dot55
+tile_color 0xa57aaa00
+selected true
+xpos 2974
+ypos 2780
+}
+set Nc85ace30 [stack 0]
+Dot {
+name Dot56
+tile_color 0xa57aaa00
+selected true
+xpos 3112
+ypos 2780
+}
+Rectangle {
+area {0 0 {input.width} {input.height/2}}
+name Rectangle3
+selected true
+xpos 3078
+ypos 2814
+}
+Dot {
+name Dot59
+tile_color 0xc0c0c000
+selected true
+xpos 3112
+ypos 3010
+}
+push $Nc85ace30
+Rectangle {
+area {{curve} {curve} {input.width/2} {input.height/1}}
+name Rectangle4
+selected true
+xpos 2940
+ypos 2813
+}
+Dot {
+name Dot82
+tile_color 0xc0c0c000
+selected true
+xpos 2974
+ypos 2951
+}
+push $Nc85d5cc0
+Expression {
+expr0 "((width-sqrt((x-width/2) * (x-width/2) + (y-height/2) * (y-height/2)))/width)*2-1"
+expr1 "((height-sqrt((x-width/2) * (x-width/2) + (y-height/2) * (y-height/2)))/height)*2-1"
+name Expression2
+selected true
+xpos 2817
+ypos 2811
+}
+set Nc860ad40 [stack 0]
+Clamp {
+maximum {{1-parent.blinkout.pcore/2}}
+name Clamp6
+selected true
+xpos 2817
+ypos 2848
+}
+Shuffle {
+alpha red
+name Shuffle12
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 2817
+ypos 2896
+}
+Expression {
+inputs 1+1
+expr0 -r
+name Expression6
+selected true
+xpos 2817
+ypos 2947
+}
+Expression {
+inputs 1+1
+expr1 -g
+name Expression7
+selected true
+xpos 2817
+ypos 3006
+}
+Transform {
+skewX {{parent.blinkout.portskewx}}
+skewY {{parent.blinkout.portskewy}}
+center {2048 2048}
+shutteroffset centred
+name Transform2
+label "\[if \{\[value translate.x] != 0 || \[value translate.y] != 0\} then \{return \"t \[value translate.x] \[value translate.y]\n\"\} else \{return \"\"\}]\[if \{\[value rotate] != 0\} then \{return \"r \[value rotate]\n\"\} else \{return \"\"\}] \[if \{\[value scale] != 1\} then \{return \"s \[value scale]\"\} else \{return \"\"\}]\[if \{\[value skewX] != 0 || \[value skewY] != 0\} then \{return \"sk \[value skewX] \[value skewY]\n\"\} else \{return \"\"\}]\[if \{\[value motionblur] != 0\} then \{return \"mb \[value motionblur] sh \[value shutter] \[value shutteroffset]\n\"\} else \{return \"\"\}]"
+selected true
+xpos 2817
+ypos 3043
+}
+CornerPin2D {
+to1 {{too1-abs(too1-too3)*mult} {too1-abs(too1-too3)*mult}}
+to2 {{too2+abs(too2-too4)*mult} {too2-abs(too2-too4)*mult}}
+to3 {{too3+abs(too1-too3)*mult} {too3+abs(too1-too3)*mult}}
+to4 {{too4-abs(too2-too4)*mult} {too4+abs(too2-too4)*mult}}
+invert false
+shutteroffset centred
+from1 {0 0}
+from2 {4096 0}
+from3 {4096 4096}
+from4 {0 4096}
+name CornerPin2D4
+selected true
+xpos 2817
+ypos 3085
+addUserKnob {20 User}
+addUserKnob {14 mult l multiplier R 0 100}
+mult {{(parent.blinkout.portmult*parent.blinkout.portw)-1} {parent.blinkout.portmult-1}}
+addUserKnob {12 too1}
+too1 {{parent.CornerPin2D5.to1} {parent.CornerPin2D5.to1}}
+addUserKnob {12 too2}
+too2 {{parent.CornerPin2D5.to2} {parent.CornerPin2D5.to2}}
+addUserKnob {12 too3}
+too3 {{parent.CornerPin2D5.to3} {parent.CornerPin2D5.to3}}
+addUserKnob {12 too4}
+too4 {{parent.CornerPin2D5.to4} {parent.CornerPin2D5.to4}}
+}
+Dot {
+name Dot94
+tile_color 0xa57aaa00
+label "Same matchmove as Pull Back"
+note_font_size 25
+selected true
+xpos 2851
+ypos 3187
+}
+Dot {
+name Dot93
+tile_color 0xa57aaa00
+selected true
+xpos 2851
+ypos 3378
+}
+set Nc84e0940 [stack 0]
+Blur {
+size {{(abs(parent.CornerPin2D5.to1.x-parent.CornerPin2D5.to2.x)/4)*(1+parent.CornerPin2D4.mult)*parent.blinkout.fxs} {(abs(parent.CornerPin2D5.to1.y-parent.CornerPin2D5.to4.y)/4)*(1+parent.CornerPin2D4.mult)*parent.blinkout.fxs}}
+crop false
+name Blur20
+label "size \[value size]"
+selected true
+xpos 2817
+ypos 3447
+}
+set Nc84fec30 [stack 0]
+Dot {
+name Dot141
+tile_color 0xcc804e00
+selected true
+xpos 2851
+ypos 3612
+}
+set Nc850c740 [stack 0]
+Merge2 {
+inputs 2
+operation stencil
+bbox B
+name Merge6
+selected true
+xpos 2817
+ypos 3694
+disable {{1-parent.blinkout.sbenable}}
+}
+Dot {
+name Dot60
+tile_color 0x4b5ec600
+selected true
+xpos 2851
+ypos 3802
+}
+set Nc84fe080 [stack 0]
+Grade {
+channels alpha
+whitepoint {{2-parent.blinkout.dpst}}
+gamma {{parent.blinkout.dpfalloff}}
+white_clamp true
+name Grade16
+selected true
+xpos 2523
+ypos 3792
+}
+Transform {
+translate {{parent.blinkout.dpmoff} {parent.blinkout.dpmoff}}
+center {2560 1440}
+shutteroffset centred
+name Transform7
+label "\[if \{\[value translate.x] != 0 || \[value translate.y] != 0\} then \{return \"t \[value translate.x] \[value translate.y]\n\"\} else \{return \"\"\}]\[if \{\[value rotate] != 0\} then \{return \"r \[value rotate]\n\"\} else \{return \"\"\}] \[if \{\[value scale] != 1\} then \{return \"s \[value scale]\"\} else \{return \"\"\}]\[if \{\[value skewX] != 0 || \[value skewY] != 0\} then \{return \"sk \[value skewX] \[value skewY]\n\"\} else \{return \"\"\}]\[if \{\[value motionblur] != 0\} then \{return \"mb \[value motionblur] sh \[value shutter] \[value shutteroffset]\n\"\} else \{return \"\"\}]"
+selected true
+xpos 2391
+ypos 3792
+}
+set Nc83b6920 [stack 0]
+Dot {
+name Dot222
+tile_color 0xa57aaa00
+label "directional push"
+selected true
+xpos 2735
+ypos 10205
+hide_input true
+}
+push $Nc84fec30
+Dot {
+name Dot47
+tile_color 0xcc804e00
+selected true
+xpos 2995
+ypos 6085
+hide_input true
+}
+Grade {
+channels alpha
+whitepoint {{2-parent.blinkout.surfcontst}}
+gamma {{parent.blinkout.surfcontfo}}
+white_clamp true
+name Grade5
+selected true
+xpos 2961
+ypos 6115
+}
+set Nc83ce230 [stack 0]
+Dot {
+name Dot58
+tile_color 0x7aa9ff00
+label "\nContain within Portal surface"
+note_font_size 12
+selected true
+xpos 2420
+ypos 9222
+hide_input true
+}
+push $Nb9d21f80
+Blur {
+channels alpha
+size {{17*parent.blinkout.fxs}}
+name Blur17
+label "size \[value size]"
+selected true
+xpos 2423
+ypos 5305
+}
+Multiply {
+channels alpha
+value {{frame>=parent.blinkout.fx3?0:1}}
+name Multiply4
+selected true
+xpos 2423
+ypos 5385
+}
+Dot {
+name Dot48
+tile_color 0x7aa9ff00
+selected true
+xpos 2457
+ypos 5463
+}
+push $Nddcc58b0
+Clamp {
+channels alpha
+name Clamp13
+selected true
+xpos 3223
+ypos 5117
+}
+FilterErode {
+size {{parent.blinkout.surfgapsize*parent.blinkout.fxs*erf} {parent.blinkout.surfgapsize*parent.blinkout.fxs*erf}}
+name FilterErode1
+label "size \[value size]"
+selected true
+xpos 3223
+ypos 5167
+disable {{1-parent.blinkout.surfgapon x1061 1}}
+addUserKnob {20 User}
+addUserKnob {3 er1 l Start}
+er1 {{parent.blinkout.surfgapstart}}
+addUserKnob {3 er2 l End}
+er2 {{parent.blinkout.surfgapend}}
+addUserKnob {7 wave l Wavelength}
+wave {{(er2-er1)*2}}
+addUserKnob {7 clin l Linear}
+clin {{frame<er1?0:frame>er2?1:(er1-frame)/(er1-er2)}}
+addUserKnob {7 csin l Sine}
+csin {{frame<er1?0:frame>er2?1:(sin(2*pi*(frame-er1-wave/4)/wave)+1)/2}}
+addUserKnob {7 sm0 l "Smooth 0"}
+sm0 {{"frame<=er1?0:frame>=er2?1:1-sin((pi*(er1-frame)/(wave)) % (pi/2))"}}
+addUserKnob {7 sm1 l "Smooth 1"}
+sm1 {{"frame<=er1?0:frame>er2?1:cos((pi*(er1-frame)/(wave)) % (pi/2))"}}
+addUserKnob {3 cu l "Curve Type"}
+cu {{parent.blinkout.surfgapfo}}
+addUserKnob {7 erf l "Final Curve"}
+erf {{cu==0?clin:cu==1?csin:cu==2?sm0:sm1}}
+}
+Clamp {
+channels alpha
+name Clamp14
+selected true
+xpos 3223
+ypos 5245
+}
+Dot {
+name Dot49
+tile_color 0x7aa9ff00
+selected true
+xpos 3257
+ypos 5322
+}
+set Nc82afea0 [stack 0]
+Dot {
+name Dot50
+tile_color 0x7aa9ff00
+selected true
+xpos 2649
+ypos 5322
+}
+Blur {
+channels alpha
+size {{18.5*parent.blinkout.fxs}}
+name Blur18
+label "size \[value size]"
+selected true
+xpos 2615
+ypos 5373
+}
+ChannelMerge {
+inputs 2
+operation in
+mix {{frame>=offf?0:frame<parent.blinkout.fx2?0:frame<parent.blinkout.fx3?1:(offf-frame-1)/(offset)}}
+name ChannelMerge6
+selected true
+xpos 2615
+ypos 5447
+addUserKnob {20 User}
+addUserKnob {3 offset l Offset}
+offset 3
+addUserKnob {3 offf l "Turn off at"}
+offf {{parent.blinkout.fx3+offset}}
+}
+set Nc82c6d10 [stack 0]
+Dot {
+name Dot51
+tile_color 0x4b5ec600
+selected true
+xpos 2820
+ypos 5463
+}
+Dot {
+name Dot52
+tile_color 0x4b5ec600
+note_font_size 50
+selected true
+xpos 2820
+ypos 5777
+}
+push $Nc82c6d10
+EdgeDetectWrapper {
+channels alpha
+blursize 34
+name EdgeDetect2
+selected true
+xpos 2615
+ypos 5523
+}
+Dilate {
+channels alpha
+size {{parent.blinkout.surferode*parent.blinkout.fxs} {parent.blinkout.surferode*parent.blinkout.fxs}}
+name Dilate2
+label "size \[value size]"
+selected true
+xpos 2615
+ypos 5589
+}
+Blur {
+channels alpha
+size {{51*parent.blinkout.fxs}}
+name Blur19
+label "size \[value size]"
+selected true
+xpos 2615
+ypos 5668
+}
+ChannelMerge {
+inputs 2
+operation stencil
+name ChannelMerge10
+selected true
+xpos 2615
+ypos 5761
+}
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle3
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 2615
+ypos 5849
+}
+set Nc8310900 [stack 0]
+Dot {
+name Dot53
+tile_color 0x9e3c6300
+label Outline
+note_font_size 25
+selected true
+xpos 2627
+ypos 9023
+hide_input true
+}
+Grade {
+channels alpha
+whitepoint {{1/parent.blinkout.wrboyboost}}
+gamma {{parent.blinkout.glowboyfo}}
+white_clamp true
+name Grade9
+selected true
+xpos 2593
+ypos 9086
+}
+Multiply {
+channels alpha
+value {{parent.blinkout.glowboymix}}
+name Multiply5
+selected true
+xpos 2593
+ypos 9149
+}
+Merge2 {
+inputs 2
+operation mask
+bbox intersection
+name Merge10
+selected true
+xpos 2593
+ypos 9218
+disable {{1-parent.blinkout.surfcont}}
+}
+set Nc81c04b0 [stack 0]
+Dot {
+name Dot223
+tile_color 0x4b5ec600
+label "outline glow matte"
+selected true
+xpos 2654
+ypos 10154
+hide_input true
+}
+push $Nc860ad40
+Dot {
+name Dot27
+tile_color 0xcccccc00
+selected true
+xpos 2698
+ypos 782
+hide_input true
+}
+Shuffle {
+alpha red
+name Shuffle1
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 2664
+ypos 877
+}
+set Nc81da2b0 [stack 0]
+Dot {
+name Dot28
+tile_color 0x9e3c6300
+selected true
+xpos 2557
+ypos 887
+}
+set Nc81e8fe0 [stack 0]
+Transform {
+translate {{parent.blinkout.wr2t} {parent.blinkout.wr2t}}
+scale {{parent.blinkout.wr2scale} {parent.blinkout.wr2scale}}
+center {{input.width/2} {input.height/2}}
+shutteroffset centred
+name Transform6
+label "\[if \{\[value translate.x] != 0 || \[value translate.y] != 0\} then \{return \"t \[value translate.x] \[value translate.y]\n\"\} else \{return \"\"\}]\[if \{\[value rotate] != 0\} then \{return \"r \[value rotate]\n\"\} else \{return \"\"\}] \[if \{\[value scale] != 1\} then \{return \"s \[value scale]\"\} else \{return \"\"\}]\[if \{\[value skewX] != 0 || \[value skewY] != 0\} then \{return \"sk \[value skewX] \[value skewY]\n\"\} else \{return \"\"\}]\[if \{\[value motionblur] != 0\} then \{return \"mb \[value motionblur] sh \[value shutter] \[value shutteroffset]\n\"\} else \{return \"\"\}]"
+selected true
+xpos 2523
+ypos 1017
+}
+Grade {
+channels alpha
+whitepoint {{1+1-parent.blinkout.wr2core}}
+gamma {{parent.blinkout.wr2gam}}
+white_clamp true
+name Grade3
+selected true
+xpos 2523
+ypos 1103
+}
+Dot {
+name Dot29
+tile_color 0x7aa9ff00
+selected true
+xpos 2557
+ypos 1194
+}
+push $Nc81da2b0
+Grade {
+channels alpha
+whitepoint 0.5
+white_clamp true
+name Grade4
+selected true
+xpos 2664
+ypos 943
+}
+Blur {
+size 500
+name Blur4
+label "size \[value size]"
+selected true
+xpos 2664
+ypos 996
+}
+set Nc820c910 [stack 0]
+Dot {
+name Dot30
+tile_color 0xcc804e00
+selected true
+xpos 3327
+ypos 1016
+hide_input true
+}
+push $Nc81e8fe0
+Dot {
+name Dot31
+tile_color 0x9e3c6300
+selected true
+xpos 3327
+ypos 864
+hide_input true
+}
+push $Nc85d11b0
+Dot {
+name Dot32
+tile_color 0xa57aaa00
+selected true
+xpos 2859
+ypos 545
+hide_input true
+}
+set Nc80b9d80 [stack 0]
+Dot {
+name Dot33
+tile_color 0xa57aaa00
+selected true
+xpos 2986
+ypos 545
+}
+set Nc80be860 [stack 0]
+Dot {
+name Dot34
+tile_color 0xa57aaa00
+selected true
+xpos 3124
+ypos 545
+}
+Rectangle {
+area {0 0 {input.width} {input.height/2}}
+name Rectangle1
+selected true
+xpos 3090
+ypos 608
+}
+Dot {
+name Dot37
+tile_color 0xc0c0c000
+selected true
+xpos 3124
+ypos 735
+}
+push $Nc80be860
+Rectangle {
+area {{curve} {curve} {input.width/2} {input.height/1}}
+name Rectangle2
+selected true
+xpos 2952
+ypos 606
+}
+Dot {
+name Dot38
+tile_color 0xc0c0c000
+selected true
+xpos 2986
+ypos 676
+}
+push $Nc80b9d80
+Expression {
+expr0 "sin( ( atan(x - width/2, y - height/2) + rot) * size)"
+expr1 "-sin( ( atan(x - width/2, y - height/2) + rot) * size)"
+name Expression3
+selected true
+xpos 2825
+ypos 603
+addUserKnob {20 User}
+addUserKnob {3 size}
+size {{parent.blinkout.wrsize}}
+addUserKnob {7 rot R -20 20}
+rot {{parent.blinkout.wrrot}}
+}
+Expression {
+inputs 1+1
+expr0 -r
+name Expression4
+selected true
+xpos 2825
+ypos 672
+}
+Expression {
+inputs 1+1
+expr1 -g
+name Expression5
+selected true
+xpos 2825
+ypos 731
+}
+Dot {
+name Dot39
+tile_color 0xcccccc00
+selected true
+xpos 2859
+ypos 775
+}
+set Nbcabf6e0 [stack 0]
+Dot {
+name Dot40
+tile_color 0xcccccc00
+selected true
+xpos 3471
+ypos 775
+}
+Merge2 {
+inputs 2
+operation mask
+bbox intersection
+mix {{parent.blinkout.wrmask}}
+name Merge3
+selected true
+xpos 3437
+ypos 860
+}
+Clamp {
+minimum {{parent.blinkout.wrwhite-1}}
+maximum {{1-parent.blinkout.wrwhite}}
+name Clamp1
+selected true
+xpos 3437
+ypos 932
+}
+Group {
+inputs 2
+name ITransform1
+tile_color 0xb683b5ff
+selected true
+xpos 3437
+ypos 1012
+addUserKnob {20 "" l Transform}
+addUserKnob {41 matrix T Transform1.matrix}
+addUserKnob {41 translate T Transform1.translate}
+addUserKnob {41 rotate T Transform1.rotate}
+addUserKnob {41 scale T Transform1.scale}
+addUserKnob {41 skew +INVISIBLE T Transform1.skew}
+addUserKnob {41 center T Transform1.center}
+addUserKnob {41 filter T Transform1.filter}
+addUserKnob {41 clamp T Transform1.clamp}
+addUserKnob {41 crop l "black outside" +INVISIBLE T Transform1.crop}
+addUserKnob {41 clip l "knob crop \$value" +INVISIBLE T Transform1.clip}
+addUserKnob {14 AdjBBox1_numpixels l "Add Pixels" R 0 100}
+AdjBBox1_numpixels 1024
+}
+Input {
+inputs 0
+name ctrlMask
+xpos -40
+ypos -51
+number 1
+}
+Shuffle {
+red alpha
+green alpha
+blue alpha
+alpha black
+name Shuffle1
+label "\[value in]"
+xpos -40
+ypos -24
+}
+Input {
+inputs 0
+name img
+xpos -385
+ypos -227
+}
+set Nbcb04590 [stack 0]
+Remove {
+name Remove1
+xpos -210
+ypos -232
+}
+AdjBBox {
+numpixels {{parent.AdjBBox1_numpixels.w i} {parent.AdjBBox1_numpixels.h i}}
+name AdjBBox1
+xpos -210
+ypos -192
+}
+Expression {
+expr0 x
+expr1 y
+name Expression1
+xpos -210
+ypos -140
+}
+set Nbcb1a9e0 [stack 0]
+Dot {
+name Dot2
+xpos -286
+ypos -136
+}
+Transform {
+translate {{parent.Transform1.translate.main} {parent.Transform1.translate.main}}
+rotate {{parent.Transform1.rotate.main}}
+scale {{parent.Transform1.scale.main} {parent.Transform1.scale.main}}
+skewX {{parent.Transform1.skew.main}}
+center {{parent.Transform1.center.main} {parent.Transform1.center.main}}
+filter {{Transform1.filter}}
+clamp {{parent.Transform1.clamp.main}}
+black_outside {{parent.Transform1.black_outside.main}}
+motionblur {{parent.Transform1.motionblur.main}}
+shutter {{parent.Transform1.shutter.main}}
+shutteroffset {{Transform1.shutteroffset}}
+shuttercustomoffset {{parent.Transform1.shuttercustomoffset.main}}
+name Transform2
+xpos -320
+ypos -72
+}
+push $Nbcb1a9e0
+Merge2 {
+inputs 2
+operation minus
+name Merge1
+xpos -210
+ypos -72
+}
+Merge2 {
+inputs 2
+operation multiply
+name Merge2
+xpos -210
+ypos -24
+}
+set Nbc9cc7b0 [stack 0]
+Dot {
+name Dot1
+xpos -270
+ypos -21
+}
+Dot {
+name Dot3
+xpos -270
+ypos 162
+}
+push $Nbcb04590
+Dot {
+name Dot4
+xpos -351
+ypos 48
+}
+set Nbc9e53a0 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.red
+from1 rgba.green
+to1 rgba.green
+name Copy2
+xpos -385
+ypos 144
+}
+IDistort {
+channels none
+name IDistort1
+xpos -385
+ypos 182
+}
+push $Nbc9cc7b0
+push $Nbc9e53a0
+Copy {
+inputs 2
+from0 rgba.red
+to0 forward.u
+from1 rgba.green
+to1 forward.v
+name Copy1
+xpos -210
+ypos 30
+}
+IDistort {
+uv forward
+name IDistort2
+xpos -210
+ypos 86
+}
+Remove {
+channels none
+name Remove2
+xpos -210
+ypos 124
+}
+Copy {
+inputs 2
+from0 -rgba.alpha
+to0 -rgba.alpha
+name Copy3
+xpos -210
+ypos 182
+}
+Crop {
+box {0 0 {input.width i} {input.height i}}
+name Crop1
+xpos -210
+ypos 245
+disable true
+}
+Output {
+name Output1
+xpos -210
+ypos 299
+}
+Transform {
+inputs 0
+translate {{parent.parent.blinkout.wr2offset} {parent.parent.blinkout.wr2offset}}
+center {2048 2048}
+black_outside false
+name Transform1
+label "expresison link this\nto avoid st map overlay"
+xpos -80
+ypos -112
+}
+end_group
+Transform {
+translate {{parent.blinkout.wr2t} {parent.blinkout.wr2t}}
+scale {{parent.blinkout.wr2scale} {parent.blinkout.wr2scale}}
+center {{input.width/2} {input.height/2}}
+shutteroffset centred
+name Transform8
+label "\[if \{\[value translate.x] != 0 || \[value translate.y] != 0\} then \{return \"t \[value translate.x] \[value translate.y]\n\"\} else \{return \"\"\}]\[if \{\[value rotate] != 0\} then \{return \"r \[value rotate]\n\"\} else \{return \"\"\}] \[if \{\[value scale] != 1\} then \{return \"s \[value scale]\"\} else \{return \"\"\}]\[if \{\[value skewX] != 0 || \[value skewY] != 0\} then \{return \"sk \[value skewX] \[value skewY]\n\"\} else \{return \"\"\}]\[if \{\[value motionblur] != 0\} then \{return \"mb \[value motionblur] sh \[value shutter] \[value shutteroffset]\n\"\} else \{return \"\"\}]"
+selected true
+xpos 3437
+ypos 1053
+}
+Blur {
+size {{parent.blinkout.wr2blur*parent.blinkout.fxs} {parent.blinkout.wr2blur*parent.blinkout.fxs}}
+name Blur11
+label "size \[value size]"
+selected true
+xpos 3437
+ypos 1111
+}
+Dot {
+name Dot41
+tile_color 0xcc804e00
+selected true
+xpos 3471
+ypos 1194
+}
+push $Nc820c910
+push $Nc81da2b0
+push $Nbcabf6e0
+Merge2 {
+inputs 2
+operation mask
+bbox intersection
+mix {{parent.blinkout.wrmask}}
+name Merge5
+selected true
+xpos 2825
+ypos 883
+}
+Clamp {
+minimum {{parent.blinkout.wrwhite-1}}
+maximum {{1-parent.blinkout.wrwhite}}
+name Clamp2
+selected true
+xpos 2825
+ypos 948
+}
+Group {
+inputs 2
+name ITransform6
+tile_color 0xb683b5ff
+selected true
+xpos 2825
+ypos 1008
+addUserKnob {20 "" l Transform}
+addUserKnob {41 matrix T Transform1.matrix}
+addUserKnob {41 translate T Transform1.translate}
+addUserKnob {41 rotate T Transform1.rotate}
+addUserKnob {41 scale T Transform1.scale}
+addUserKnob {41 skew +INVISIBLE T Transform1.skew}
+addUserKnob {41 center T Transform1.center}
+addUserKnob {41 filter T Transform1.filter}
+addUserKnob {41 clamp T Transform1.clamp}
+addUserKnob {41 crop l "black outside" +INVISIBLE T Transform1.crop}
+addUserKnob {41 clip l "knob crop \$value" +INVISIBLE T Transform1.clip}
+addUserKnob {14 AdjBBox1_numpixels l "Add Pixels" R 0 100}
+AdjBBox1_numpixels 1024
+}
+Input {
+inputs 0
+name ctrlMask
+xpos -40
+ypos -51
+number 1
+}
+Shuffle {
+red alpha
+green alpha
+blue alpha
+alpha black
+name Shuffle1
+label "\[value in]"
+xpos -40
+ypos -24
+}
+Input {
+inputs 0
+name img
+xpos -385
+ypos -227
+}
+set Nbc92ba90 [stack 0]
+Remove {
+name Remove1
+xpos -210
+ypos -232
+}
+AdjBBox {
+numpixels {{parent.AdjBBox1_numpixels.w i} {parent.AdjBBox1_numpixels.h i}}
+name AdjBBox1
+xpos -210
+ypos -192
+}
+Expression {
+expr0 x
+expr1 y
+name Expression1
+xpos -210
+ypos -140
+}
+set Nbc7c1210 [stack 0]
+Dot {
+name Dot2
+xpos -286
+ypos -136
+}
+Transform {
+translate {{parent.Transform1.translate.main} {parent.Transform1.translate.main}}
+rotate {{parent.Transform1.rotate.main}}
+scale {{parent.Transform1.scale.main} {parent.Transform1.scale.main}}
+skewX {{parent.Transform1.skew.main}}
+center {{parent.Transform1.center.main} {parent.Transform1.center.main}}
+filter {{Transform1.filter}}
+clamp {{parent.Transform1.clamp.main}}
+black_outside {{parent.Transform1.black_outside.main}}
+motionblur {{parent.Transform1.motionblur.main}}
+shutter {{parent.Transform1.shutter.main}}
+shutteroffset {{Transform1.shutteroffset}}
+shuttercustomoffset {{parent.Transform1.shuttercustomoffset.main}}
+name Transform2
+xpos -320
+ypos -72
+}
+push $Nbc7c1210
+Merge2 {
+inputs 2
+operation minus
+name Merge1
+xpos -210
+ypos -72
+}
+Merge2 {
+inputs 2
+operation multiply
+name Merge2
+xpos -210
+ypos -24
+}
+set Nbc7f2fb0 [stack 0]
+Dot {
+name Dot1
+xpos -270
+ypos -21
+}
+Dot {
+name Dot3
+xpos -270
+ypos 162
+}
+push $Nbc92ba90
+Dot {
+name Dot4
+xpos -351
+ypos 48
+}
+set Nbc80bba0 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.red
+from1 rgba.green
+to1 rgba.green
+name Copy2
+xpos -385
+ypos 144
+}
+IDistort {
+channels none
+name IDistort1
+xpos -385
+ypos 182
+}
+push $Nbc7f2fb0
+push $Nbc80bba0
+Copy {
+inputs 2
+from0 rgba.red
+to0 forward.u
+from1 rgba.green
+to1 forward.v
+name Copy1
+xpos -210
+ypos 30
+}
+IDistort {
+uv forward
+name IDistort2
+xpos -210
+ypos 86
+}
+Remove {
+channels none
+name Remove2
+xpos -210
+ypos 124
+}
+Copy {
+inputs 2
+from0 -rgba.alpha
+to0 -rgba.alpha
+name Copy3
+xpos -210
+ypos 182
+}
+Crop {
+box {0 0 {input.width i} {input.height i}}
+name Crop1
+xpos -210
+ypos 245
+disable true
+}
+Output {
+name Output1
+xpos -210
+ypos 299
+}
+Transform {
+inputs 0
+translate {{parent.parent.blinkout.wroffset} {parent.parent.blinkout.wroffset}}
+center {2048 2048}
+black_outside false
+name Transform1
+label "expresison link this\nto avoid st map overlay"
+xpos -80
+ypos -112
+}
+end_group
+Transform {
+translate {{parent.blinkout.wrt} {parent.blinkout.wrt}}
+scale {{parent.blinkout.wrscale} {parent.blinkout.wrscale}}
+center {{input.width/2} {input.height/2}}
+shutteroffset centred
+name Transform12
+label "\[if \{\[value translate.x] != 0 || \[value translate.y] != 0\} then \{return \"t \[value translate.x] \[value translate.y]\n\"\} else \{return \"\"\}]\[if \{\[value rotate] != 0\} then \{return \"r \[value rotate]\n\"\} else \{return \"\"\}] \[if \{\[value scale] != 1\} then \{return \"s \[value scale]\"\} else \{return \"\"\}]\[if \{\[value skewX] != 0 || \[value skewY] != 0\} then \{return \"sk \[value skewX] \[value skewY]\n\"\} else \{return \"\"\}]\[if \{\[value motionblur] != 0\} then \{return \"mb \[value motionblur] sh \[value shutter] \[value shutteroffset]\n\"\} else \{return \"\"\}]"
+selected true
+xpos 2825
+ypos 1043
+}
+Blur {
+size {{parent.blinkout.wrblur*parent.blinkout.fxs} {parent.blinkout.wrblur*parent.blinkout.fxs}}
+name Blur16
+label "size \[value size]"
+selected true
+xpos 2825
+ypos 1093
+}
+Keymix {
+inputs 3
+mix {{parent.blinkout.wr2mix}}
+name Keymix3
+selected true
+xpos 2825
+ypos 1184
+disable {{1-parent.blinkout.wr2on x1168 1}}
+}
+Transform {
+skewX {{parent.blinkout.portskewx}}
+skewY {{parent.blinkout.portskewy}}
+center {2048 2048}
+shutteroffset centred
+name Transform3
+label "\[if \{\[value translate.x] != 0 || \[value translate.y] != 0\} then \{return \"t \[value translate.x] \[value translate.y]\n\"\} else \{return \"\"\}]\[if \{\[value rotate] != 0\} then \{return \"r \[value rotate]\n\"\} else \{return \"\"\}] \[if \{\[value scale] != 1\} then \{return \"s \[value scale]\"\} else \{return \"\"\}]\[if \{\[value skewX] != 0 || \[value skewY] != 0\} then \{return \"sk \[value skewX] \[value skewY]\n\"\} else \{return \"\"\}]\[if \{\[value motionblur] != 0\} then \{return \"mb \[value motionblur] sh \[value shutter] \[value shutteroffset]\n\"\} else \{return \"\"\}]"
+selected true
+xpos 2815
+ypos 1236
+}
+CornerPin2D {
+to1 {{too1-abs(too1-too3)*mult} {too1-abs(too1-too3)*mult}}
+to2 {{too2+abs(too2-too4)*mult} {too2-abs(too2-too4)*mult}}
+to3 {{too3+abs(too1-too3)*mult} {too3+abs(too1-too3)*mult}}
+to4 {{too4-abs(too2-too4)*mult} {too4+abs(too2-too4)*mult}}
+invert false
+shutteroffset centred
+from1 {0 0}
+from2 {4096 0}
+from3 {4096 4096}
+from4 {0 4096}
+name CornerPin2D3
+selected true
+xpos 2825
+ypos 1277
+addUserKnob {20 User}
+addUserKnob {14 mult l multiplier R 0 100}
+mult {{(parent.blinkout.portmult*parent.blinkout.portw)-1} {parent.blinkout.portmult-1}}
+addUserKnob {12 too1}
+too1 {{parent.CornerPin2D5.to1} {parent.CornerPin2D5.to1}}
+addUserKnob {12 too2}
+too2 {{parent.CornerPin2D5.to2} {parent.CornerPin2D5.to2}}
+addUserKnob {12 too3}
+too3 {{parent.CornerPin2D5.to3} {parent.CornerPin2D5.to3}}
+addUserKnob {12 too4}
+too4 {{parent.CornerPin2D5.to4} {parent.CornerPin2D5.to4}}
+}
+Dot {
+name Dot42
+tile_color 0xa57aaa00
+label "Same matchmove as Pull Back"
+note_font_size 25
+selected true
+xpos 2859
+ypos 1369
+}
+Dot {
+name Dot43
+tile_color 0xa57aaa00
+selected true
+xpos 2859
+ypos 1587
+}
+set Nbc71c2a0 [stack 0]
+Shuffle {
+alpha red
+name Shuffle2
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 2825
+ypos 1919
+}
+Grade {
+channels alpha
+whitepoint {{1/parent.blinkout.glowwrboost}}
+gamma {{parent.blinkout.glowwrfo}}
+white_clamp true
+name Grade8
+selected true
+xpos 2825
+ypos 1970
+}
+Multiply {
+channels alpha
+value {{parent.blinkout.glowwrmix}}
+name Multiply1
+selected true
+xpos 2825
+ypos 2021
+}
+Dot {
+name Dot44
+tile_color 0x7aa9ff00
+selected true
+xpos 2859
+ypos 2100
+}
+set Ncea52af0 [stack 0]
+Dot {
+name Dot224
+tile_color 0x7aa9ff00
+label "wrinkle glow matte"
+selected true
+xpos 2511
+ypos 10153
+hide_input true
+}
+Switch {
+inputs 3
+which {{parent.blinkout.preview-4}}
+name Switch17
+selected true
+xpos 2477
+ypos 10201
+}
+push $Nbc71c2a0
+Dot {
+name Dot97
+tile_color 0xa57aaa00
+label wrinkles
+selected true
+xpos 2708
+ypos 9991
+hide_input true
+}
+push $Nc84e0940
+Dot {
+name Dot98
+tile_color 0xa57aaa00
+label portal
+selected true
+xpos 2576
+ypos 9924
+hide_input true
+}
+push $Nc85d11b0
+Dot {
+name Dot126
+tile_color 0xa57aaa00
+selected true
+xpos 2682
+ypos -780
+}
+set Ncea6e280 [stack 0]
+Dot {
+name Dot127
+tile_color 0xa57aaa00
+selected true
+xpos 2820
+ypos -780
+}
+Rectangle {
+area {0 0 {input.width} {input.height/2}}
+name Rectangle11
+selected true
+xpos 2786
+ypos -746
+}
+Dot {
+name Dot128
+tile_color 0xc0c0c000
+selected true
+xpos 2820
+ypos -550
+}
+push $Ncea6e280
+Rectangle {
+area {{curve} {curve} {input.width/2} {input.height/1}}
+name Rectangle12
+selected true
+xpos 2648
+ypos -748
+}
+Dot {
+name Dot129
+tile_color 0xc0c0c000
+selected true
+xpos 2682
+ypos -609
+}
+push $Nc85d11b0
+Expression {
+expr0 (1-abs(x/width-0.5)*2)*scale
+expr1 (1-abs(y/height-0.5)*2)*scale
+channel3 alpha
+expr3 1
+name Expression16
+selected true
+xpos 2525
+ypos -748
+addUserKnob {20 User}
+addUserKnob {7 scale R 0.001 5}
+scale 3.8
+}
+Clamp {
+maximum {{1-parent.blinkout.score*0.7}}
+name Clamp12
+selected true
+xpos 2525
+ypos -697
+}
+Expression {
+inputs 1+1
+expr0 -r
+name Expression17
+selected true
+xpos 2525
+ypos -613
+}
+Expression {
+inputs 1+1
+expr1 -g
+name Expression18
+selected true
+xpos 2525
+ypos -554
+}
+CornerPin2D {
+to1 {1516 -736}
+to2 {2120 -256}
+to3 {2108 1934}
+to4 {1598 2198}
+invert false
+shutteroffset centred
+from1 {0 0}
+from2 {4096 0}
+from3 {4096 4096}
+from4 {0 4096}
+name CornerPin2D5
+label "DO NOT DELETE"
+selected true
+xpos 2525
+ypos -413
+}
+Dot {
+name Dot130
+tile_color 0xa57aaa00
+label "matchmove here if required"
+note_font_size 25
+selected true
+xpos 2559
+ypos -236
+}
+Dot {
+name Dot92
+tile_color 0xa57aaa00
+selected true
+xpos 2559
+ypos 57
+}
+set Ncea898b0 [stack 0]
+Dot {
+name Dot96
+tile_color 0xa57aaa00
+label "pull back"
+selected true
+xpos 2451
+ypos 9991
+hide_input true
+}
+Switch {
+inputs 3
+which {{parent.blinkout.preview-1}}
+name Switch9
+selected true
+xpos 2542
+ypos 9987
+}
+Dot {
+name Dot99
+tile_color 0xcccccc00
+selected true
+xpos 2576
+ypos 10076
+}
+push $Nb9cdeae0
+Dot {
+name Dot103
+tile_color 0xcccccc00
+label element
+selected true
+xpos 2342
+ypos 9987
+hide_input true
+}
+push $N6d47aa20
+Dot {
+name Dot102
+tile_color 0x4b5ec600
+label plate
+selected true
+xpos 2224
+ypos 9925
+hide_input true
+}
+Switch {
+inputs 2
+which {{parent.blinkout.previewbg}}
+name Switch11
+selected true
+xpos 2190
+ypos 9983
+}
+Merge2 {
+inputs 2
+bbox B
+mix {{parent.blinkout.previewmix}}
+name Merge11
+selected true
+xpos 2190
+ypos 10072
+}
+Dot {
+name Dot101
+tile_color 0x4b5ec600
+selected true
+xpos 2224
+ypos 10159
+}
+set Nceb812d0 [stack 0]
+Shuffle {
+red black
+green black
+blue black
+alpha black
+name Shuffle26
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 2321
+ypos 10149
+}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 rgba.alpha
+bbox B
+name Copy20
+selected true
+xpos 2321
+ypos 10195
+}
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle27
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 2321
+ypos 10244
+}
+Dot {
+name Dot226
+tile_color 0x9e3c6300
+selected true
+xpos 2355
+ypos 10301
+}
+push $Nceb812d0
+push $Nddce8940
+Shuffle {
+red black
+green black
+blue black
+alpha black
+name Shuffle9
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 3223
+ypos 8441
+disable {{1-parent.blinkout.no5distort}}
+}
+Dot {
+name Dot35
+tile_color 0x9e3c6300
+selected true
+xpos 3257
+ypos 8560
+}
+set Ncec524f0 [stack 0]
+Dot {
+name Dot36
+tile_color 0x9e3c6300
+selected true
+xpos 3257
+ypos 9300
+}
+push $Ncea52af0
+Dot {
+name Dot45
+tile_color 0x7aa9ff00
+label Winkles
+note_font_size 25
+selected true
+xpos 2963
+ypos 9103
+hide_input true
+}
+ChannelMerge {
+inputs 2
+operation stencil
+mix {{frame<parent.blinkout.fx3?1:0}}
+name ChannelMerge5
+selected true
+xpos 2929
+ypos 9284
+}
+push $Nc81c04b0
+ChannelMerge {
+inputs 2
+mix {{parent.blinkout.glowwrtime}}
+name ChannelMerge14
+selected true
+xpos 2593
+ypos 9284
+}
+Dot {
+name Dot54
+tile_color 0x4b5ec600
+selected true
+xpos 2627
+ypos 9405
+}
+push $Ncec524f0
+push $Nc83b6920
+push $Nc850c740
+push $Ncea52af0
+push $Nbc71c2a0
+push $Nc85b9120
+push $Ncea898b0
+Blur {
+size {{abs(parent.CornerPin2D5.to1.x-parent.CornerPin2D5.to2.x)/8*parent.blinkout.fxs} {abs(parent.CornerPin2D5.to1.y-parent.CornerPin2D5.to4.y)/8*parent.blinkout.fxs}}
+name Blur36
+label "size \[value size]"
+selected true
+xpos 2525
+ypos 100
+}
+Merge2 {
+inputs 2
+operation stencil
+bbox B
+name Merge8
+selected true
+xpos 2525
+ypos 170
+disable {{1-parent.blinkout.sbenable}}
+}
+Dot {
+name Dot131
+tile_color 0x4b5ec600
+selected true
+xpos 2559
+ypos 262
+}
+push $Nc86deae0
+Copy {
+inputs 2
+from0 rgba.red
+to0 forward.u
+from1 rgba.green
+to1 forward.v
+bbox B
+name Copy4
+selected true
+xpos 1955
+ypos 246
+}
+IDistort {
+uv forward
+uv_scale {{base*oamp} {uv_scale.w*parent.blinkout.sfinalratio}}
+name IDistort6
+selected true
+xpos 1955
+ypos 319
+disable {{1-parent.blinkout.shron}}
+addUserKnob {20 User}
+addUserKnob {12 too1}
+too1 {{parent.CornerPin2D5.to1} {parent.CornerPin2D5.to1}}
+addUserKnob {12 too2}
+too2 {{parent.CornerPin2D5.to2} {parent.CornerPin2D5.to2}}
+addUserKnob {12 too3}
+too3 {{parent.CornerPin2D5.to3} {parent.CornerPin2D5.to3}}
+addUserKnob {12 too4}
+too4 {{parent.CornerPin2D5.to4} {parent.CornerPin2D5.to4}}
+addUserKnob {3 dis1 l "Starts at"}
+dis1 {{parent.blinkout.sstart}}
+addUserKnob {3 dis2 l "Max Distort at"}
+dis2 {{parent.blinkout.smax}}
+addUserKnob {3 dis3 l "Ends at"}
+dis3 {{parent.blinkout.send}}
+addUserKnob {7 base l "Base Scale" R 50 350}
+base {{parent.blinkout.shriamp*parent.blinkout.fxs}}
+addUserKnob {7 yratio l "y ratio"}
+yratio {{abs(too1.y-too3.y)/abs(too1.x-too3.x)}}
+addUserKnob {7 incwave l "Phase1 Wavelength" R 0 10}
+incwave {{(dis2-dis1)*2}}
+addUserKnob {7 incamp l "Phase1 Amplitude"}
+incamp {{frame<dis1?0:frame>dis2?1:abs(sin(pi*(frame-dis1)/incwave))}}
+addUserKnob {7 decwave l "Phase2 Wavelength" R 0 10}
+decwave {{(dis3-dis2)*2}}
+addUserKnob {7 decamp l "Phase2 Amplitude"}
+decamp {{frame<dis2?1:frame>dis3?0:abs(sin(pi*(frame-dis3)/decwave))}}
+addUserKnob {7 gam1 l "Dampen Before"}
+gam1 {{parent.blinkout.shridamp}}
+addUserKnob {7 gam2 l "Dampen After"}
+gam2 {{parent.blinkout.shridamp2}}
+addUserKnob {7 oamp l "Overal Amplitude"}
+oamp {{frame<dis1?0:frame>dis3?0:frame<dis2?pow(incamp,gam1):pow(decamp,gam2)}}
+}
+Copy {
+inputs 2
+from0 rgba.red
+to0 forward.u
+from1 rgba.green
+to1 forward.v
+bbox B
+name Copy5
+selected true
+xpos 1955
+ypos 1571
+}
+Dot {
+name Dot132
+tile_color 0x9e3c6300
+selected true
+xpos 1989
+ypos 1682
+}
+set Nced415a0 [stack 0]
+Dot {
+name Dot133
+tile_color 0x9e3c6300
+selected true
+xpos 2142
+ypos 1682
+}
+Dot {
+name Dot136
+tile_color 0x9e3c6300
+selected true
+xpos 2142
+ypos 1984
+}
+set Nced6c830 [stack 0]
+Dot {
+name Dot137
+tile_color 0x9e3c6300
+selected true
+xpos 2276
+ypos 1984
+}
+Merge2 {
+inputs 2
+operation mask
+bbox B
+name Merge17
+selected true
+xpos 2242
+ypos 2096
+}
+Group {
+name GlowExponential1
+help "Exponential Glow node, with options to recolor and adjust falloff."
+knobChanged "\nk = nuke.thisKnob()\nif k.name()=='crop':\n	if k.value():\n    	nuke.thisNode().knob('overscan').setEnabled(True)\n	else:\n    	nuke.thisNode().knob('overscan').setEnabled(False)\n"
+tile_color 0xc97200ff
+selected true
+xpos 2242
+ypos 2212
+addUserKnob {20 ge l Glow}
+addUserKnob {26 glow_ctrls l "@b;Glow:"}
+addUserKnob {7 size t "Size of the glow" R 0 100}
+size {{parent.blinkout.g2size*parent.blinkout.fxs}}
+addUserKnob {7 intensity t "Brightness of the Glow" R 0 10}
+intensity {{parent.blinkout.g2int}}
+addUserKnob {7 falloff t "Adjust the light falloff of the glow. Higher values will have a longer falloff, resulting in visually bigger glows."}
+falloff 0.75
+addUserKnob {26 glow_highlights l "@b;Highlights:"}
+addUserKnob {41 range t "Luma key to define which parts of the image will glow." T Keyer1.range}
+addUserKnob {26 glow_colors l "@b;Glow Colors:"}
+addUserKnob {7 saturation l "color from img" t "By default the glow takes on the colors of the plate. By using this knob you can desaturate the color of the glow."}
+saturation {{parent.blinkout.g2inf}}
+addUserKnob {18 core_color l "core re-color" t "Re-color the core of the glow. Use the core threshold to define which parts of the glow are core or falloff."}
+core_color {1 1 1}
+addUserKnob {6 core_color_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {18 falloff_color l "falloff re-color" t "Re-color the falloff of the glow. Use the core threshold to define which parts of the glow are core or falloff."}
+falloff_color {{parent.blinkout.g2tint} {parent.blinkout.g2tint} {parent.blinkout.g2tint}}
+addUserKnob {6 falloff_color_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {41 mix_1 l "color mix" T Gamma1.mix}
+addUserKnob {7 threshold l "core threshold" t "Define which parts of the glow are core or falloff."}
+threshold 1
+addUserKnob {26 glow_options l "@b;Options:"}
+addUserKnob {14 aspect l "aspect ratio" t "Set the aspect ratio for your glow. Streaky results can be obtained by changing the ratio here." R 0 100}
+aspect {1 1}
+addUserKnob {6 glow_only l "Glow only" t "By default the glow is added onto the plate. Checking this box will output the glow only. " +STARTLINE}
+glow_only true
+addUserKnob {6 crop l "Crop to Format" t "This glow can expand the bounding box to massive values, checking this box can prevent your bbox from getting unmanageable." +STARTLINE}
+crop true
+addUserKnob {7 overscan l "overscan (%)" t "If you are cropping to format but originally had some values outside the format, you can add some overscan here to preserve these. The values are a percentage of the format size." R 0 100}
+overscan 10
+addUserKnob {7 mix t "Mix back with the original plate (or black, if glow only is enabled)"}
+mix {{parent.blinkout.glow2mix}}
+addUserKnob {26 ""}
+addUserKnob {26 spin_copyright l "" t "© <b>SPIN<span style=\"color:#b32026\">VFX</span></b>\nGlow_Exponential\nVersion 1.0\n2017\nhttps://wiki.spinvfx.com/xwiki/bin/view/Departments/Compositing%20Department/Nuke%20tools/Glow_Exponential/" +STARTLINE T "<span style=\"color:#aaa;font-family:sans-serif;font-size:8pt\"><b>SPIN<span style=\"color:#b32026\">VFX</span></b> - Version 1.0 - 2017 - <a href=\"https://wiki.spinvfx.com/xwiki/bin/view/Departments/Compositing%20Department/Nuke%20tools/Glow_Exponential/\" style=\"color:#aaa\">Wiki Page</a></span>"}
+}
+Input {
+inputs 0
+name img
+xpos 0
+ypos -59
+}
+Dot {
+name Dot1
+tile_color 0xcccccc00
+xpos 34
+ypos 50
+}
+set Ncee18430 [stack 0]
+Dot {
+name Dot24
+tile_color 0xcccccc00
+xpos 34
+ypos 1274
+}
+set Ncee1d070 [stack 0]
+Input {
+inputs 0
+name mask
+xpos 136
+ypos 158
+number 1
+}
+push $Ncee18430
+NoOp {
+name CTRL
+xpos 304
+ypos 46
+addUserKnob {20 User}
+addUserKnob {7 falloff R 0 2}
+falloff {{"max(parent.falloff/2+0.5, 0.0001)"}}
+addUserKnob {7 falloff_intensity}
+falloff_intensity {{falloff+pow(falloff,2)+pow(falloff,3)+pow(falloff,4)+pow(falloff,5)+pow(falloff,6)+pow(falloff,7)+pow(falloff,8)+pow(falloff,9)+pow(falloff,10)}}
+addUserKnob {14 size R 0 100}
+size {{parent.size/20*parent.aspect.w} {parent.size/20*parent.aspect.h}}
+addUserKnob {7 intensity}
+intensity {{parent.intensity/falloff_intensity}}
+addUserKnob {7 core R 0 2}
+core {{threshold}}
+addUserKnob {7 core_length}
+core_length {{sqrt(pow(core_color.r,2)+pow(core_color.g,2)+pow(core_color.b,2))/sqrt(3)}}
+addUserKnob {7 falloff_length}
+falloff_length {{sqrt(pow(falloff_color.r,2)+pow(falloff_color.g,2)+pow(falloff_color.b,2))/sqrt(3)}}
+}
+Keyer {
+operation "luminance key"
+range {0 {1/parent.parent.blinkout.g2sens} 1 1}
+name Keyer1
+xpos 304
+ypos 98
+}
+ChannelMerge {
+inputs 2
+operation in
+name ChannelMerge1
+xpos 304
+ypos 146
+disable {{"!\[exists parent.input1] "}}
+}
+Premult {
+name Premult1
+xpos 304
+ypos 202
+}
+Remove {
+operation keep
+channels rgb
+name Remove1
+xpos 304
+ypos 228
+}
+Multiply {
+value {{parent.CTRL.intensity}}
+name Multiplyer
+xpos 304
+ypos 263
+}
+Saturation {
+saturation {{parent.saturation}}
+name Saturation1
+xpos 304
+ypos 326
+}
+Dot {
+name Dot3
+tile_color 0x7aa9ff00
+xpos 338
+ypos 372
+}
+set Ncee6dbc0 [stack 0]
+Dot {
+name Dot2
+tile_color 0x7aa9ff00
+xpos 604
+ypos 372
+}
+set Ncee726d0 [stack 0]
+Dot {
+name Dot4
+tile_color 0x7aa9ff00
+xpos 870
+ypos 372
+}
+set Ncee77180 [stack 0]
+Dot {
+name Dot5
+tile_color 0x7aa9ff00
+xpos 1136
+ypos 372
+}
+set Ncee7bc30 [stack 0]
+Dot {
+name Dot6
+tile_color 0x7aa9ff00
+xpos 1402
+ypos 372
+}
+set Ncee806e0 [stack 0]
+Dot {
+name Dot7
+tile_color 0x7aa9ff00
+xpos 1668
+ypos 372
+}
+set Ncee85190 [stack 0]
+Dot {
+name Dot8
+tile_color 0x7aa9ff00
+xpos 1934
+ypos 372
+}
+set Ncee89cc0 [stack 0]
+Dot {
+name Dot9
+tile_color 0x7aa9ff00
+xpos 2200
+ypos 372
+}
+set Ncee8e770 [stack 0]
+Dot {
+name Dot10
+tile_color 0x7aa9ff00
+xpos 2466
+ypos 372
+}
+set Ncee93220 [stack 0]
+Dot {
+name Dot11
+tile_color 0x7aa9ff00
+xpos 2732
+ypos 372
+}
+Blur {
+size {{Blur9.size*2} {Blur9.size*2}}
+crop false
+name Blur10
+xpos 2698
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,10)}}
+name Multiply10
+xpos 2698
+ypos 543
+}
+Dot {
+name Dot20
+tile_color 0x7aa9ff00
+xpos 2732
+ypos 796
+}
+push $Ncee93220
+Blur {
+size {{Blur8.size*2} {Blur8.size*2}}
+crop false
+name Blur9
+xpos 2432
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,9)}}
+name Multiply9
+xpos 2432
+ypos 542
+}
+Dot {
+name Dot19
+tile_color 0x7aa9ff00
+xpos 2466
+ypos 770
+}
+push $Ncee8e770
+Blur {
+size {{Blur7.size*2} {Blur7.size*2}}
+crop false
+name Blur8
+xpos 2166
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,8)}}
+name Multiply8
+xpos 2166
+ypos 536
+}
+Dot {
+name Dot18
+tile_color 0x7aa9ff00
+xpos 2200
+ypos 744
+}
+push $Ncee89cc0
+Blur {
+size {{Blur6.size*2} {Blur6.size*2}}
+crop false
+name Blur7
+xpos 1900
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,7)}}
+name Multiply7
+xpos 1900
+ypos 528
+}
+Dot {
+name Dot17
+tile_color 0x7aa9ff00
+xpos 1934
+ypos 718
+}
+push $Ncee85190
+Blur {
+size {{Blur5.size*2} {Blur5.size*2}}
+crop false
+name Blur6
+xpos 1634
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,6)}}
+name Multiply6
+xpos 1634
+ypos 528
+}
+Dot {
+name Dot16
+tile_color 0x7aa9ff00
+xpos 1668
+ypos 692
+}
+push $Ncee806e0
+Blur {
+size {{Blur4.size*2} {Blur4.size*2}}
+crop false
+name Blur5
+xpos 1368
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,5)}}
+name Multiply5
+xpos 1368
+ypos 524
+}
+Dot {
+name Dot15
+tile_color 0x7aa9ff00
+xpos 1402
+ypos 666
+}
+push $Ncee7bc30
+Blur {
+size {{Blur3.size*2} {Blur3.size*2}}
+crop false
+name Blur4
+xpos 1102
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,4)}}
+name Multiply4
+xpos 1102
+ypos 518
+}
+Dot {
+name Dot14
+tile_color 0x7aa9ff00
+xpos 1136
+ypos 640
+}
+push $Ncee77180
+Blur {
+size {{Blur2.size*2} {Blur2.size*2}}
+crop false
+name Blur3
+xpos 836
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,3)}}
+name Multiply3
+xpos 836
+ypos 509
+}
+Dot {
+name Dot13
+tile_color 0x7aa9ff00
+xpos 870
+ypos 614
+}
+push $Ncee726d0
+Blur {
+size {{Blur1.size*2} {Blur1.size*2}}
+crop false
+name Blur2
+xpos 570
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,2)}}
+name Multiply2
+xpos 570
+ypos 508
+}
+Dot {
+name Dot12
+tile_color 0x7aa9ff00
+xpos 604
+ypos 588
+}
+push $Ncee6dbc0
+Blur {
+size {{CTRL.size*2} {CTRL.size*2}}
+crop false
+name Blur1
+xpos 304
+ypos 440
+}
+Multiply {
+value {{CTRL.falloff}}
+name Multiply1
+xpos 304
+ypos 512
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge1
+xpos 304
+ypos 584
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge2
+xpos 304
+ypos 610
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge3
+xpos 304
+ypos 636
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge4
+xpos 304
+ypos 662
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge5
+xpos 304
+ypos 688
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge6
+xpos 304
+ypos 714
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge7
+xpos 304
+ypos 740
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge8
+xpos 304
+ypos 766
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge9
+xpos 304
+ypos 792
+}
+Dot {
+name Dot21
+tile_color 0x4b5ec600
+xpos 338
+ypos 928
+}
+set Ncf24f5f0 [stack 0]
+Dot {
+name Dot22
+tile_color 0x4b5ec600
+xpos 498
+ypos 928
+}
+Grade {
+whitepoint {{CTRL.core}}
+white_clamp true
+name Grade2
+xpos 464
+ypos 977
+}
+Gamma {
+channels rgb
+value {{parent.falloff_color.r/CTRL.falloff_length} {parent.falloff_color.g/CTRL.falloff_length} {parent.falloff_color.b/CTRL.falloff_length} {curve}}
+mix {{parent.parent.blinkout.g2tmix}}
+name Gamma1
+xpos 464
+ypos 1037
+}
+Grade {
+whitepoint {{CTRL.core}}
+reverse true
+name Grade3
+xpos 464
+ypos 1108
+}
+push $Ncf24f5f0
+Clamp {
+minimum {{CTRL.core}}
+maximum_enable false
+name Clamp1
+xpos 304
+ypos 972
+}
+Grade {
+add {{1-CTRL.core}}
+name Grade4
+xpos 304
+ypos 1020
+}
+Gamma {
+channels rgb
+value {{1+(1-parent.core_color.r)/CTRL.core_length} {1+(1-parent.core_color.g)/CTRL.core_length} {1+(1-parent.core_color.b)/CTRL.core_length} {curve}}
+name Gamma2
+xpos 304
+ypos 1061
+}
+Add {
+channels rgb
+value -1
+name Add1
+xpos 304
+ypos 1099
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge10
+xpos 304
+ypos 1157
+}
+Remove {
+operation keep
+channels rgb
+name Remove2
+xpos 304
+ypos 1183
+}
+Multiply {
+value {{parent.mix}}
+name mix
+xpos 304
+ypos 1215
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge11
+xpos 304
+ypos 1270
+disable {{parent.glow_only}}
+}
+Dot {
+name Dot23
+tile_color 0x4b5ec600
+xpos 338
+ypos 1436
+}
+push $Ncee1d070
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.red
+from1 rgba.green
+to1 rgba.green
+from2 rgba.blue
+to2 rgba.blue
+name Copy1
+xpos 0
+ypos 1414
+}
+Crop {
+box {{-width*(parent.overscan/100)/2} {-height*(parent.overscan/100)/2} {width+(width*(parent.overscan/100)/2)} {height+(height*(parent.overscan/100)/2)}}
+crop false
+name Crop2
+xpos 0
+ypos 1495
+disable {{!parent.crop}}
+}
+Output {
+name Output1
+xpos 0
+ypos 1543
+}
+end_group
+Dot {
+name Dot138
+tile_color 0xc97200ff
+selected true
+xpos 2276
+ypos 2301
+}
+push $Nced6c830
+Merge2 {
+inputs 2
+operation plus
+bbox B
+mix {{frame<g2?pow(dim1,gam):pow(dim2,gam2)}}
+name Merge18
+selected true
+xpos 2108
+ypos 2297
+disable {{1-parent.blinkout.glow2on==1?1:parent.blinkout.glowwrtime}}
+addUserKnob {20 User}
+addUserKnob {3 g1 l Start}
+g1 {{parent.blinkout.g21}}
+addUserKnob {3 g2 l Max}
+g2 {{parent.blinkout.g22}}
+addUserKnob {3 g3 l End}
+g3 {{parent.blinkout.g23}}
+addUserKnob {3 wave l "Wavelength bef"}
+wave {{(g2-g1)*2}}
+addUserKnob {3 wave2 l "Wavelength aft"}
+wave2 {{(g3-g2)*2}}
+addUserKnob {7 dim1 l "Dim Before"}
+dim1 {{frame<g1?0:frame>g2?1:(sin(2*pi*(frame-g2+wave/4)/wave)+1)/2}}
+addUserKnob {7 dim2 l "Dim After"}
+dim2 {{frame<g2?1:frame>g3?0:(sin(2*pi*(frame-g2+wave2/4)/wave2)+1)/2}}
+addUserKnob {7 gam l "Gamma Before" R 0.05 3}
+gam {{parent.blinkout.g2dim1}}
+addUserKnob {7 gam2 l "Gamma After" R 0.05 3}
+gam2 {{parent.blinkout.g2dim2}}
+addUserKnob {7 diml l "Dim Linear"}
+diml {{frame<g1?0:frame<g2?(frame-g1)/(g2-g1):frame>g3?0:1-(frame-g2)/(g3-g2)}}
+}
+IDistort {
+uv forward
+uv_scale {{base*amp*fdamp*parent.blinkout.wrxy} {base*amp*fdamp*parent.blinkout.wrxy}}
+name IDistort7
+selected true
+xpos 2108
+ypos 2404
+addUserKnob {20 User}
+addUserKnob {3 dis1 l Start}
+dis1 {{parent.blinkout.wrstart}}
+addUserKnob {3 dis2 l Max}
+dis2 {{parent.blinkout.wrmaxten}}
+addUserKnob {3 dis3 l End}
+dis3 {{parent.blinkout.wrend}}
+addUserKnob {7 base l "Base Amplitude"}
+base {{parent.blinkout.wramp*parent.blinkout.fxs}}
+addUserKnob {7 amp l "Overall Amplitude"}
+amp {{abs(parent.IDistort9.oamp)+(1-abs(parent.IDistort9.oamp))*parent.blinkout.wrlift}}
+addUserKnob {7 damp l "Dampen Linear"}
+damp {{frame<dis1?0:frame<dis2?(frame-dis1)/(dis2-dis1):frame>dis3?0:1-(frame-dis2)/(dis3-dis2)}}
+addUserKnob {7 gam l "Dampen Before" R 0.05 3}
+gam {{parent.blinkout.wrdamp}}
+addUserKnob {7 gam2 l "Dampen After" R 0.05 3}
+gam2 {{parent.blinkout.wrdamp2}}
+addUserKnob {7 fdamp l "Final Dampen"}
+fdamp {{frame<dis2?pow(damp,gam):pow(damp,gam2)}}
+}
+Dot {
+name Dot135
+tile_color 0xa57aaa00
+selected true
+xpos 2142
+ypos 2482
+}
+push $Nced415a0
+Dissolve {
+inputs 2
+which {{parent.blinkout.wrmix}}
+name Dissolve4
+selected true
+xpos 1955
+ypos 2472
+disable {{1-parent.blinkout.wron x1023 1}}
+}
+Remove {
+channels forward
+name Remove2
+selected true
+xpos 1955
+ypos 2588
+}
+add_layer {portal portal.u portal.v}
+AddChannels {
+channels portal
+name AddChannels1
+selected true
+xpos 1955
+ypos 3528
+}
+Copy {
+inputs 2
+from0 rgba.alpha
+to0 portal.u
+from1 -rgba.green
+bbox B
+name Copy18
+selected true
+xpos 1955
+ypos 3602
+}
+Dot {
+name Dot61
+tile_color 0x9e3c6300
+selected true
+xpos 1989
+ypos 3711
+}
+set Ncf470020 [stack 0]
+Dot {
+name Dot62
+tile_color 0x9e3c6300
+selected true
+xpos 2273
+ypos 3711
+}
+Group {
+inputs 2
+name ITransform4
+tile_color 0xb683b5ff
+selected true
+xpos 2239
+ypos 3798
+addUserKnob {20 "" l Transform}
+addUserKnob {41 matrix T Transform1.matrix}
+addUserKnob {41 translate T Transform1.translate}
+addUserKnob {41 rotate T Transform1.rotate}
+addUserKnob {41 scale T Transform1.scale}
+addUserKnob {41 skew +INVISIBLE T Transform1.skew}
+addUserKnob {41 center T Transform1.center}
+addUserKnob {41 filter T Transform1.filter}
+addUserKnob {41 clamp T Transform1.clamp}
+addUserKnob {41 crop l "black outside" +INVISIBLE T Transform1.crop}
+addUserKnob {41 clip l "knob crop \$value" +INVISIBLE T Transform1.clip}
+addUserKnob {14 AdjBBox1_numpixels l "Add Pixels" R 0 100}
+AdjBBox1_numpixels 1024
+addUserKnob {20 user l User}
+addUserKnob {3 dis1 l "Start at"}
+dis1 {{parent.blinkout.dpstart}}
+addUserKnob {3 dis2 l "Max at"}
+dis2 {{parent.blinkout.dpmax}}
+addUserKnob {3 dis3 l "Bounce at"}
+dis3 {{parent.blinkout.dpbnc}}
+addUserKnob {3 dis4 l "Ends at"}
+dis4 {{int(parent.blinkout.dpend)}}
+addUserKnob {12 base l "Base Amp"}
+base {{parent.blinkout.dpbase} {parent.blinkout.dpbase}}
+addUserKnob {3 wave1 l "Buildup WL"}
+wave1 {{(dis2-dis1)*2}}
+addUserKnob {7 amp1 l "Buildup Amp"}
+amp1 {{frame<dis1?0:frame>dis2?1:(sin(2*pi*(frame-dis1-wave1/4)/wave1)+1)/2}}
+addUserKnob {3 wave2 l "Retract WL"}
+wave2 {{(dis3-dis2)*4}}
+addUserKnob {7 amp2 l "Retract Amp"}
+amp2 {{frame<dis2?1:(sin(2*pi*(frame-dis2+wave2/4)/(wave2-1))+1)/2*2-1}}
+addUserKnob {3 wave3 l "Bounce WL"}
+wave3 {{(dis4-dis3)*2*parent.blinkout.dpwave}}
+addUserKnob {7 over l Overshoot R -1 0}
+over {{parent.blinkout.dpover}}
+addUserKnob {7 amp3 l "Bounce Amp"}
+amp3 {{((sin(2*pi*(frame-dis3+wave3/2)/wave3)+1)/2-.5)*2*abs(over)}}
+addUserKnob {7 damp l "Bounce Dampen"}
+damp {{frame<dis3?1:frame>=dis4?0:1-(frame-dis3)/(dis4-dis3)}}
+addUserKnob {7 oamp l "Overall Amp"}
+oamp {{frame<dis2?amp1:frame<=dis3?amp2:frame>=dis4?0:amp3*damp}}
+addUserKnob {7 gam l "Dampen Before"}
+gam {{parent.blinkout.dpdamp1}}
+addUserKnob {7 gam2 l "Dampen After"}
+gam2 {{parent.blinkout.dpdamp2}}
+addUserKnob {7 famp l "Final Amp"}
+famp {{oamp>0?pow(oamp,gam2):-pow(abs(oamp),gam2)}}
+}
+Input {
+inputs 0
+name ctrlMask
+xpos -40
+ypos -51
+number 1
+}
+Shuffle {
+red alpha
+green alpha
+blue alpha
+alpha black
+name Shuffle1
+label "\[value in]"
+xpos -40
+ypos -24
+}
+Input {
+inputs 0
+name img
+xpos -385
+ypos -227
+}
+set Ncf51d470 [stack 0]
+Remove {
+name Remove1
+xpos -210
+ypos -232
+}
+AdjBBox {
+numpixels {{parent.AdjBBox1_numpixels.w i} {parent.AdjBBox1_numpixels.h i}}
+name AdjBBox1
+xpos -210
+ypos -192
+}
+Expression {
+expr0 x
+expr1 y
+name Expression1
+xpos -210
+ypos -140
+}
+set Ncf532ca0 [stack 0]
+Dot {
+name Dot2
+xpos -286
+ypos -136
+}
+Transform {
+translate {{parent.Transform1.translate.main} {parent.Transform1.translate.main}}
+rotate {{parent.Transform1.rotate.main}}
+scale {{parent.Transform1.scale.main} {parent.Transform1.scale.main}}
+skewX {{parent.Transform1.skew.main}}
+center {{parent.Transform1.center.main} {parent.Transform1.center.main}}
+filter {{Transform1.filter}}
+clamp {{parent.Transform1.clamp.main}}
+black_outside {{parent.Transform1.black_outside.main}}
+motionblur {{parent.Transform1.motionblur.main}}
+shutter {{parent.Transform1.shutter.main}}
+shutteroffset {{Transform1.shutteroffset}}
+shuttercustomoffset {{parent.Transform1.shuttercustomoffset.main}}
+name Transform2
+xpos -320
+ypos -72
+}
+push $Ncf532ca0
+Merge2 {
+inputs 2
+operation minus
+name Merge1
+xpos -210
+ypos -72
+}
+Merge2 {
+inputs 2
+operation multiply
+name Merge2
+xpos -210
+ypos -24
+}
+set Ncf564a40 [stack 0]
+Dot {
+name Dot1
+xpos -270
+ypos -21
+}
+Dot {
+name Dot3
+xpos -270
+ypos 162
+}
+push $Ncf51d470
+Dot {
+name Dot4
+xpos -351
+ypos 48
+}
+set Ncf57d630 [stack 0]
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.red
+from1 rgba.green
+to1 rgba.green
+name Copy2
+xpos -385
+ypos 144
+}
+IDistort {
+channels none
+name IDistort1
+xpos -385
+ypos 182
+}
+push $Ncf564a40
+push $Ncf57d630
+Copy {
+inputs 2
+from0 rgba.red
+to0 forward.u
+from1 rgba.green
+to1 forward.v
+name Copy1
+xpos -210
+ypos 30
+}
+IDistort {
+uv forward
+name IDistort2
+xpos -210
+ypos 86
+}
+Remove {
+channels none
+name Remove2
+xpos -210
+ypos 124
+}
+Copy {
+inputs 2
+from0 -rgba.alpha
+to0 -rgba.alpha
+name Copy3
+xpos -210
+ypos 182
+}
+Crop {
+box {0 0 {input.width i} {input.height i}}
+name Crop1
+xpos -210
+ypos 245
+}
+Output {
+name Output1
+xpos -210
+ypos 299
+}
+Transform {
+inputs 0
+translate {{base*famp} {base*famp}}
+center {1024 778}
+black_outside false
+name Transform1
+label "expresison link this\nto avoid st map overlay"
+xpos -80
+ypos -112
+}
+end_group
+Crop {
+box {0 0 5120 2880}
+reformat true
+crop false
+name Crop5
+selected true
+xpos 2239
+ypos 3859
+}
+Dot {
+name Dot63
+tile_color 0xa57aaa00
+selected true
+xpos 2273
+ypos 3934
+}
+push $Ncf470020
+Switch {
+inputs 2
+which {{parent.blinkout.dpon}}
+name Switch2
+selected true
+xpos 1955
+ypos 3930
+}
+set Ncf46ec60 [stack 0]
+Dot {
+name Dot95
+tile_color 0xcccccc00
+label Portal
+note_font_size 25
+selected true
+xpos 2713
+ypos 8402
+hide_input true
+}
+Shuffle {
+in portal
+green red
+blue red
+alpha red
+name Shuffle8
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 2679
+ypos 8469
+}
+ChannelMerge {
+inputs 2
+operation stencil
+mix {{frame<parent.blinkout.fx3?1:0}}
+name ChannelMerge20
+selected true
+xpos 2679
+ypos 8544
+}
+push $Nc8701040
+Dot {
+name Dot119
+tile_color 0xa57aaa00
+selected true
+xpos 3022
+ypos 6548
+hide_input true
+}
+FilterErode {
+size {{parent.blinkout.sbs2}}
+filter gaussian
+name FilterErode2
+label "size \[value size]"
+selected true
+xpos 2988
+ypos 6591
+}
+Grade {
+channels alpha
+gamma {{parent.blinkout.sbst2}}
+white_clamp true
+name Grade10
+selected true
+xpos 2988
+ypos 6658
+}
+Invert {
+name Invert2
+selected true
+xpos 2988
+ypos 6706
+}
+Dot {
+name Dot67
+tile_color 0x7aa9ff00
+label "\nSafe Border"
+note_font_size 12
+selected true
+xpos 3022
+ypos 6749
+}
+push $Nc83ce230
+Dot {
+name Dot57
+tile_color 0x7aa9ff00
+label "\nContain within Portal surface"
+note_font_size 12
+selected true
+xpos 2995
+ypos 6195
+}
+push $Nc8310900
+Luma_to_Normals {
+name Luma_to_Normals3
+selected true
+xpos 2615
+ypos 5911
+gain 7
+size {{58.5*parent.blinkout.fxs}}
+details_weight 0.23
+}
+Shuffle {
+blue black
+name Shuffle14
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 2615
+ypos 5958
+}
+Dot {
+name Dot120
+tile_color 0x9e3c6300
+selected true
+xpos 2649
+ypos 6020
+}
+push $Nc82afea0
+Blur {
+channels alpha
+size {{94*parent.blinkout.fxs}}
+name Blur21
+label "size \[value size]"
+selected true
+xpos 3223
+ypos 5384
+}
+Shuffle {
+red alpha
+green alpha
+blue alpha
+name Shuffle15
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 3223
+ypos 5643
+}
+Luma_to_Normals {
+name Luma_to_Normals4
+selected true
+xpos 3223
+ypos 5711
+gain 3
+size {{58.5*parent.blinkout.fxs}}
+details_weight 0.23
+}
+Shuffle {
+blue black
+name Shuffle16
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 3223
+ypos 5790
+}
+Dissolve {
+inputs 2
+which {{(frame)<start?0:(frame)>switch?1:((frame)-start)/dur}}
+name Dissolve3
+selected true
+xpos 3223
+ypos 6010
+addUserKnob {20 User}
+addUserKnob {3 switch}
+switch {{parent.blinkout.fx2}}
+addUserKnob {3 dur l duration}
+dur 3
+addUserKnob {3 start}
+start {{switch-dur}}
+}
+Blur {
+size {{parent.blinkout.surfb*parent.blinkout.fxs} {parent.blinkout.surfb*parent.blinkout.fxs}}
+name Blur22
+label "size \[value size]"
+selected true
+xpos 3223
+ypos 6083
+}
+Merge2 {
+inputs 2
+operation mask
+bbox intersection
+name Merge9
+selected true
+xpos 3223
+ypos 6191
+disable {{1-parent.blinkout.surfcont}}
+}
+Dot {
+name Dot121
+tile_color 0x4b5ec600
+label "Delete or replace for your shot"
+note_font_size 25
+note_font_color 0xe9e9e9ff
+selected true
+xpos 3257
+ypos 6294
+}
+Merge2 {
+inputs 2
+operation stencil
+bbox B
+name Merge7
+selected true
+xpos 3223
+ypos 6745
+disable {{1-parent.blinkout.sb2enable}}
+}
+Dot {
+name Dot122
+tile_color 0x4b5ec600
+selected true
+xpos 3257
+ypos 6852
+}
+push $Nc84fe080
+Dot {
+name Dot125
+tile_color 0x4b5ec600
+selected true
+xpos 2851
+ypos 4074
+}
+push $Ncf46ec60
+Copy {
+inputs 2
+from0 rgba.red
+to0 portal.u
+from1 rgba.green
+to1 portal.v
+bbox B
+name Copy6
+selected true
+xpos 1955
+ypos 4058
+}
+IDistort {
+uv portal
+uv_scale {{-base*parent.blinkout.portxy*oamp*fdamp} {-base*parent.blinkout.portxy*oamp*fdamp}}
+name IDistort9
+selected true
+xpos 1955
+ypos 4169
+disable {{1-parent.blinkout.porton}}
+addUserKnob {20 User}
+addUserKnob {7 base l "Base Scale" R 100 300}
+base {{parent.blinkout.portamp*parent.blinkout.fxs}}
+addUserKnob {3 dis1 l "Distortion Start"}
+dis1 {{parent.blinkout.fx1}}
+addUserKnob {3 dis2 l "Max Shrink at"}
+dis2 {{parent.blinkout.portshr}}
+addUserKnob {3 dis3 l "Burst at"}
+dis3 {{parent.blinkout.portpop}}
+addUserKnob {3 dis4 l "Bounce at"}
+dis4 {{dis3+bncwave/2+parent.blinkout.portbncoff}}
+addUserKnob {3 dis5 l "End at"}
+dis5 {{parent.blinkout.fx4}}
+addUserKnob {7 shrwave l "Shrink Wavelength"}
+shrwave {{(dis2-dis1)*2}}
+addUserKnob {7 shramp l "Shrink Amplitude"}
+shramp {{frame<dis1?0:frame>dis2?-1:-(sin(2*pi*(dis2-frame+shrwave/4)/shrwave)+1)/2}}
+addUserKnob {7 popwave l "Burst Wavelength"}
+popwave {{(dis3-dis2)*2}}
+addUserKnob {7 blin l Linear}
+blin {{frame<dis2?-1:frame>dis3?1:-(((dis3)-frame)/(dis3-dis2)-0.5)*2}}
+addUserKnob {7 bsin l Sine}
+bsin {{frame<dis2?-1:frame>dis3?1:sin(2*pi*((dis2)-frame-popwave/4)/popwave)}}
+addUserKnob {7 bsma l "Smooth a"}
+bsma {{"frame<=dis2?-1:frame>dis3?1:-(sin((pi*((dis2)-frame)/(popwave)) % (pi/2))-0.5)*2"}}
+addUserKnob {7 bsmb l "Smooth B"}
+bsmb {{frame<dis2?-1:frame>dis3?1:(abs(sin(pi*(frame-dis3+popwave/2)/popwave))-0.5)*2}}
+addUserKnob {3 bu l "Curve Type"}
+bu {{parent.blinkout.portpopfo}}
+addUserKnob {7 popamp l "Burst Amplitude"}
+popamp {{bu==0?blin:bu==1?bsin:bu==2?bsma:bsmb}}
+addUserKnob {7 bncwave l "Bounce Wavelength"}
+bncwave {{(dis5-dis3)}}
+addUserKnob {7 clin l Linear}
+clin {{frame<dis3?1:frame>dis4?-1:(((dis4)-frame)/(dis4-(dis3-1))-0.5)*2}}
+addUserKnob {7 csin l Sine}
+csin {{frame<dis3?1:frame>dis4?-1:-sin(2*pi*((dis3-1)-frame-bncwave/4)/bncwave)}}
+addUserKnob {7 csma l "Smooth A"}
+csma {{"frame<dis3?1:frame>dis4?-1:(sin((pi*((dis3-1)-frame)/(bncwave)) % (pi/2))-0.5)*2"}}
+addUserKnob {7 csmb l "Smooth B"}
+csmb {{frame<dis3?1:frame>dis4?-1:-(abs(sin(pi*(frame-dis4+bncwave/2)/bncwave))-0.5)*2}}
+addUserKnob {3 cu l "Curve Type"}
+cu {{parent.blinkout.portbncfo}}
+addUserKnob {7 bncamp l "Bounce Amplitude"}
+bncamp {{cu==0?clin:cu==1?csin:cu==2?csma:csmb}}
+addUserKnob {7 endwave l "End Wavelength"}
+endwave {{bncwave*parent.blinkout.portwavel}}
+addUserKnob {7 endamp l "End Amplitude"}
+endamp {{frame<dis4?-1:frame>=dis5?0:sin(2*pi*(dis4-frame-endwave/4)/endwave)}}
+addUserKnob {7 oamp l "Overall Amplitude" R -1 1}
+oamp {{frame<dis1?0:frame<dis2?shramp:frame<dis3?popamp:frame<dis4?bncamp:frame<dis5?endamp:0}}
+addUserKnob {7 damp l "Dampen Linear"}
+damp {{frame<dis1?0:frame<dis3?(frame-dis1)/(dis3-dis1):frame>dis5?0:1-(frame-dis3)/(dis5-dis3)}}
+addUserKnob {7 gam l "Dampen Before" R 0.05 3}
+gam {{parent.blinkout.portdamp}}
+addUserKnob {7 gam2 l "Dampen After" R 0.05 3}
+gam2 {{parent.blinkout.portdamp2}}
+addUserKnob {7 fdamp l "Final Dampen"}
+fdamp {{frame<dis3?pow(damp,gam):pow(damp,gam2)}}
+}
+Remove {
+channels portal
+name Remove5
+selected true
+xpos 1955
+ypos 4250
+}
+Copy {
+inputs 2
+from0 rgba.red
+to0 forward.u
+from1 rgba.green
+to1 forward.v
+bbox B
+name Copy7
+selected true
+xpos 1955
+ypos 6836
+}
+IDistort {
+uv forward
+uv_scale {{(frame)<dis2?base*parent.blinkout.surfxy*pow(incamp,gam1):base*parent.blinkout.surfxy*pow(decamp,gam2)} {(frame)<dis2?base*parent.blinkout.surfxy*pow(incamp,gam1):base*parent.blinkout.surfxy*pow(decamp,gam2)}}
+name IDistort10
+selected true
+xpos 1955
+ypos 6964
+disable {{1-parent.blinkout.surfon}}
+addUserKnob {20 User}
+addUserKnob {7 base l "Base Scale" R 0 300}
+base {{parent.blinkout.surfamp*parent.blinkout.fxs}}
+addUserKnob {3 dis1 l "Distortion Start"}
+dis1 {{parent.blinkout.surfstart}}
+addUserKnob {3 dis2 l "Full Distortion"}
+dis2 {{parent.blinkout.surfmax}}
+addUserKnob {3 dis3 l "Full Maintain"}
+dis3 {{parent.blinkout.surfmaxhold}}
+addUserKnob {3 dis4 l "Distortion End"}
+dis4 {{parent.blinkout.surfend}}
+addUserKnob {3 inc l "Increase Duration"}
+inc {{dis2-dis1}}
+addUserKnob {7 incamp l "Increase Amplitude"}
+incamp {{frame<dis1?0:frame>dis2?1:(sin(2*pi*(frame-dis1-inc/2)/inc/2)+1)/2}}
+addUserKnob {3 dec l "Decrease Duration"}
+dec {{dis4-dis3}}
+addUserKnob {7 decamp l "Decrease Amplitude"}
+decamp {{frame<dis3?1:frame>dis4?0:1-(sin(2*pi*(frame-dis3-dec/2)/dec/2)+1)/2}}
+addUserKnob {7 gam1 l "Gamma Before" R 0 3}
+gam1 {{parent.blinkout.surfdamp}}
+addUserKnob {7 gam2 l "Gamma After" R 0 3}
+gam2 {{parent.blinkout.surfdamp2}}
+}
+set Nd0332510 [stack 0]
+Dot {
+name Dot139
+tile_color 0xa57aaa00
+selected true
+xpos 2344
+ypos 8427
+hide_input true
+}
+Group {
+inputs 2
+name GlowExponential2
+help "Exponential Glow node, with options to recolor and adjust falloff."
+knobChanged "\nk = nuke.thisKnob()\nif k.name()=='crop':\n	if k.value():\n    	nuke.thisNode().knob('overscan').setEnabled(True)\n	else:\n    	nuke.thisNode().knob('overscan').setEnabled(False)\n"
+tile_color 0xc97200ff
+selected true
+xpos 2310
+ypos 8556
+addUserKnob {20 ge l Glow}
+addUserKnob {26 glow_ctrls l "@b;Glow:"}
+addUserKnob {7 size t "Size of the glow" R 0 100}
+size {{parent.blinkout.gsize*parent.blinkout.fxs}}
+addUserKnob {7 intensity t "Brightness of the Glow" R 0 10}
+intensity {{parent.blinkout.gint}}
+addUserKnob {7 falloff t "Adjust the light falloff of the glow. Higher values will have a longer falloff, resulting in visually bigger glows."}
+falloff 0.75
+addUserKnob {26 glow_highlights l "@b;Highlights:"}
+addUserKnob {41 range t "Luma key to define which parts of the image will glow." T Keyer1.range}
+addUserKnob {26 glow_colors l "@b;Glow Colors:"}
+addUserKnob {7 saturation l "color from img" t "By default the glow takes on the colors of the plate. By using this knob you can desaturate the color of the glow."}
+saturation {{parent.blinkout.ginf}}
+addUserKnob {18 core_color l "core re-color" t "Re-color the core of the glow. Use the core threshold to define which parts of the glow are core or falloff."}
+core_color {1 1 1}
+addUserKnob {6 core_color_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {18 falloff_color l "falloff re-color" t "Re-color the falloff of the glow. Use the core threshold to define which parts of the glow are core or falloff."}
+falloff_color {{parent.blinkout.gtint} {parent.blinkout.gtint} {parent.blinkout.gtint}}
+addUserKnob {6 falloff_color_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {41 mix_1 l "color mix" T Gamma1.mix}
+addUserKnob {7 threshold l "core threshold" t "Define which parts of the glow are core or falloff."}
+threshold 1
+addUserKnob {26 glow_options l "@b;Options:"}
+addUserKnob {14 aspect l "aspect ratio" t "Set the aspect ratio for your glow. Streaky results can be obtained by changing the ratio here." R 0 100}
+aspect {1 1}
+addUserKnob {6 glow_only l "Glow only" t "By default the glow is added onto the plate. Checking this box will output the glow only. " +STARTLINE}
+glow_only true
+addUserKnob {6 crop l "Crop to Format" t "This glow can expand the bounding box to massive values, checking this box can prevent your bbox from getting unmanageable." +STARTLINE}
+crop true
+addUserKnob {7 overscan l "overscan (%)" t "If you are cropping to format but originally had some values outside the format, you can add some overscan here to preserve these. The values are a percentage of the format size." R 0 100}
+overscan 10
+addUserKnob {7 mix t "Mix back with the original plate (or black, if glow only is enabled)"}
+mix {{parent.blinkout.glowmix}}
+addUserKnob {26 ""}
+addUserKnob {26 spin_copyright l "" t "© <b>SPIN<span style=\"color:#b32026\">VFX</span></b>\nGlow_Exponential\nVersion 1.0\n2017\nhttps://wiki.spinvfx.com/xwiki/bin/view/Departments/Compositing%20Department/Nuke%20tools/Glow_Exponential/" +STARTLINE T "<span style=\"color:#aaa;font-family:sans-serif;font-size:8pt\"><b>SPIN<span style=\"color:#b32026\">VFX</span></b> - Version 1.0 - 2017 - <a href=\"https://wiki.spinvfx.com/xwiki/bin/view/Departments/Compositing%20Department/Nuke%20tools/Glow_Exponential/\" style=\"color:#aaa\">Wiki Page</a></span>"}
+}
+Input {
+inputs 0
+name img
+xpos 0
+ypos -59
+}
+Dot {
+name Dot1
+tile_color 0xcccccc00
+xpos 34
+ypos 50
+}
+set Nd035a470 [stack 0]
+Dot {
+name Dot24
+tile_color 0xcccccc00
+xpos 34
+ypos 1274
+}
+set Nd035f0b0 [stack 0]
+Input {
+inputs 0
+name mask
+xpos 136
+ypos 158
+number 1
+}
+push $Nd035a470
+NoOp {
+name CTRL
+xpos 304
+ypos 46
+addUserKnob {20 User}
+addUserKnob {7 falloff R 0 2}
+falloff {{"max(parent.falloff/2+0.5, 0.0001)"}}
+addUserKnob {7 falloff_intensity}
+falloff_intensity {{falloff+pow(falloff,2)+pow(falloff,3)+pow(falloff,4)+pow(falloff,5)+pow(falloff,6)+pow(falloff,7)+pow(falloff,8)+pow(falloff,9)+pow(falloff,10)}}
+addUserKnob {14 size R 0 100}
+size {{parent.size/20*parent.aspect.w} {parent.size/20*parent.aspect.h}}
+addUserKnob {7 intensity}
+intensity {{parent.intensity/falloff_intensity}}
+addUserKnob {7 core R 0 2}
+core {{threshold}}
+addUserKnob {7 core_length}
+core_length {{sqrt(pow(core_color.r,2)+pow(core_color.g,2)+pow(core_color.b,2))/sqrt(3)}}
+addUserKnob {7 falloff_length}
+falloff_length {{sqrt(pow(falloff_color.r,2)+pow(falloff_color.g,2)+pow(falloff_color.b,2))/sqrt(3)}}
+}
+Keyer {
+operation "luminance key"
+range {0 {1/parent.parent.blinkout.gsens} 1 1}
+name Keyer1
+xpos 304
+ypos 98
+}
+ChannelMerge {
+inputs 2
+operation in
+name ChannelMerge1
+xpos 304
+ypos 146
+disable {{"!\[exists parent.input1] "}}
+}
+Premult {
+name Premult1
+xpos 304
+ypos 202
+}
+Remove {
+operation keep
+channels rgb
+name Remove1
+xpos 304
+ypos 228
+}
+Multiply {
+value {{parent.CTRL.intensity}}
+name Multiplyer
+xpos 304
+ypos 263
+}
+Saturation {
+saturation {{parent.saturation}}
+name Saturation1
+xpos 304
+ypos 326
+}
+Dot {
+name Dot3
+tile_color 0x7aa9ff00
+xpos 338
+ypos 372
+}
+set Nd022f2c0 [stack 0]
+Dot {
+name Dot2
+tile_color 0x7aa9ff00
+xpos 604
+ypos 372
+}
+set Nd0233dd0 [stack 0]
+Dot {
+name Dot4
+tile_color 0x7aa9ff00
+xpos 870
+ypos 372
+}
+set Nd0238880 [stack 0]
+Dot {
+name Dot5
+tile_color 0x7aa9ff00
+xpos 1136
+ypos 372
+}
+set Nd023d330 [stack 0]
+Dot {
+name Dot6
+tile_color 0x7aa9ff00
+xpos 1402
+ypos 372
+}
+set Nd0241de0 [stack 0]
+Dot {
+name Dot7
+tile_color 0x7aa9ff00
+xpos 1668
+ypos 372
+}
+set Nd0246890 [stack 0]
+Dot {
+name Dot8
+tile_color 0x7aa9ff00
+xpos 1934
+ypos 372
+}
+set Nd024b3c0 [stack 0]
+Dot {
+name Dot9
+tile_color 0x7aa9ff00
+xpos 2200
+ypos 372
+}
+set Nd024fe70 [stack 0]
+Dot {
+name Dot10
+tile_color 0x7aa9ff00
+xpos 2466
+ypos 372
+}
+set Nd0254920 [stack 0]
+Dot {
+name Dot11
+tile_color 0x7aa9ff00
+xpos 2732
+ypos 372
+}
+Blur {
+size {{Blur9.size*2} {Blur9.size*2}}
+crop false
+name Blur10
+xpos 2698
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,10)}}
+name Multiply10
+xpos 2698
+ypos 543
+}
+Dot {
+name Dot20
+tile_color 0x7aa9ff00
+xpos 2732
+ypos 796
+}
+push $Nd0254920
+Blur {
+size {{Blur8.size*2} {Blur8.size*2}}
+crop false
+name Blur9
+xpos 2432
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,9)}}
+name Multiply9
+xpos 2432
+ypos 542
+}
+Dot {
+name Dot19
+tile_color 0x7aa9ff00
+xpos 2466
+ypos 770
+}
+push $Nd024fe70
+Blur {
+size {{Blur7.size*2} {Blur7.size*2}}
+crop false
+name Blur8
+xpos 2166
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,8)}}
+name Multiply8
+xpos 2166
+ypos 536
+}
+Dot {
+name Dot18
+tile_color 0x7aa9ff00
+xpos 2200
+ypos 744
+}
+push $Nd024b3c0
+Blur {
+size {{Blur6.size*2} {Blur6.size*2}}
+crop false
+name Blur7
+xpos 1900
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,7)}}
+name Multiply7
+xpos 1900
+ypos 528
+}
+Dot {
+name Dot17
+tile_color 0x7aa9ff00
+xpos 1934
+ypos 718
+}
+push $Nd0246890
+Blur {
+size {{Blur5.size*2} {Blur5.size*2}}
+crop false
+name Blur6
+xpos 1634
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,6)}}
+name Multiply6
+xpos 1634
+ypos 528
+}
+Dot {
+name Dot16
+tile_color 0x7aa9ff00
+xpos 1668
+ypos 692
+}
+push $Nd0241de0
+Blur {
+size {{Blur4.size*2} {Blur4.size*2}}
+crop false
+name Blur5
+xpos 1368
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,5)}}
+name Multiply5
+xpos 1368
+ypos 524
+}
+Dot {
+name Dot15
+tile_color 0x7aa9ff00
+xpos 1402
+ypos 666
+}
+push $Nd023d330
+Blur {
+size {{Blur3.size*2} {Blur3.size*2}}
+crop false
+name Blur4
+xpos 1102
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,4)}}
+name Multiply4
+xpos 1102
+ypos 518
+}
+Dot {
+name Dot14
+tile_color 0x7aa9ff00
+xpos 1136
+ypos 640
+}
+push $Nd0238880
+Blur {
+size {{Blur2.size*2} {Blur2.size*2}}
+crop false
+name Blur3
+xpos 836
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,3)}}
+name Multiply3
+xpos 836
+ypos 509
+}
+Dot {
+name Dot13
+tile_color 0x7aa9ff00
+xpos 870
+ypos 614
+}
+push $Nd0233dd0
+Blur {
+size {{Blur1.size*2} {Blur1.size*2}}
+crop false
+name Blur2
+xpos 570
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,2)}}
+name Multiply2
+xpos 570
+ypos 508
+}
+Dot {
+name Dot12
+tile_color 0x7aa9ff00
+xpos 604
+ypos 588
+}
+push $Nd022f2c0
+Blur {
+size {{CTRL.size*2} {CTRL.size*2}}
+crop false
+name Blur1
+xpos 304
+ypos 440
+}
+Multiply {
+value {{CTRL.falloff}}
+name Multiply1
+xpos 304
+ypos 512
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge1
+xpos 304
+ypos 584
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge2
+xpos 304
+ypos 610
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge3
+xpos 304
+ypos 636
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge4
+xpos 304
+ypos 662
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge5
+xpos 304
+ypos 688
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge6
+xpos 304
+ypos 714
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge7
+xpos 304
+ypos 740
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge8
+xpos 304
+ypos 766
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge9
+xpos 304
+ypos 792
+}
+Dot {
+name Dot21
+tile_color 0x4b5ec600
+xpos 338
+ypos 928
+}
+set Ncff90cc0 [stack 0]
+Dot {
+name Dot22
+tile_color 0x4b5ec600
+xpos 498
+ypos 928
+}
+Grade {
+whitepoint {{CTRL.core}}
+white_clamp true
+name Grade2
+xpos 464
+ypos 977
+}
+Gamma {
+channels rgb
+value {{parent.falloff_color.r/CTRL.falloff_length} {parent.falloff_color.g/CTRL.falloff_length} {parent.falloff_color.b/CTRL.falloff_length} {curve}}
+mix {{parent.parent.blinkout.gtmix}}
+name Gamma1
+xpos 464
+ypos 1037
+}
+Grade {
+whitepoint {{CTRL.core}}
+reverse true
+name Grade3
+xpos 464
+ypos 1108
+}
+push $Ncff90cc0
+Clamp {
+minimum {{CTRL.core}}
+maximum_enable false
+name Clamp1
+xpos 304
+ypos 972
+}
+Grade {
+add {{1-CTRL.core}}
+name Grade4
+xpos 304
+ypos 1020
+}
+Gamma {
+channels rgb
+value {{1+(1-parent.core_color.r)/CTRL.core_length} {1+(1-parent.core_color.g)/CTRL.core_length} {1+(1-parent.core_color.b)/CTRL.core_length} {curve}}
+name Gamma2
+xpos 304
+ypos 1061
+}
+Add {
+channels rgb
+value -1
+name Add1
+xpos 304
+ypos 1099
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge10
+xpos 304
+ypos 1157
+}
+Remove {
+operation keep
+channels rgb
+name Remove2
+xpos 304
+ypos 1183
+}
+Multiply {
+value {{parent.mix}}
+name mix
+xpos 304
+ypos 1215
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge11
+xpos 304
+ypos 1270
+disable {{parent.glow_only}}
+}
+Dot {
+name Dot23
+tile_color 0x4b5ec600
+xpos 338
+ypos 1436
+}
+push $Nd035f0b0
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.red
+from1 rgba.green
+to1 rgba.green
+from2 rgba.blue
+to2 rgba.blue
+name Copy1
+xpos 0
+ypos 1414
+}
+Crop {
+box {{-width*(parent.overscan/100)/2} {-height*(parent.overscan/100)/2} {width+(width*(parent.overscan/100)/2)} {height+(height*(parent.overscan/100)/2)}}
+crop false
+name Crop2
+xpos 0
+ypos 1495
+disable {{!parent.crop}}
+}
+Output {
+name Output1
+xpos 0
+ypos 1543
+}
+end_group
+Dot {
+name Dot140
+tile_color 0xc97200ff
+selected true
+xpos 2344
+ypos 8686
+}
+push $Nc86b2220
+push $Nd0332510
+Dot {
+name Dot79
+tile_color 0xa57aaa00
+selected true
+xpos 1989
+ypos 7131
+}
+set Ncfd5cca0 [stack 0]
+Dot {
+name Dot80
+tile_color 0xa57aaa00
+label "\nOutline blur"
+note_font_size 15
+selected true
+xpos 2187
+ypos 7131
+}
+set Ncfd61720 [stack 0]
+Shuffle {
+in forward
+blue black
+alpha black
+name Shuffle7
+label "in \[value in]-->out \[value out]"
+selected true
+xpos 2341
+ypos 7121
+}
+Expression {
+expr0 abs(r)
+expr1 abs(g)
+channel3 alpha
+expr3 abs(r)+abs(g)
+name Expression8
+selected true
+xpos 2341
+ypos 7187
+}
+Blur {
+size {{parent.blinkout.surfblurm}}
+name Blur6
+label "size \[value size]"
+selected true
+xpos 2341
+ypos 7237
+}
+Dot {
+name Dot81
+tile_color 0xcc804e00
+selected true
+xpos 2375
+ypos 7323
+}
+push $Ncfd61720
+Group {
+inputs 2
+name IBlur
+help "iBlur v1.0\n\nThis gizmo should work like the iBlur from Shake. I'm still missing a ramped blur in nuke, especially for technical stuff, where a zBlur is just not the right thing (and also too slow)."
+tile_color 0xcc804eff
+selected true
+xpos 2153
+ypos 7319
+addUserKnob {20 Controls}
+addUserKnob {41 channels t "Select the channels you want to iBlur." T Blur11.channels}
+addUserKnob {26 divider2 l " " T " "}
+addUserKnob {7 blur l "blur size" t "Higher setting means more blur. : )\n\nBlur size values are equal with Nuke's default 'Blur' or 'Defocus'." R 0 100}
+blur {{parent.blinkout.surfblursize}}
+addUserKnob {4 blur_type l "blur type" t "The gizmo is indeed using Nuke's 'Blur' or 'Defocus'. You know the difference!" M {blur "defocus " "" "" ""}}
+blur_type "defocus "
+addUserKnob {4 quality t "This gizmo blurs the image in blended in slices. \nMore slices mean more accurate blur-ramp, and also more rendertime.  \n\nfast = 7 slices\naccurate = 13 slices" M {fast accurate "" ""}}
+addUserKnob {26 spacer l "  " T "  "}
+addUserKnob {26 divider l "" +STARTLINE}
+addUserKnob {26 credit l "" +STARTLINE T "iBlur v1.0 | moritz eiche | 2011"}
+}
+BackdropNode {
+inputs 0
+name BackdropNode1
+tile_color 0x2e2e2eff
+note_font_size 42
+xpos 32
+ypos -426
+bdwidth 2731
+bdheight 633
+}
+BackdropNode {
+inputs 0
+name BackdropNode2
+tile_color 0x262626ff
+note_font_size 42
+xpos 114
+ypos -367
+bdwidth 2572
+bdheight 269
+}
+BackdropNode {
+inputs 0
+name BackdropNode3
+tile_color 0x262626ff
+note_font_size 42
+xpos 115
+ypos -83
+bdwidth 2573
+bdheight 236
+}
+BackdropNode {
+inputs 0
+name BackdropNode4
+tile_color 0x2e2e2eff
+note_font_size 42
+xpos 33
+ypos 320
+bdwidth 2733
+bdheight 625
+}
+BackdropNode {
+inputs 0
+name BackdropNode5
+tile_color 0x262626ff
+note_font_size 42
+xpos 108
+ypos 373
+bdwidth 2572
+bdheight 269
+}
+BackdropNode {
+inputs 0
+name BackdropNode6
+tile_color 0x262626ff
+note_font_size 42
+xpos 108
+ypos 653
+bdwidth 2575
+bdheight 237
+}
+Input {
+inputs 0
+name mask
+label a
+xpos -113
+ypos -764
+number 1
+}
+Dot {
+name Dot6
+xpos -79
+ypos -312
+}
+set Ncfc43b30 [stack 0]
+Dot {
+name Dot87
+xpos -79
+ypos -51
+}
+set Ncfc485b0 [stack 0]
+Dot {
+name Dot57
+xpos -79
+ypos 430
+}
+set Ncfc4d150 [stack 0]
+Dot {
+name Dot2
+xpos 246
+ypos 430
+}
+set Ncfc51b50 [stack 0]
+Dot {
+name Dot4
+xpos 445
+ypos 430
+}
+set Ncfc56600 [stack 0]
+Dot {
+name Dot32
+xpos 651
+ypos 430
+}
+set Ncfc5b0b0 [stack 0]
+Dot {
+name Dot33
+xpos 850
+ypos 430
+}
+set Ncfc5fb60 [stack 0]
+Dot {
+name Dot34
+xpos 1045
+ypos 430
+}
+set Ncfc64610 [stack 0]
+Dot {
+name Dot35
+xpos 1233
+ypos 429
+}
+set Ncfc690c0 [stack 0]
+Dot {
+name Dot36
+xpos 1438
+ypos 429
+}
+set Ncfc6db70 [stack 0]
+Dot {
+name Dot37
+xpos 1634
+ypos 429
+}
+set Ncfc726a0 [stack 0]
+Dot {
+name Dot38
+xpos 1834
+ypos 429
+}
+set Ncfc77150 [stack 0]
+Dot {
+name Dot39
+xpos 2036
+ypos 429
+}
+set Ncfc7bc00 [stack 0]
+Dot {
+name Dot40
+xpos 2234
+ypos 429
+}
+set Ncfc806b0 [stack 0]
+Dot {
+name Dot41
+xpos 2432
+ypos 428
+}
+set Ncfc850d0 [stack 0]
+Dot {
+name Dot42
+xpos 2624
+ypos 428
+}
+Grade {
+channels rgba
+blackpoint 0.9
+white_clamp true
+name Grade12
+xpos 2590
+ypos 521
+}
+Input {
+inputs 0
+name image
+label rgba
+xpos -282
+ypos -767
+}
+Dot {
+name Dot1
+xpos -248
+ypos -272
+}
+set Ncfb23e10 [stack 0]
+Dot {
+name Dot25
+xpos -248
+ypos -155
+}
+set Ncfb28860 [stack 0]
+Dot {
+name Dot86
+xpos -248
+ypos -11
+}
+set Ncfb2d280 [stack 0]
+Dot {
+name Dot88
+xpos -248
+ypos 106
+}
+set Ncfb31e50 [stack 0]
+Dot {
+name Dot58
+xpos -248
+ypos 470
+}
+set Ncfb368a0 [stack 0]
+Dot {
+name Dot43
+xpos 152
+ypos 470
+}
+set Ncfb3b2c0 [stack 0]
+Dot {
+name Dot44
+xpos 354
+ypos 470
+}
+set Ncfb3fb90 [stack 0]
+Dot {
+name Dot45
+xpos 557
+ypos 470
+}
+set Ncfb44970 [stack 0]
+Dot {
+name Dot46
+xpos 756
+ypos 470
+}
+set Ncfb49540 [stack 0]
+Dot {
+name Dot47
+xpos 954
+ypos 470
+}
+set Ncfb4def0 [stack 0]
+Dot {
+name Dot48
+xpos 1142
+ypos 469
+}
+set Ncfb52ad0 [stack 0]
+Dot {
+name Dot49
+xpos 1347
+ypos 469
+}
+set Ncfb57490 [stack 0]
+Dot {
+name Dot50
+xpos 1543
+ypos 469
+}
+set Ncfb5bd10 [stack 0]
+Dot {
+name Dot51
+xpos 1743
+ypos 469
+}
+set Ncfb60b50 [stack 0]
+Dot {
+name Dot52
+xpos 1945
+ypos 469
+}
+set Ncfb655a0 [stack 0]
+Dot {
+name Dot53
+xpos 2143
+ypos 469
+}
+set Ncfb69fc0 [stack 0]
+Dot {
+name Dot54
+xpos 2341
+ypos 468
+}
+set Ncfb6eb80 [stack 0]
+Dot {
+name Dot55
+xpos 2533
+ypos 468
+}
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur i}}
+name Defocus13
+xpos 2499
+ypos 521
+}
+push $Ncfc850d0
+Grade {
+channels rgba
+blackpoint 0.8
+whitepoint 0.9
+white_clamp true
+name Grade15
+xpos 2398
+ypos 521
+}
+push $Ncfb6eb80
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10*9 i}}
+name Defocus12
+xpos 2307
+ypos 521
+}
+push $Ncfc806b0
+Grade {
+channels rgba
+blackpoint 0.7
+whitepoint 0.8
+white_clamp true
+name Grade16
+xpos 2200
+ypos 521
+}
+push $Ncfb69fc0
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10*8 i}}
+name Defocus11
+xpos 2109
+ypos 521
+}
+push $Ncfc7bc00
+Grade {
+channels rgba
+blackpoint 0.6
+whitepoint 0.7
+white_clamp true
+name Grade17
+xpos 2002
+ypos 521
+}
+push $Ncfb655a0
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10*7 i}}
+name Defocus10
+xpos 1911
+ypos 521
+}
+push $Ncfc77150
+Grade {
+channels rgba
+blackpoint 0.5
+whitepoint 0.6
+white_clamp true
+name Grade18
+xpos 1800
+ypos 521
+}
+push $Ncfb60b50
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10*6 i}}
+name Defocus9
+xpos 1709
+ypos 521
+}
+push $Ncfc726a0
+Grade {
+channels rgba
+blackpoint 0.4
+whitepoint 0.5
+white_clamp true
+name Grade19
+xpos 1600
+ypos 521
+}
+push $Ncfb5bd10
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10*5 i}}
+name Defocus8
+xpos 1509
+ypos 521
+}
+push $Ncfc6db70
+Grade {
+channels rgba
+blackpoint 0.3
+whitepoint 0.4
+white_clamp true
+name Grade20
+xpos 1404
+ypos 521
+}
+push $Ncfb57490
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10*4 i}}
+name Defocus7
+xpos 1313
+ypos 521
+}
+push $Ncfc690c0
+Grade {
+channels rgba
+blackpoint 0.2
+whitepoint 0.3
+white_clamp true
+name Grade21
+xpos 1199
+ypos 521
+}
+push $Ncfb52ad0
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10*3 i}}
+name Defocus6
+xpos 1108
+ypos 522
+}
+push $Ncfc64610
+Grade {
+channels rgba
+blackpoint 0.1
+whitepoint 0.2
+white_clamp true
+name Grade22
+xpos 1011
+ypos 521
+}
+push $Ncfb4def0
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10*2 i}}
+name Defocus5
+xpos 920
+ypos 521
+}
+push $Ncfc5fb60
+Grade {
+channels rgba
+blackpoint 0.075
+whitepoint 0.1
+white_clamp true
+name Grade23
+xpos 816
+ypos 521
+}
+push $Ncfb49540
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10 i}}
+name Defocus4
+xpos 722
+ypos 521
+}
+push $Ncfc5b0b0
+Grade {
+channels rgba
+blackpoint 0.05
+whitepoint 0.075
+white_clamp true
+name Grade24
+xpos 617
+ypos 521
+}
+push $Ncfb44970
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10/4*3 i}}
+name Defocus3
+xpos 523
+ypos 521
+}
+push $Ncfc56600
+Grade {
+channels rgba
+blackpoint 0.025
+whitepoint 0.05
+white_clamp true
+name Grade25
+xpos 411
+ypos 521
+}
+push $Ncfb3fb90
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10/4*2 i}}
+name Defocus2
+xpos 320
+ypos 521
+}
+push $Ncfc51b50
+Grade {
+channels rgba
+whitepoint 0.025
+white_clamp true
+name Grade26
+xpos 212
+ypos 521
+}
+push $Ncfb3b2c0
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10/4}}
+name Defocus1
+xpos 118
+ypos 521
+}
+push $Ncfb368a0
+Dot {
+name Dot56
+xpos -248
+ypos 587
+}
+set Ndb5cdc30 [stack 0]
+Keymix {
+inputs 3
+bbox B
+name Keymix1
+xpos 118
+ypos 579
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix15
+xpos 320
+ypos 579
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix16
+xpos 523
+ypos 579
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix17
+xpos 722
+ypos 579
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix18
+xpos 920
+ypos 579
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix19
+xpos 1108
+ypos 579
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix20
+xpos 1313
+ypos 579
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix21
+xpos 1509
+ypos 579
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix22
+xpos 1709
+ypos 579
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix23
+xpos 1911
+ypos 579
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix24
+xpos 2109
+ypos 579
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix25
+xpos 2307
+ypos 579
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix26
+xpos 2499
+ypos 579
+}
+Dot {
+name Dot67
+xpos 2886
+ypos 587
+}
+push $Ncfc4d150
+Dot {
+name Dot105
+xpos -79
+ypos 688
+}
+Dot {
+name Dot62
+xpos 243
+ypos 688
+}
+set N94f9e7f0 [stack 0]
+Dot {
+name Dot65
+xpos 442
+ypos 688
+}
+set N94fa81c0 [stack 0]
+Dot {
+name Dot69
+xpos 847
+ypos 688
+}
+set N94facd20 [stack 0]
+Dot {
+name Dot71
+xpos 1244
+ypos 688
+}
+set N94fa7ce0 [stack 0]
+Dot {
+name Dot82
+xpos 1634
+ypos 687
+}
+set N94fb6220 [stack 0]
+Dot {
+name Dot89
+xpos 2035
+ypos 687
+}
+set N94fbad80 [stack 0]
+Dot {
+name Dot91
+xpos 2621
+ypos 686
+}
+Grade {
+channels rgba
+blackpoint 0.7
+white_clamp true
+name Grade28
+xpos 2587
+ypos 779
+}
+push $Ndb5cdc30
+Dot {
+name Dot106
+xpos -248
+ypos 728
+}
+set N94e552e0 [stack 0]
+Dot {
+name Dot92
+xpos 149
+ypos 728
+}
+set N94e59a80 [stack 0]
+Dot {
+name Dot93
+xpos 351
+ypos 728
+}
+set N94e5e530 [stack 0]
+Dot {
+name Dot95
+xpos 753
+ypos 728
+}
+set N94e62fe0 [stack 0]
+Dot {
+name Dot96
+xpos 1153
+ypos 728
+}
+set N94e54d70 [stack 0]
+Dot {
+name Dot100
+xpos 1543
+ypos 727
+}
+set N94e6bf00 [stack 0]
+Dot {
+name Dot102
+xpos 1944
+ypos 727
+}
+set N94e70fa0 [stack 0]
+Dot {
+name Dot104
+xpos 2530
+ypos 726
+}
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur i}}
+name Defocus14
+xpos 2496
+ypos 780
+}
+push $N94fbad80
+Grade {
+channels rgba
+blackpoint 0.5
+whitepoint 0.7
+white_clamp true
+name Grade32
+xpos 2001
+ypos 780
+}
+push $N94e70fa0
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10*7 i}}
+name Defocus16
+xpos 1910
+ypos 779
+}
+push $N94fb6220
+Grade {
+channels rgba
+blackpoint 0.3
+whitepoint 0.5
+white_clamp true
+name Grade37
+xpos 1600
+ypos 779
+}
+push $N94e6bf00
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10*5 i}}
+name Defocus18
+xpos 1509
+ypos 780
+}
+push $N94fa7ce0
+Grade {
+channels rgba
+blackpoint 0.1
+whitepoint 0.3
+white_clamp true
+name Grade43
+xpos 1210
+ypos 779
+}
+push $N94e54d70
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10*3 i}}
+name Defocus22
+xpos 1119
+ypos 779
+}
+push $N94facd20
+Grade {
+channels rgba
+blackpoint 0.05
+whitepoint 0.1
+white_clamp true
+name Grade44
+xpos 813
+ypos 779
+}
+push $N94e62fe0
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10 i}}
+name Defocus23
+xpos 719
+ypos 779
+}
+push $N94fa81c0
+Grade {
+channels rgba
+blackpoint 0.025
+whitepoint 0.05
+white_clamp true
+name Grade46
+xpos 408
+ypos 779
+}
+push $N94e5e530
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10/4*2 i}}
+name Defocus25
+xpos 317
+ypos 778
+}
+push $N94f9e7f0
+Grade {
+channels rgba
+whitepoint 0.025
+white_clamp true
+name Grade47
+xpos 209
+ypos 778
+}
+push $N94e59a80
+Defocus {
+channels {{{parent.Blur11.channels}}}
+defocus {{blur/10/4 i}}
+name Defocus26
+xpos 115
+ypos 779
+}
+push $N94e552e0
+Dot {
+name Dot107
+xpos -248
+ypos 845
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix29
+xpos 115
+ypos 837
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix32
+xpos 317
+ypos 837
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix36
+xpos 719
+ypos 837
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix38
+xpos 1119
+ypos 837
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix43
+xpos 1509
+ypos 837
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix45
+xpos 1910
+ypos 837
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix47
+xpos 2496
+ypos 837
+}
+Switch {
+inputs 2
+which {{quality i}}
+name Switch3
+xpos 2852
+ypos 842
+}
+push $Ncfc43b30
+Dot {
+name Dot23
+xpos 255
+ypos -312
+}
+set Ncefbb0b0 [stack 0]
+Dot {
+name Dot26
+xpos 454
+ypos -312
+}
+set Ncefbfc10 [stack 0]
+Dot {
+name Dot28
+xpos 660
+ypos -312
+}
+set Ncefc46c0 [stack 0]
+Dot {
+name Dot30
+xpos 859
+ypos -312
+}
+set Ncefc9170 [stack 0]
+Dot {
+name Dot7
+xpos 1054
+ypos -312
+}
+set Ncefba810 [stack 0]
+Dot {
+name Dot5
+xpos 1242
+ypos -313
+}
+set Ncefd2690 [stack 0]
+Dot {
+name Dot9
+xpos 1447
+ypos -313
+}
+set Ncefd71f0 [stack 0]
+Dot {
+name Dot11
+xpos 1643
+ypos -313
+}
+set Ndb5a1350 [stack 0]
+Dot {
+name Dot13
+xpos 1843
+ypos -313
+}
+set Ncefe0b00 [stack 0]
+Dot {
+name Dot15
+xpos 2045
+ypos -313
+}
+set Ncefe5660 [stack 0]
+Dot {
+name Dot17
+xpos 2243
+ypos -313
+}
+set Ncefe0350 [stack 0]
+Dot {
+name Dot19
+xpos 2441
+ypos -314
+}
+set Ncefeeb70 [stack 0]
+Dot {
+name Dot21
+xpos 2633
+ypos -314
+}
+Grade {
+channels rgba
+blackpoint 0.9
+white_clamp true
+name Grade8
+xpos 2599
+ypos -225
+}
+push $Ncfb23e10
+Dot {
+name Dot24
+xpos 161
+ypos -272
+}
+set Ncf008730 [stack 0]
+Dot {
+name Dot27
+xpos 363
+ypos -272
+}
+set Ncee8d870 [stack 0]
+Dot {
+name Dot29
+xpos 566
+ypos -272
+}
+set Ncee923d0 [stack 0]
+Dot {
+name Dot31
+xpos 765
+ypos -272
+}
+set Ncee8d050 [stack 0]
+Dot {
+name Dot3
+xpos 963
+ypos -272
+}
+set Ncee9b8d0 [stack 0]
+Dot {
+name Dot8
+xpos 1151
+ypos -273
+}
+set Ncee9b090 [stack 0]
+Dot {
+name Dot10
+xpos 1356
+ypos -273
+}
+set Nceea4590 [stack 0]
+Dot {
+name Dot12
+xpos 1552
+ypos -273
+}
+set Nceea9990 [stack 0]
+Dot {
+name Dot14
+xpos 1752
+ypos -273
+}
+set Nceeae4f0 [stack 0]
+Dot {
+name Dot16
+xpos 1954
+ypos -273
+}
+set Nceeb2fa0 [stack 0]
+Dot {
+name Dot18
+xpos 2152
+ypos -273
+}
+set Nceeb7a50 [stack 0]
+Dot {
+name Dot20
+xpos 2350
+ypos -274
+}
+set Nceea90f0 [stack 0]
+Dot {
+name Dot22
+xpos 2542
+ypos -274
+}
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*10 i}}
+name Blur10
+xpos 2508
+ypos -225
+}
+push $Ncefeeb70
+Grade {
+channels rgba
+blackpoint 0.8
+whitepoint 0.9
+white_clamp true
+name Grade7
+xpos 2407
+ypos -225
+}
+push $Nceea90f0
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*9 i}}
+name Blur9
+xpos 2316
+ypos -225
+}
+push $Ncefe0350
+Grade {
+channels rgba
+blackpoint 0.7
+whitepoint 0.8
+white_clamp true
+name Grade6
+xpos 2209
+ypos -225
+}
+push $Nceeb7a50
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*8 i}}
+name Blur8
+xpos 2118
+ypos -225
+}
+push $Ncefe5660
+Grade {
+channels rgba
+blackpoint 0.6
+whitepoint 0.7
+white_clamp true
+name Grade5
+xpos 2011
+ypos -225
+}
+push $Nceeb2fa0
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*7 i}}
+name Blur7
+xpos 1920
+ypos -226
+}
+push $Ncefe0b00
+Grade {
+channels rgba
+blackpoint 0.5
+whitepoint 0.6
+white_clamp true
+name Grade4
+xpos 1809
+ypos -225
+}
+push $Nceeae4f0
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*6 i}}
+name Blur6
+xpos 1718
+ypos -225
+}
+push $Ndb5a1350
+Grade {
+channels rgba
+blackpoint 0.4
+whitepoint 0.5
+white_clamp true
+name Grade3
+xpos 1609
+ypos -225
+}
+push $Nceea9990
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*5 i}}
+name Blur5
+xpos 1518
+ypos -225
+}
+push $Ncefd71f0
+Grade {
+channels rgba
+blackpoint 0.3
+whitepoint 0.4
+white_clamp true
+name Grade2
+xpos 1413
+ypos -225
+}
+push $Nceea4590
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*4 i}}
+name Blur4
+xpos 1322
+ypos -225
+}
+push $Ncefd2690
+Grade {
+channels rgba
+blackpoint 0.2
+whitepoint 0.3
+white_clamp true
+name Grade1
+xpos 1208
+ypos -225
+}
+push $Ncee9b090
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*3 i}}
+name Blur3
+xpos 1117
+ypos -225
+}
+push $Ncefba810
+Grade {
+channels rgba
+blackpoint 0.1
+whitepoint 0.2
+white_clamp true
+name Grade13
+xpos 1020
+ypos -225
+}
+push $Ncee9b8d0
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*2 i}}
+name Blur2
+xpos 929
+ypos -225
+}
+push $Ncefc9170
+Grade {
+channels rgba
+blackpoint 0.075
+whitepoint 0.1
+white_clamp true
+name Grade14
+xpos 825
+ypos -225
+}
+push $Ncee8d050
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10 i}}
+name Blur14
+xpos 731
+ypos -225
+}
+push $Ncefc46c0
+Grade {
+channels rgba
+blackpoint 0.05
+whitepoint 0.075
+white_clamp true
+name Grade11
+xpos 626
+ypos -225
+}
+push $Ncee923d0
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10/4*3 i}}
+name Blur13
+xpos 532
+ypos -225
+}
+push $Ncefbfc10
+Grade {
+channels rgba
+blackpoint 0.025
+whitepoint 0.05
+white_clamp true
+name Grade10
+xpos 420
+ypos -225
+}
+push $Ncee8d870
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10/4*2 i}}
+name Blur12
+xpos 329
+ypos -225
+}
+push $Ncefbb0b0
+Grade {
+channels rgba
+whitepoint 0.025
+white_clamp true
+name Grade9
+xpos 221
+ypos -225
+}
+push $Ncf008730
+Blur {
+channels rgb
+size {{blur/10/4 i}}
+name Blur11
+xpos 127
+ypos -227
+}
+push $Ncfb28860
+Keymix {
+inputs 3
+bbox B
+name Keymix11
+xpos 127
+ypos -163
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix12
+xpos 329
+ypos -163
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix13
+xpos 532
+ypos -163
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix14
+xpos 731
+ypos -163
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix2
+xpos 929
+ypos -163
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix3
+xpos 1117
+ypos -163
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix4
+xpos 1322
+ypos -163
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix5
+xpos 1518
+ypos -163
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix6
+xpos 1718
+ypos -163
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix7
+xpos 1920
+ypos -163
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix8
+xpos 2118
+ypos -163
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix9
+xpos 2316
+ypos -163
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix10
+xpos 2508
+ypos -163
+}
+Dot {
+name Dot59
+xpos 2883
+ypos -155
+}
+push $Ncfc485b0
+Dot {
+name Dot60
+xpos 253
+ypos -51
+}
+set Nceab83f0 [stack 0]
+Dot {
+name Dot61
+xpos 452
+ypos -51
+}
+set Nceabce80 [stack 0]
+Dot {
+name Dot63
+xpos 857
+ypos -51
+}
+set Nceab78a0 [stack 0]
+Dot {
+name Dot64
+xpos 1250
+ypos -52
+}
+set Nceac6370 [stack 0]
+Dot {
+name Dot66
+xpos 1646
+ypos -53
+}
+set Nceac5800 [stack 0]
+Dot {
+name Dot68
+xpos 2046
+ypos -53
+}
+set Nceacf920 [stack 0]
+Dot {
+name Dot72
+xpos 2631
+ypos -53
+}
+Grade {
+channels rgba
+blackpoint 0.7
+white_clamp true
+name Grade27
+xpos 2597
+ypos 36
+}
+push $Ncfb2d280
+Dot {
+name Dot73
+xpos 159
+ypos -11
+}
+set Nceae9d90 [stack 0]
+Dot {
+name Dot74
+xpos 361
+ypos -11
+}
+set Nceaee670 [stack 0]
+Dot {
+name Dot76
+xpos 763
+ypos -11
+}
+set Nceaf3120 [stack 0]
+Dot {
+name Dot77
+xpos 1159
+ypos -12
+}
+set Nceae91b0 [stack 0]
+Dot {
+name Dot79
+xpos 1555
+ypos -13
+}
+set Nceafc610 [stack 0]
+Dot {
+name Dot81
+xpos 1955
+ypos -13
+}
+set Nceafba10 [stack 0]
+Dot {
+name Dot85
+xpos 2540
+ypos -13
+}
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*10 i}}
+name Blur1
+xpos 2506
+ypos 36
+}
+push $Nceacf920
+Grade {
+channels rgba
+blackpoint 0.5
+whitepoint 0.7
+white_clamp true
+name Grade31
+xpos 2012
+ypos 35
+}
+push $Nceafba10
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*7 i}}
+name Blur18
+xpos 1921
+ypos 34
+}
+push $Nceac5800
+Grade {
+channels rgba
+blackpoint 0.3
+whitepoint 0.5
+white_clamp true
+name Grade33
+xpos 1612
+ypos 34
+}
+push $Nceafc610
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*5 i}}
+name Blur20
+xpos 1521
+ypos 35
+}
+push $Nceac6370
+Grade {
+channels rgba
+blackpoint 0.1
+whitepoint 0.3
+white_clamp true
+name Grade35
+xpos 1216
+ypos 35
+}
+push $Nceae91b0
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10*3 i}}
+name Blur22
+xpos 1125
+ypos 35
+}
+push $Nceab78a0
+Grade {
+channels rgba
+blackpoint 0.05
+whitepoint 0.1
+white_clamp true
+name Grade36
+xpos 823
+ypos 36
+}
+push $Nceaf3120
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10 i}}
+name Blur23
+xpos 729
+ypos 36
+}
+push $Nceabce80
+Grade {
+channels rgba
+blackpoint 0.025
+whitepoint 0.05
+white_clamp true
+name Grade38
+xpos 418
+ypos 36
+}
+push $Nceaee670
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10/4*2 i}}
+name Blur25
+xpos 327
+ypos 36
+}
+push $Nceab83f0
+Grade {
+channels rgba
+whitepoint 0.025
+white_clamp true
+name Grade39
+xpos 219
+ypos 38
+}
+push $Nceae9d90
+Blur {
+channels {{{parent.Blur11.channels}}}
+size {{blur/10/4 i}}
+name Blur26
+xpos 125
+ypos 38
+}
+push $Ncfb31e50
+Keymix {
+inputs 3
+bbox B
+name Keymix27
+xpos 125
+ypos 98
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix28
+xpos 327
+ypos 98
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix30
+xpos 729
+ypos 98
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix31
+xpos 1125
+ypos 97
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix33
+xpos 1521
+ypos 97
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix35
+xpos 1921
+ypos 97
+}
+Keymix {
+inputs 3
+bbox B
+name Keymix39
+xpos 2506
+ypos 98
+}
+Switch {
+inputs 2
+which {{quality i}}
+name Switch2
+xpos 2849
+ypos 103
+}
+Dot {
+name Dot75
+xpos 3248
+ypos 106
+}
+Switch {
+inputs 2
+which {{blur_type i}}
+name Switch1
+xpos 3214
+ypos 842
+}
+Output {
+name Output1
+xpos 3214
+ypos 1164
+}
+Viewer {
+frame 316
+input_process false
+name Viewer1
+xpos 3464
+ypos 1164
+}
+end_group
+Dot {
+name Dot83
+tile_color 0xcc804eff
+selected true
+xpos 2187
+ypos 7381
+}
+push $Ncfd5cca0
+Switch {
+inputs 2
+which {{parent.blinkout.surfblur}}
+name Switch5
+selected true
+xpos 1955
+ypos 7377
+disable {{frame<parent.blinkout.fx2?1:frame<parent.blinkout.fx3?0:1}}
+}
+Remove {
+channels forward
+name Remove6
+selected true
+xpos 1955
+ypos 7463
+}
+Merge2 {
+inputs 2
+bbox B
+mix {{frame<onn?0:frame>=offf?0:1}}
+name Merge19
+selected true
+xpos 1955
+ypos 8092
+disable {{parent.blinkout.no5distort}}
+addUserKnob {20 User}
+addUserKnob {3 onn l "Turn On at"}
+onn {{parent.blinkout.fx0}}
+addUserKnob {3 offf l "Turn Off at"}
+offf {{parent.blinkout.fx3}}
+}
+Merge2 {
+inputs 2
+operation plus
+bbox B
+output rgb
+mix {{frame<full?onn:offf}}
+name Merge20
+selected true
+xpos 1955
+ypos 8682
+disable {{1-parent.blinkout.glowon}}
+addUserKnob {20 User}
+addUserKnob {3 full l "Full Mix"}
+full {{parent.blinkout.fx3}}
+addUserKnob {7 onn l "Mix On"}
+onn {{parent.IDistort10.incamp}}
+addUserKnob {7 offf l "Mix Off"}
+offf {{parent.IDistort10.decamp}}
+}
+Dot {
+name Dot245
+tile_color 0x4b5ec600
+selected true
+xpos 1989
+ypos 9252
+}
+set Nce7c62d0 [stack 0]
+Dot {
+name Dot246
+tile_color 0x4b5ec600
+selected true
+xpos 2249
+ypos 9252
+}
+Merge2 {
+inputs 2
+operation mask
+bbox B
+name Merge21
+selected true
+xpos 2215
+ypos 9401
+}
+Group {
+name GlowExponential3
+help "Exponential Glow node, with options to recolor and adjust falloff."
+knobChanged "\nk = nuke.thisKnob()\nif k.name()=='crop':\n	if k.value():\n    	nuke.thisNode().knob('overscan').setEnabled(True)\n	else:\n    	nuke.thisNode().knob('overscan').setEnabled(False)\n"
+tile_color 0xc97200ff
+selected true
+xpos 2215
+ypos 9480
+addUserKnob {20 ge l Glow}
+addUserKnob {26 glow_ctrls l "@b;Glow:"}
+addUserKnob {7 size t "Size of the glow" R 0 100}
+size {{parent.blinkout.g2size*parent.blinkout.fxs}}
+addUserKnob {7 intensity t "Brightness of the Glow" R 0 10}
+intensity {{parent.blinkout.g2int}}
+addUserKnob {7 falloff t "Adjust the light falloff of the glow. Higher values will have a longer falloff, resulting in visually bigger glows."}
+falloff 0.75
+addUserKnob {26 glow_highlights l "@b;Highlights:"}
+addUserKnob {41 range t "Luma key to define which parts of the image will glow." T Keyer1.range}
+addUserKnob {26 glow_colors l "@b;Glow Colors:"}
+addUserKnob {7 saturation l "color from img" t "By default the glow takes on the colors of the plate. By using this knob you can desaturate the color of the glow."}
+saturation {{parent.blinkout.g2inf}}
+addUserKnob {18 core_color l "core re-color" t "Re-color the core of the glow. Use the core threshold to define which parts of the glow are core or falloff."}
+core_color {1 1 1}
+addUserKnob {6 core_color_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {18 falloff_color l "falloff re-color" t "Re-color the falloff of the glow. Use the core threshold to define which parts of the glow are core or falloff."}
+falloff_color {{parent.blinkout.g2tint} {parent.blinkout.g2tint} {parent.blinkout.g2tint}}
+addUserKnob {6 falloff_color_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {41 mix_1 l "color mix" T Gamma1.mix}
+addUserKnob {7 threshold l "core threshold" t "Define which parts of the glow are core or falloff."}
+threshold 1
+addUserKnob {26 glow_options l "@b;Options:"}
+addUserKnob {14 aspect l "aspect ratio" t "Set the aspect ratio for your glow. Streaky results can be obtained by changing the ratio here." R 0 100}
+aspect {1 1}
+addUserKnob {6 glow_only l "Glow only" t "By default the glow is added onto the plate. Checking this box will output the glow only. " +STARTLINE}
+glow_only true
+addUserKnob {6 crop l "Crop to Format" t "This glow can expand the bounding box to massive values, checking this box can prevent your bbox from getting unmanageable." +STARTLINE}
+crop true
+addUserKnob {7 overscan l "overscan (%)" t "If you are cropping to format but originally had some values outside the format, you can add some overscan here to preserve these. The values are a percentage of the format size." R 0 100}
+overscan 10
+addUserKnob {7 mix t "Mix back with the original plate (or black, if glow only is enabled)"}
+mix {{parent.blinkout.glow2mix}}
+addUserKnob {26 ""}
+addUserKnob {26 spin_copyright l "" t "© <b>SPIN<span style=\"color:#b32026\">VFX</span></b>\nGlow_Exponential\nVersion 1.0\n2017\nhttps://wiki.spinvfx.com/xwiki/bin/view/Departments/Compositing%20Department/Nuke%20tools/Glow_Exponential/" +STARTLINE T "<span style=\"color:#aaa;font-family:sans-serif;font-size:8pt\"><b>SPIN<span style=\"color:#b32026\">VFX</span></b> - Version 1.0 - 2017 - <a href=\"https://wiki.spinvfx.com/xwiki/bin/view/Departments/Compositing%20Department/Nuke%20tools/Glow_Exponential/\" style=\"color:#aaa\">Wiki Page</a></span>"}
+}
+Input {
+inputs 0
+name img
+xpos 0
+ypos -59
+}
+Dot {
+name Dot1
+tile_color 0xcccccc00
+xpos 34
+ypos 50
+}
+set Nce6b3f70 [stack 0]
+Dot {
+name Dot24
+tile_color 0xcccccc00
+xpos 34
+ypos 1274
+}
+set Nce6b8bb0 [stack 0]
+Input {
+inputs 0
+name mask
+xpos 136
+ypos 158
+number 1
+}
+push $Nce6b3f70
+NoOp {
+name CTRL
+xpos 304
+ypos 46
+addUserKnob {20 User}
+addUserKnob {7 falloff R 0 2}
+falloff {{"max(parent.falloff/2+0.5, 0.0001)"}}
+addUserKnob {7 falloff_intensity}
+falloff_intensity {{falloff+pow(falloff,2)+pow(falloff,3)+pow(falloff,4)+pow(falloff,5)+pow(falloff,6)+pow(falloff,7)+pow(falloff,8)+pow(falloff,9)+pow(falloff,10)}}
+addUserKnob {14 size R 0 100}
+size {{parent.size/20*parent.aspect.w} {parent.size/20*parent.aspect.h}}
+addUserKnob {7 intensity}
+intensity {{parent.intensity/falloff_intensity}}
+addUserKnob {7 core R 0 2}
+core {{threshold}}
+addUserKnob {7 core_length}
+core_length {{sqrt(pow(core_color.r,2)+pow(core_color.g,2)+pow(core_color.b,2))/sqrt(3)}}
+addUserKnob {7 falloff_length}
+falloff_length {{sqrt(pow(falloff_color.r,2)+pow(falloff_color.g,2)+pow(falloff_color.b,2))/sqrt(3)}}
+}
+Keyer {
+operation "luminance key"
+range {0 {1/parent.parent.blinkout.g2sens} 1 1}
+name Keyer1
+xpos 304
+ypos 98
+}
+ChannelMerge {
+inputs 2
+operation in
+name ChannelMerge1
+xpos 304
+ypos 146
+disable {{"!\[exists parent.input1] "}}
+}
+Premult {
+name Premult1
+xpos 304
+ypos 202
+}
+Remove {
+operation keep
+channels rgb
+name Remove1
+xpos 304
+ypos 228
+}
+Multiply {
+value {{parent.CTRL.intensity}}
+name Multiplyer
+xpos 304
+ypos 263
+}
+Saturation {
+saturation {{parent.saturation}}
+name Saturation1
+xpos 304
+ypos 326
+}
+Dot {
+name Dot3
+tile_color 0x7aa9ff00
+xpos 338
+ypos 372
+}
+set Nce708eb0 [stack 0]
+Dot {
+name Dot2
+tile_color 0x7aa9ff00
+xpos 604
+ypos 372
+}
+set Nce58d970 [stack 0]
+Dot {
+name Dot4
+tile_color 0x7aa9ff00
+xpos 870
+ypos 372
+}
+set Nce592420 [stack 0]
+Dot {
+name Dot5
+tile_color 0x7aa9ff00
+xpos 1136
+ypos 372
+}
+set Nce596ed0 [stack 0]
+Dot {
+name Dot6
+tile_color 0x7aa9ff00
+xpos 1402
+ypos 372
+}
+set Nce59b980 [stack 0]
+Dot {
+name Dot7
+tile_color 0x7aa9ff00
+xpos 1668
+ypos 372
+}
+set Nce5a0430 [stack 0]
+Dot {
+name Dot8
+tile_color 0x7aa9ff00
+xpos 1934
+ypos 372
+}
+set Nce5a4f60 [stack 0]
+Dot {
+name Dot9
+tile_color 0x7aa9ff00
+xpos 2200
+ypos 372
+}
+set Nce5a9a10 [stack 0]
+Dot {
+name Dot10
+tile_color 0x7aa9ff00
+xpos 2466
+ypos 372
+}
+set Nce5ae4c0 [stack 0]
+Dot {
+name Dot11
+tile_color 0x7aa9ff00
+xpos 2732
+ypos 372
+}
+Blur {
+size {{Blur9.size*2} {Blur9.size*2}}
+crop false
+name Blur10
+xpos 2698
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,10)}}
+name Multiply10
+xpos 2698
+ypos 543
+}
+Dot {
+name Dot20
+tile_color 0x7aa9ff00
+xpos 2732
+ypos 796
+}
+push $Nce5ae4c0
+Blur {
+size {{Blur8.size*2} {Blur8.size*2}}
+crop false
+name Blur9
+xpos 2432
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,9)}}
+name Multiply9
+xpos 2432
+ypos 542
+}
+Dot {
+name Dot19
+tile_color 0x7aa9ff00
+xpos 2466
+ypos 770
+}
+push $Nce5a9a10
+Blur {
+size {{Blur7.size*2} {Blur7.size*2}}
+crop false
+name Blur8
+xpos 2166
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,8)}}
+name Multiply8
+xpos 2166
+ypos 536
+}
+Dot {
+name Dot18
+tile_color 0x7aa9ff00
+xpos 2200
+ypos 744
+}
+push $Nce5a4f60
+Blur {
+size {{Blur6.size*2} {Blur6.size*2}}
+crop false
+name Blur7
+xpos 1900
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,7)}}
+name Multiply7
+xpos 1900
+ypos 528
+}
+Dot {
+name Dot17
+tile_color 0x7aa9ff00
+xpos 1934
+ypos 718
+}
+push $Nce5a0430
+Blur {
+size {{Blur5.size*2} {Blur5.size*2}}
+crop false
+name Blur6
+xpos 1634
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,6)}}
+name Multiply6
+xpos 1634
+ypos 528
+}
+Dot {
+name Dot16
+tile_color 0x7aa9ff00
+xpos 1668
+ypos 692
+}
+push $Nce59b980
+Blur {
+size {{Blur4.size*2} {Blur4.size*2}}
+crop false
+name Blur5
+xpos 1368
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,5)}}
+name Multiply5
+xpos 1368
+ypos 524
+}
+Dot {
+name Dot15
+tile_color 0x7aa9ff00
+xpos 1402
+ypos 666
+}
+push $Nce596ed0
+Blur {
+size {{Blur3.size*2} {Blur3.size*2}}
+crop false
+name Blur4
+xpos 1102
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,4)}}
+name Multiply4
+xpos 1102
+ypos 518
+}
+Dot {
+name Dot14
+tile_color 0x7aa9ff00
+xpos 1136
+ypos 640
+}
+push $Nce592420
+Blur {
+size {{Blur2.size*2} {Blur2.size*2}}
+crop false
+name Blur3
+xpos 836
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,3)}}
+name Multiply3
+xpos 836
+ypos 509
+}
+Dot {
+name Dot13
+tile_color 0x7aa9ff00
+xpos 870
+ypos 614
+}
+push $Nce58d970
+Blur {
+size {{Blur1.size*2} {Blur1.size*2}}
+crop false
+name Blur2
+xpos 570
+ypos 440
+}
+Multiply {
+value {{pow(CTRL.falloff,2)}}
+name Multiply2
+xpos 570
+ypos 508
+}
+Dot {
+name Dot12
+tile_color 0x7aa9ff00
+xpos 604
+ypos 588
+}
+push $Nce708eb0
+Blur {
+size {{CTRL.size*2} {CTRL.size*2}}
+crop false
+name Blur1
+xpos 304
+ypos 440
+}
+Multiply {
+value {{CTRL.falloff}}
+name Multiply1
+xpos 304
+ypos 512
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge1
+xpos 304
+ypos 584
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge2
+xpos 304
+ypos 610
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge3
+xpos 304
+ypos 636
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge4
+xpos 304
+ypos 662
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge5
+xpos 304
+ypos 688
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge6
+xpos 304
+ypos 714
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge7
+xpos 304
+ypos 740
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge8
+xpos 304
+ypos 766
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge9
+xpos 304
+ypos 792
+}
+Dot {
+name Dot21
+tile_color 0x4b5ec600
+xpos 338
+ypos 928
+}
+set Nce2ea880 [stack 0]
+Dot {
+name Dot22
+tile_color 0x4b5ec600
+xpos 498
+ypos 928
+}
+Grade {
+whitepoint {{CTRL.core}}
+white_clamp true
+name Grade2
+xpos 464
+ypos 977
+}
+Gamma {
+channels rgb
+value {{parent.falloff_color.r/CTRL.falloff_length} {parent.falloff_color.g/CTRL.falloff_length} {parent.falloff_color.b/CTRL.falloff_length} {curve}}
+mix {{parent.parent.blinkout.g2tmix}}
+name Gamma1
+xpos 464
+ypos 1037
+}
+Grade {
+whitepoint {{CTRL.core}}
+reverse true
+name Grade3
+xpos 464
+ypos 1108
+}
+push $Nce2ea880
+Clamp {
+minimum {{CTRL.core}}
+maximum_enable false
+name Clamp1
+xpos 304
+ypos 972
+}
+Grade {
+add {{1-CTRL.core}}
+name Grade4
+xpos 304
+ypos 1020
+}
+Gamma {
+channels rgb
+value {{1+(1-parent.core_color.r)/CTRL.core_length} {1+(1-parent.core_color.g)/CTRL.core_length} {1+(1-parent.core_color.b)/CTRL.core_length} {curve}}
+name Gamma2
+xpos 304
+ypos 1061
+}
+Add {
+channels rgb
+value -1
+name Add1
+xpos 304
+ypos 1099
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge10
+xpos 304
+ypos 1157
+}
+Remove {
+operation keep
+channels rgb
+name Remove2
+xpos 304
+ypos 1183
+}
+Multiply {
+value {{parent.mix}}
+name mix
+xpos 304
+ypos 1215
+}
+Merge2 {
+inputs 2
+operation plus
+name Merge11
+xpos 304
+ypos 1270
+disable {{parent.glow_only}}
+}
+Dot {
+name Dot23
+tile_color 0x4b5ec600
+xpos 338
+ypos 1436
+}
+push $Nce6b8bb0
+Copy {
+inputs 2
+from0 rgba.red
+to0 rgba.red
+from1 rgba.green
+to1 rgba.green
+from2 rgba.blue
+to2 rgba.blue
+name Copy1
+xpos 0
+ypos 1414
+}
+Crop {
+box {{-width*(parent.overscan/100)/2} {-height*(parent.overscan/100)/2} {width+(width*(parent.overscan/100)/2)} {height+(height*(parent.overscan/100)/2)}}
+crop false
+name Crop2
+xpos 0
+ypos 1495
+disable {{!parent.crop}}
+}
+Output {
+name Output1
+xpos 0
+ypos 1543
+}
+end_group
+Dot {
+name Dot247
+tile_color 0xc97200ff
+selected true
+xpos 2249
+ypos 9593
+}
+push $Nce7c62d0
+Merge2 {
+inputs 2
+operation plus
+bbox B
+mix {{frame<g2?pow(dim1,gam):pow(dim2,gam2)}}
+name Merge22
+selected true
+xpos 1955
+ypos 9589
+disable {{1-parent.blinkout.glow2on}}
+addUserKnob {20 User}
+addUserKnob {3 g1 l Start}
+g1 {{parent.blinkout.g21}}
+addUserKnob {3 g2 l Max}
+g2 {{parent.blinkout.g22}}
+addUserKnob {3 g3 l End}
+g3 {{parent.blinkout.g23}}
+addUserKnob {3 wave l "Wavelength bef"}
+wave {{(g2-g1)*2}}
+addUserKnob {3 wave2 l "Wavelength aft"}
+wave2 {{(g3-g2)*2}}
+addUserKnob {7 dim1 l "Dim Before"}
+dim1 {{frame<g1?0:frame>g2?1:(sin(2*pi*(frame-g2+wave/4)/wave)+1)/2}}
+addUserKnob {7 dim2 l "Dim After"}
+dim2 {{frame<g2?1:frame>g3?0:(sin(2*pi*(frame-g2+wave2/4)/wave2)+1)/2}}
+addUserKnob {7 gam l "Gamma Before" R 0.05 3}
+gam {{parent.blinkout.g2dim1}}
+addUserKnob {7 gam2 l "Gamma After" R 0.05 3}
+gam2 {{parent.blinkout.g2dim2}}
+addUserKnob {7 diml l "Dim Linear"}
+diml {{frame<g1?0:frame<g2?(frame-g1)/(g2-g1):frame>g3?0:1-(frame-g2)/(g3-g2)}}
+}
+Switch {
+inputs 3
+which {{parent.blinkout.preview>3?2:parent.blinkout.preview>0?1:0}}
+name Switch10
+selected true
+xpos 1955
+ypos 10297
+}
+Switch {
+inputs 2
+which {{frame<parent.blinkout.fx1?1:frame<=turnoff?0:1}}
+name Switch6
+label "out of range bypass"
+selected true
+xpos 1955
+ypos 10485
+addUserKnob {20 User}
+addUserKnob {3 turnoff l "Turn off at"}
+turnoff {{parent.blinkout.fx4<parent.blinkout.fx5?parent.blinkout.fx5:parent.blinkout.fx4}}
+}
+StickyNote {
+inputs 0
+name StickyNote11
+label "       	Specify the first frame of the clean plate      	\nand the number of extra clean frames\nafter the FX ends in the controller.\n\nIf the plate is the clean plate and No. 5\nis on a separate element plate,\ncheck the box in the contoller"
+note_font_size 15
+selected true
+xpos 2085
+ypos -1307
+}
+StickyNote {
+inputs 0
+name StickyNote18
+label " 	Surface break-through frames 	\nmaster"
+note_font_size 15
+selected true
+xpos 2440
+ypos 7798
+}
+StickyNote {
+inputs 0
+name StickyNote13
+label "Can add extra movements with Transform\nas No. 5 breaks through if necessary.\nEven with no extra movements adding\nzoom blur seems to work nicely"
+note_font_size 12
+selected true
+xpos 2100
+ypos 7788
+}
+push $cut_paste_input
+Dot {
+name Dot5
+label Wrinkles
+note_font_size 100
+selected true
+xpos 2692
+ypos 468
+hide_input true
+}
+Read {
+inputs 0
+file /spin/television/hammer/sequence/101/101_55BR_0080/work/wheo/nuke/renders/101_101_55BR_0080_precomp_BlinkTest1_003/101_101_55BR_0080_precomp_BlinkTest1_003.#####.exr
+format "4096 2304 0 0 4096 2304 1 hammer_4K"
+first 1350
+last 1390
+origfirst 1350
+origlast 1390
+origset true
+name Read11
+selected true
+xpos 4750
+ypos -1328
+}
+Group {
+name Element_Offset_W2
+tile_color 0xffd05eff
+selected true
+xpos 4750
+ypos -1232
+addUserKnob {20 Element_Frame_Offset}
+addUserKnob {3 startFrame t "Enter the frame number, of the input, that you want to use as the \"beginning frame\""}
+startFrame 1350
+addUserKnob {3 desiredStartFrame t "Enter the frame number, you would like the 'startFrame' to be shifted to."}
+desiredStartFrame 1041
+}
+Input {
+inputs 0
+name Input1
+xpos 115
+ypos -156
+}
+TimeOffset {
+time_offset {{(parent.startFrame-parent.desiredStartFrame)*-1}}
+time ""
+name OffsetThis
+xpos 115
+ypos -103
+}
+Output {
+name Output1
+xpos 115
+ypos -51
+}
+end_group
+StickyNote {
+inputs 0
+name StickyNote14
+label "General Workflow:\n\n           	1. Have the main plate and clean/element plate, full body roto           	\nfor No. 5, and matchmove (if required) ready\n\n2. In Global Settings of the controller, specify whether No.5 is\npresent in the main plate or element plate. \nIf the portal is in between No. 5 and the camera, \ncheck \"Distort No.5\"\n\n3. Set the frame ranges. The most important you will want to\nlock early on are \"Surface Break\" and \"Full Body\" frames,\nas it will require transitional roto as No.5 is going through\nthe surface. These frames are indicated as \"Reveal Roto \nRequired\" in the controller in the Node Graph. I've kept\nthis transitional period as 5 frames in all the shots so far.\n\n4. Set Global FX Scale. The original test shot has a \nglobal scale of 1. If No. 5 in your shot appears smaller, \nreduce the global scale and vice versa. \nGlobal scale affects things like distortion amplitude\nand blur/erode size.\n\n5. With matchmoves in place, look through the end of the comp\nwith Preview in the controller set to Rectangular.\nPlace the master cornerpin in perspective. You can also view\nthe other distortion mattes by changing the Preview to \nPortal or Wrinkles. For the wrinkles, there can be one or two\ntension points, which should be placed where No. 5 first \nmakes contact with the surface. You should set the round \nof the portal first before placing wrinkles because the portal\ndrives the basic shape of the wrinkles.\nYou can also preview detail glow mattes for the wrinkles and \noutlines.Under the Detail Glow section, there are Boost and\nFalloff controls.\n\n\n6. Do the Reveal Roto for the indicated frame range.\nI generally turned on motion blur on the roto.\nDepending on what No. 5 is doing in the shot, you may\nwant to add animated transform during this period.\n\n7. At this point, I'd do a test render to see what needs \ntweaking. Generally there is no need to set any keys to\nany of the settings within the controller, because all the\nkey animation points and curves are driven by expressions\nwith controls in the controller.\n\n---------------------------------------------------------------------\nTips:\n\n-In the Node Graph, things you need to change per shot\nbasis are indicated with color-coded Backdrops.\n\n-Take advantage of Preview and the On/Off Switches. \nWith the switches you can isolate one effect and check\nwhat it is doing, or in conjunction with another effect,\nwhich is much faster than having everything turned on.\n\n-Use Directional Push only with profile view shots. \nWith these shots, also decrease horizontal amplitude\non the distortions. Under Bubble Distortion, \n\"Contain distortion within the portal surface\"\nshould also be enabled for these shots.\nThe vertical amplitude for Pull Back distortion is set\nautomatically from the cornerpin, but it can get too\nextreme like 1:10+ in profile view. There is a manual\noverride slider in the Pull Back settings to bring down\nthe height ratio.\n\n-When setting up the frame ranges, Clean Plate range\ndoesn't always have to be longer than FX duration.\nFor example, No. 5 is present in the main plate and\nhe is blinking in. Once his full body comes through\nthe surface, there would be no need for a clean plate\nwhile distortions are still happening. In this case\n\"Extra Clean Frames\" can be a negative number.\n\n-When connecting the main plate and element plate,\noften it takes more than simply connecting those plates\nto the controller.\n\n-With the blink tests I was lazy and didn't pay attention\nto grain, but for final comp we should denoise the \nplates and add grain at the end during FX duration."
+note_font_size 35
+selected true
+xpos 5236
+ypos -1428
+}
+StickyNote {
+inputs 0
+name blinkout
+tile_color 0xff
+label "Blink Out\nController\n\n 	FX duration: 	\n	f\[value fx1]-\[value fx4]	\n\n  	\[if \{\[value clean]\} \{return \"Element\"\} \{return \"Clean\"\}] Plate:  	\n	f\[value fx0]-\[value fx5]	\n\nReveal Roto\nRequired:\nf\[value fx2]-\[expr \[value fx3] - 1]\n\nGlobal Scale:\n\[value fxs]\n\nv1.4d"
+note_font_size 100
+selected true
+xpos 3770
+ypos -1467
+addUserKnob {20 User l Controls}
+addUserKnob {20 global l "Global Settings" n 1}
+addUserKnob {3 fx0 l "Cln Plt Starts at"}
+fx0 1144
+addUserKnob {6 clean l "Plate IS the Clean Plate" t "Check this box if your plate is the clean plate and No. 5 is on an element plate" -STARTLINE}
+addUserKnob {6 no5distort l "Distort No. 5" t "Enable if the portal is between the camera and No. 5" -STARTLINE}
+no5distort true
+addUserKnob {3 fx1 l "FX Starts at"}
+fx1 1144
+addUserKnob {3 break l "Surface Break Offset" -STARTLINE}
+break 8
+addUserKnob {3 fx2 l "Surface Break at"}
+fx2 {{fx1+break}}
+addUserKnob {3 fullbody l "Full Body Offset" -STARTLINE}
+fullbody 5
+addUserKnob {3 fx3 l "Full Body Thru at"}
+fx3 {{fx2+fullbody}}
+addUserKnob {3 finish l "FX End Offset" -STARTLINE}
+finish 7
+addUserKnob {3 fx4 l "FX Ends at"}
+fx4 {{fx3+finish}}
+addUserKnob {3 plate l "Extra Clean Frames" -STARTLINE}
+plate 2
+addUserKnob {3 fx5 l "Back to Plate at"}
+fx5 {{fx4+plate}}
+addUserKnob {7 fxs l "Global FX Scale" R 0.2 2}
+fxs 1.15
+addUserKnob {26 ""}
+addUserKnob {20 endGroup_5 l endGroup n -1}
+addUserKnob {20 previeww l Previews n 1}
+addUserKnob {4 preview l Preview M {None "Rectangular (Pull Back)" Portal Wrinkles "Detail Glow Matte: Wrinkles" "Detail Glow Matte: Outlines" "Directional Push Matte" ""}}
+addUserKnob {4 previewbg l "View on top of" M {"Main Plate" "Element Plate"}}
+addUserKnob {7 previewmix l Mix}
+previewmix 0.37
+addUserKnob {26 ""}
+addUserKnob {20 endGroup_8 l endGroup n -1}
+addUserKnob {20 onoff l "On/Off Switches" n 1}
+addUserKnob {6 surfon l "Bubble Distortion" +STARTLINE}
+surfon true
+addUserKnob {6 wron l Wrinkles -STARTLINE}
+wron true
+addUserKnob {6 dpon l "Directional Push (for extreme angle shots)" +STARTLINE}
+dpon true
+addUserKnob {6 porton l Portal +STARTLINE}
+porton true
+addUserKnob {6 shron l "Pull Back" -STARTLINE}
+shron true
+addUserKnob {6 glowon l "Soft Glow" +STARTLINE}
+glowon true
+addUserKnob {6 glow2on l "Detail Glow" -STARTLINE}
+glow2on true
+addUserKnob {26 ""}
+addUserKnob {20 endGroup_9 l endGroup n -1}
+addUserKnob {20 surf l "Bubble Distortion" n 1}
+surf 0
+addUserKnob {3 surfmax l "Max Distort at"}
+surfmax {{fx2+surfmaxoff}}
+addUserKnob {3 surfmaxoff l "Max Distort Offset" -STARTLINE}
+surfmaxoff 1
+addUserKnob {3 surfmaxhold l "Maintain Max till"}
+surfmaxhold {{fx3+surfmaxholdoff}}
+addUserKnob {3 surfmaxholdoff l "Max Maintain Offset" -STARTLINE}
+surfmaxholdoff -4
+addUserKnob {3 surfstart l "Starts at"}
+surfstart {{fx1+surfoffset}}
+addUserKnob {3 surfoffset l "Start Offset" -STARTLINE}
+surfoffset 4
+addUserKnob {3 surfend l "Ends at"}
+surfend {{fx4+surfendoff}}
+addUserKnob {3 surfendoff l "End Offset" -STARTLINE}
+surfendoff -3
+addUserKnob {7 surfamp l "Base Amplitude" R 50 350}
+surfamp 200
+addUserKnob {14 surfxy l "" t "width and height multiplers" -STARTLINE R 0 100}
+surfxy {0.2 1.3}
+addUserKnob {7 surfdamp l "Dampen Before" t "Reduces the magitude of distort at the start" R 0.05 3}
+surfdamp 1.2
+addUserKnob {7 surfdamp2 l After t "Reduces the magnitude of distort at the end" -STARTLINE R 0.05 3}
+surfdamp2 1
+addUserKnob {14 surferode l "Outline Erode" t "Erode amount for the revealing frames" R 0 100}
+surferode 30
+addUserKnob {14 surfb l "Blur Dist Map" R 0 100}
+surfb {10 75}
+addUserKnob {26 ""}
+addUserKnob {6 surfblur l "Defocus outlines during transition" +STARTLINE}
+addUserKnob {7 surfblurm l "Blur Matte" R 0 100}
+surfblurm 20
+addUserKnob {7 surfblursize l "Defocus Size" R 0 100}
+surfblursize 10
+addUserKnob {26 ""}
+addUserKnob {6 surfcont l "Contain distortion within the portal surface" +STARTLINE}
+surfcont true
+addUserKnob {7 surfcontst l "Matte Harden" R 1 2}
+surfcontst 1
+addUserKnob {7 surfcontfo l Falloff R 0.5 3}
+surfcontfo 0.86
+addUserKnob {26 ""}
+addUserKnob {6 surfgapon l "Shrink hole on the surface after body is through " +STARTLINE}
+surfgapon true
+addUserKnob {3 surfgapstart l "Starts at"}
+surfgapstart {{fx3+surfgaponoff}}
+addUserKnob {3 surfgaponoff l "Start Offset" -STARTLINE}
+surfgaponoff -2
+addUserKnob {3 surfgapend l "Ends at"}
+surfgapend {{surfend+surfgapendoff}}
+addUserKnob {3 surfgapendoff l "End Offset" -STARTLINE}
+surfgapendoff -2
+addUserKnob {14 surfgapsize l "Base Erode Size" R 0 100}
+surfgapsize 100
+addUserKnob {4 surfgapfo l Falloff t "Linear: linear erode amount from start frame to the end frame\nSmooth: sine wave applied to the curve\nSmooth0: erode amount starts slowly and accelerates\nSmooth1: erode amount increases fast and settles at the end" -STARTLINE M {Linear Smooth Smooth0 smooth1 ""}}
+surfgapfo smooth1
+addUserKnob {26 ""}
+addUserKnob {6 sb2enable l "Safe Border" t "Prevents distortions from pulling black edges inside the frame" +STARTLINE}
+sb2enable true
+addUserKnob {7 sbs2 l Size R 5 200}
+sbs2 80
+addUserKnob {7 sbst2 l Strength R 0.05 2}
+sbst2 1.5
+addUserKnob {26 ""}
+addUserKnob {20 endGroup_2 l endGroup n -1}
+addUserKnob {20 wrinkles l Wrinkles n 1}
+wrinkles 0
+addUserKnob {7 wrmix l Mix -STARTLINE}
+wrmix 0.9
+addUserKnob {3 wrmaxten l "Max Tension at"}
+wrmaxten {{fx3+wrmaxoff}}
+addUserKnob {3 wrmaxoff l "Max Tension Offset" -STARTLINE}
+wrmaxoff -6
+addUserKnob {3 wrstart l "Starts at"}
+wrstart {{fx2+wrsoff}}
+addUserKnob {3 wrsoff l "Start Offset" -STARTLINE}
+wrsoff -6
+addUserKnob {3 wrend l "Ends at"}
+wrend {{fx4+wrendoff}}
+addUserKnob {3 wrendoff l "End Offset" -STARTLINE}
+wrendoff -5
+addUserKnob {12 wrt l Transform}
+wrt {100 550}
+addUserKnob {12 wroffset l "Centre Offset" t "move the centre of wrinkes within the circle to line up with the body part that comes through first" -STARTLINE}
+wroffset {150 800}
+addUserKnob {3 wrsize l "No of wrinkes"}
+wrsize 19
+addUserKnob {7 wrrot l Rotation -STARTLINE R -15 15}
+addUserKnob {7 wramp l "Base Amplitude" R 5 200}
+wramp 120
+addUserKnob {14 wrxy l "" -STARTLINE R 0 100}
+wrxy {0.3 2}
+addUserKnob {7 wrdamp l "Dampen Before" t "Reduces the amplitude of fx in the beginning before the max tension frame" R 0.05 3}
+wrdamp 1.25
+addUserKnob {7 wrdamp2 l After t "Reduces the amplitude of fx towards the end after the max tension frame" -STARTLINE R 0.05 3}
+wrdamp2 1.25
+addUserKnob {14 wrscale l Scale R 0 100}
+wrscale {0.5 0.7}
+addUserKnob {14 wrblur l "Blur Size" R 0 100}
+wrblur {60 80}
+addUserKnob {7 wrmask l "Mask by Portal"}
+wrmask 1
+addUserKnob {7 wrwhite l "Soften Creases"}
+wrwhite 0.5
+addUserKnob {7 wrlift l "Minimum Amount" R 0 0.5}
+wrlift 0.2
+addUserKnob {26 ""}
+addUserKnob {6 wr2on l "Add 2nd Tension Point" +STARTLINE}
+wr2on true
+addUserKnob {7 wr2mix l Mix -STARTLINE}
+wr2mix 1
+addUserKnob {7 wr2core l "Overlap Core" R 0.5 1.5}
+wr2core 1.075
+addUserKnob {7 wr2gam l "Overlap Falloff" R 0.2 2}
+wr2gam 1.01
+addUserKnob {12 wr2t l Transform}
+wr2t {-100 -300}
+addUserKnob {12 wr2offset l "Centre Offset" -STARTLINE}
+wr2offset {-400 -500}
+addUserKnob {14 wr2scale l Scale R 0 100}
+wr2scale {0.6 0.8}
+addUserKnob {14 wr2blur l "Blur Size" R 0 100}
+wr2blur {50 80}
+addUserKnob {26 ""}
+addUserKnob {20 endGroup_4 l endGroup n -1}
+addUserKnob {20 dp l "Directional Push" n 1}
+dp 0
+addUserKnob {3 dpmax l "Max Push at"}
+dpmax {{fx2++dpmaxoff}}
+addUserKnob {3 dpmaxoff l "Max Push Offset" -STARTLINE}
+dpmaxoff 1
+addUserKnob {3 dpstart l "Starts at"}
+dpstart {{fx1+dpstartoff}}
+addUserKnob {3 dpstartoff l "Start Offset" -STARTLINE}
+addUserKnob {3 dpbnc l "Bounces at"}
+dpbnc {{fx3+dpbncoff}}
+addUserKnob {3 dpbncoff l "Bounce Offset" -STARTLINE}
+dpbncoff 1
+addUserKnob {3 dpend l "Ends at"}
+dpend {{dpbnc+(dpbnc-dpmax)/2+dpendoff}}
+addUserKnob {3 dpendoff l "End Offset" -STARTLINE}
+addUserKnob {12 dpmoff l "Matte Offset"}
+dpmoff {-100 0}
+addUserKnob {12 dpbase l "Peak Amount"}
+dpbase {200 0}
+addUserKnob {7 dpdamp1 l "Dampen Before" R 0.05 3}
+dpdamp1 0.7
+addUserKnob {7 dpdamp2 l After -STARTLINE R 0.05 3}
+dpdamp2 1.5
+addUserKnob {7 dpwave l "Bnc Wavelength" R 0.05 4}
+dpwave 1
+addUserKnob {7 dpover l Overshoot -STARTLINE R -1 0}
+dpover -0.5
+addUserKnob {7 dpst l "Matte Harden" R 1 2}
+dpst 1.255
+addUserKnob {7 dpfalloff l Falloff R 0.5 3}
+dpfalloff 1.2
+addUserKnob {26 ""}
+addUserKnob {20 endGroup_7 l endGroup n -1}
+addUserKnob {20 portal l Portal n 1}
+portal 0
+addUserKnob {3 portshr l "Max Shrink at"}
+portshr {{fx2+portshroff}}
+addUserKnob {3 portshroff l "Max Shrink Offset" -STARTLINE}
+portshroff -1
+addUserKnob {3 portpop l "Bursts at"}
+portpop {{fx3+portpopoff}}
+addUserKnob {3 portpopoff l "Burst Offset" -STARTLINE}
+portpopoff -2
+addUserKnob {4 portpopfo l Curve t "Smooth A: Smooth in the beginning\nSmooth B: Smooth at the end" -STARTLINE M {Linear Sine "Smooth A" "Smooth B" ""}}
+portpopfo Sine
+addUserKnob {3 portbnc l "Bounces at"}
+portbnc {{parent.IDistort9.dis4}}
+addUserKnob {3 portbncoff l "Bounce Offset" -STARTLINE}
+portbncoff -2
+addUserKnob {4 portbncfo l Curve t "Smooth A: Smooth in the beginning\nSmooth B: Smooth at the end" -STARTLINE M {Linear Sine "Smooth A" "Smooth B" ""}}
+portbncfo Sine
+addUserKnob {7 portamp l "Base Amplitude" R 50 350}
+portamp 180
+addUserKnob {14 portxy l "" -STARTLINE R 0 100}
+portxy {0.3 1.3}
+addUserKnob {7 portdamp l "Dampen Before" t "Reduces the amplitude of fx in the beginning until the burst frame" R 0.05 3}
+portdamp 2
+addUserKnob {7 portdamp2 l After t "Reduces the amplitude of fx towards the end after the burst frame" -STARTLINE R 0.05 3}
+portdamp2 2.5
+addUserKnob {7 portmult l "Size Multiplier" R 1 2}
+portmult 1.1
+addUserKnob {7 portskewx l "Skew X" R -1 1}
+addUserKnob {7 portskewy l Y -STARTLINE R -1 1}
+addUserKnob {7 portw l "Width Multiplier" R 0.5 2}
+portw 1.1
+addUserKnob {7 portwavel l "Wavelength Mult" t "Increases the aftershock wavelength to dampen it" R 0.5 5}
+portwavel 0.58
+addUserKnob {7 pcore l "Flatten Core"}
+pcore 0.405
+addUserKnob {26 ""}
+addUserKnob {6 sbenable l "Safe Border" t "Prevents distortions from pulling black edges inside the frame" +STARTLINE}
+sbenable true
+addUserKnob {7 sbs l Size R 50 350}
+sbs 200
+addUserKnob {7 sbst l Strength R 0.05 2}
+sbst 1.5
+addUserKnob {26 ""}
+addUserKnob {20 endGroup_1 l endGroup n -1}
+addUserKnob {20 shrink l "Pull Back" n 1}
+shrink 0
+addUserKnob {3 smax l "Max Distortion at"}
+smax {{fx3+soffset}}
+addUserKnob {3 soffset l "Max Distortion Frame Offset" -STARTLINE}
+soffset -3
+addUserKnob {3 sstart l "Starts at"}
+sstart {{fx2+sstartoff}}
+addUserKnob {3 sstartoff l "Start Offset" -STARTLINE}
+sstartoff -3
+addUserKnob {3 send l "Ends at"}
+send {{fx4+sendoff}}
+addUserKnob {3 sendoff l "End Offset" -STARTLINE}
+sendoff -5
+addUserKnob {7 shriamp l "Base Amplitude" R 50 350}
+shriamp 100
+addUserKnob {7 shridamp l "Dampen Before" R 0.05 3}
+shridamp 1
+addUserKnob {7 shridamp2 l After -STARTLINE R 0.05 3}
+shridamp2 1.35
+addUserKnob {16 sautoratio l "Auto X:Y ratio 1:"}
+sautoratio {{parent.IDistort6.yratio}}
+addUserKnob {16 sfinalratio l "Final ratio 1:" -STARTLINE}
+sfinalratio {{sautoratio*(1-smanual)}}
+addUserKnob {7 smanual l "Manual Override"}
+smanual 0.605
+addUserKnob {7 score l "Flatten Core"}
+score 0.7
+addUserKnob {26 ""}
+addUserKnob {20 endGroup n -1}
+addUserKnob {20 glow l "Soft Glow" n 1}
+glow 0
+addUserKnob {7 glowmix l Mix -STARTLINE}
+glowmix 1
+addUserKnob {7 gsize l Size R 0 100}
+gsize 50
+addUserKnob {7 gint l Intensity R 0 10}
+gint 3.7
+addUserKnob {7 gsens l Sensitivity R 1 10}
+gsens 4.1
+addUserKnob {18 gtint l Tint}
+gtint {0.9375 1 1.0625}
+addUserKnob {6 gtint_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {7 gtmix l "Tint Mix"}
+gtmix 1
+addUserKnob {7 ginf l "Plt Clr Influence"}
+ginf 0.2
+addUserKnob {26 ""}
+addUserKnob {20 endGroup_3 l endGroup n -1}
+addUserKnob {20 glow2 l "Detail Glow" n 1}
+glow2 0
+addUserKnob {7 glow2mix l Mix -STARTLINE}
+glow2mix 0.8
+addUserKnob {3 g22 l "Brightest Fr"}
+g22 {{fx2+g22off}}
+addUserKnob {3 g22off l "Brightest Frame Offset" -STARTLINE}
+g22off 1
+addUserKnob {3 g21 l "Starts at"}
+g21 {{fx1+g21off}}
+addUserKnob {3 g21off l "Start Offset" -STARTLINE}
+addUserKnob {3 g23 l "Ends at"}
+g23 {{fx4+g23off}}
+addUserKnob {3 g23off l "End Offset" -STARTLINE}
+g23off -5
+addUserKnob {4 glowwrtime l "Wrinkle Glow" M {"Before Distort" "After Distort" ""}}
+addUserKnob {7 glowwrmix l "Wrinkle Mix"}
+glowwrmix 0.9
+addUserKnob {7 glowwrboost l "Wrinkle Boost" R 1 2}
+glowwrboost 1.31
+addUserKnob {7 glowwrfo l "Wrinkle Falloff" R 0.4 1.6}
+glowwrfo 1.285
+addUserKnob {7 glowboymix l "Boy Outline Mix"}
+glowboymix 0.66
+addUserKnob {7 wrboyboost l "Outline Boost" R 1 2}
+wrboyboost 1
+addUserKnob {7 glowboyfo l "Outline Falloff" R 0.4 1.6}
+glowboyfo 1.34
+addUserKnob {26 ""}
+addUserKnob {7 g2size l Size R 0 100}
+g2size 87.5
+addUserKnob {7 g2int l Intensity R 0 10}
+g2int 5
+addUserKnob {7 g2dim1 l "Dim Before" R 0.05 3}
+g2dim1 2.1
+addUserKnob {7 g2dim2 l After -STARTLINE R 0.05 3}
+g2dim2 2.15
+addUserKnob {7 g2sens l Sensitivity R 1 10}
+g2sens 5
+addUserKnob {18 g2tint l Tint}
+g2tint {0.8337875009 0.9237875342 1.013787508}
+addUserKnob {6 g2tint_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {7 g2tmix l "Tint Mix"}
+g2tmix 1
+addUserKnob {7 g2inf l "Plt Clr Influence"}
+g2inf 0.705
+addUserKnob {6 g2ting_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {20 endGroup_6 l endGroup n -1}
+addUserKnob {20 update l Updates}
+addUserKnob {26 v1_4 l V1.4d}
+addUserKnob {26 v1_4t l "" +STARTLINE T "-Equivalent to Blink IN v1.4d"}
+addUserKnob {26 v1_0 l INVISIBLE +INVISIBLE}
+addUserKnob {26 v1_0t l INVISIBLE +INVISIBLE T "Equivalent to Blink ON v1.1"}
+}
+
+
+

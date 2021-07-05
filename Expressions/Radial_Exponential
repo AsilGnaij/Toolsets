@@ -1,0 +1,20 @@
+set cut_paste_input [stack 0]
+version 11.3 v4
+push $cut_paste_input
+Reformat {
+format "4096 4096 0 0 4096 4096 1 Square4k"
+black_outside true
+name Reformat5
+selected true
+xpos -2148
+ypos -2842
+}
+Expression {
+expr0 "((width-sqrt((x-width/2) * (x-width/2) + (y-height/2) * (y-height/2)))/width)*2-1"
+expr1 "((height-sqrt((x-width/2) * (x-width/2) + (y-height/2) * (y-height/2)))/height)*2-1"
+name Expression11
+label "Radial Exponential"
+selected true
+xpos -2148
+ypos -2788
+}

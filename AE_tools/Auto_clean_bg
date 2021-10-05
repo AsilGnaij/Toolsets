@@ -1,0 +1,564 @@
+set cut_paste_input [stack 0]
+version 12.2 v7
+push $cut_paste_input
+Group {
+name Auto_clean_bg1
+selected true
+xpos -47780
+ypos -6322
+}
+Input {
+inputs 0
+name Input1
+xpos -873
+ypos 148
+}
+IBKColourV3 {
+name IBKColourV3_1
+xpos -873
+ypos 202
+Size 1
+off {0 -0.003 -0.023}
+mult {1 1 0.8}
+erode 9
+}
+Keyer {
+operation "luminance key"
+range {0 0 1 1}
+name Keyer2
+xpos -873
+ypos 264
+}
+set Ne8918f00 [stack 0]
+Invert {
+name Invert1
+xpos -873
+ypos 328
+}
+push $Ne8918f00
+Dot {
+name Dot12
+xpos -750
+ypos 274
+}
+Dot {
+name Dot18
+tile_color 0xcccccc00
+xpos -750
+ypos 397
+}
+Group {
+inputs 2
+name AE_ExpoFill2
+tile_color 0xc87b0000
+label "Samples: \[value smp]"
+note_font "Verdana Bold"
+selected true
+xpos -873
+ypos 387
+addUserKnob {20 User}
+addUserKnob {26 heading_text l "" +STARTLINE T "<p><b> <font size=7 color=#b37500>AE Expo Fill |<font size=4 color=#b37500> Iterative Edge Extend\n\n"}
+addUserKnob {26 heading_txt2 l "" +STARTLINE T "<b><font size=4>:: by Ali Ehtemami"}
+addUserKnob {26 dev1 l "" +STARTLINE}
+addUserKnob {22 exe l Execure T "node = nuke.thisNode()\ndef clear():\n    for c in nuke.allNodes('Blur'):\n        nuke.delete(c)\n    for r in nuke.allNodes():\n        r.setSelected(False)\n\n\nwith node:\n    input = nuke.toNode('Input')\n    alphaswitch = nuke.toNode('alphaswitch')\n    mask = nuke.toNode('Inputmask')\n    output = nuke.toNode('Unpremult')\n    smp = int(input\['smp'].value())\n\n    clear()\n\n    alphaswitch.setSelected(True)\n    for i in range(smp):\n\n        nuke.createNode('Blur', inpanel = False)\n    \n    for a in nuke.allNodes('Blur'):\n        a\['size'].setExpression(\"Input.size\")\n        a\['maskChannelInput'].setValue(\"rgba.alpha\")\n        a\['invert_mask'].setValue(True)" +STARTLINE}
+addUserKnob {41 smp l sample T Input.smp}
+addUserKnob {26 ""}
+addUserKnob {41 size T Input.size}
+addUserKnob {41 coreblur T Input.coreblur}
+addUserKnob {26 dev9 l "" +STARTLINE}
+addUserKnob {26 ttt l "" +STARTLINE T "<font size=3><b><a href=\"http://aliehtemami.com.au\"style=\"color: #909090\">www.aliehtemami.com.au</a>"}
+}
+Input {
+inputs 0
+name Inputmask
+xpos 18
+ypos -112
+number 1
+}
+Dot {
+name Dot1
+tile_color 0xcccccc00
+xpos 52
+ypos 386
+}
+set Ne88f6400 [stack 0]
+Dot {
+name Dot8
+xpos 52
+ypos 2347
+}
+set Ne88f5d00 [stack 0]
+Dot {
+name Dot6
+xpos 52
+ypos 3339
+}
+push $Ne88f5d00
+Dot {
+name Dot9
+xpos 211
+ypos 2347
+}
+FilterErode {
+channels alpha
+size 2
+name FilterErode1
+xpos 177
+ypos 2431
+}
+set Ne88f4800 [stack 0]
+Dot {
+name Dot10
+xpos 353
+ypos 2440
+}
+FilterErode {
+channels alpha
+size 2
+name FilterErode2
+xpos 319
+ypos 2524
+}
+set Ne88df200 [stack 0]
+Dot {
+name Dot11
+xpos 495
+ypos 2533
+}
+FilterErode {
+channels alpha
+size 2
+name FilterErode3
+xpos 461
+ypos 2617
+}
+set Ne88ddd00 [stack 0]
+Dot {
+name Dot12
+xpos 633
+ypos 2626
+}
+FilterErode {
+channels alpha
+size 2
+name FilterErode4
+xpos 599
+ypos 2710
+}
+set Ne88dc800 [stack 0]
+Dot {
+name Dot13
+xpos 789
+ypos 2719
+}
+FilterErode {
+channels alpha
+size 2
+name FilterErode5
+xpos 755
+ypos 2803
+}
+push $Ne88dc800
+push $Ne88ddd00
+push $Ne88df200
+push $Ne88f4800
+Input {
+inputs 0
+name Input
+xpos -385
+ypos -103
+addUserKnob {20 User}
+addUserKnob {7 coreblur}
+coreblur 1
+addUserKnob {7 size}
+size 34
+addUserKnob {3 smp l sample}
+smp 18
+}
+Dot {
+name Dot2
+xpos -351
+ypos 166
+}
+set Ne88bdd00 [stack 0]
+Dot {
+name Dot3
+xpos -787
+ypos 166
+}
+Dot {
+name Dot4
+xpos -787
+ypos 510
+}
+set Ne88bcf00 [stack 0]
+push $Ne88f6400
+push $Ne88bdd00
+Shuffle {
+alpha white
+name Shuffle2
+xpos -385
+ypos 287
+}
+Merge2 {
+inputs 2
+operation stencil
+name Merge1
+xpos -385
+ypos 382
+}
+Switch {
+inputs 2
+name alphaswitch
+xpos -385
+ypos 506
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur1
+label "\[value size]"
+xpos -385
+ypos 782
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur2
+label "\[value size]"
+xpos -385
+ypos 832
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur3
+label "\[value size]"
+xpos -385
+ypos 882
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur4
+label "\[value size]"
+xpos -385
+ypos 932
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur5
+label "\[value size]"
+xpos -385
+ypos 982
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur6
+label "\[value size]"
+xpos -385
+ypos 1032
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur7
+label "\[value size]"
+xpos -385
+ypos 1082
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur8
+label "\[value size]"
+xpos -385
+ypos 1132
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur9
+label "\[value size]"
+xpos -385
+ypos 1182
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur10
+label "\[value size]"
+xpos -385
+ypos 1232
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur11
+label "\[value size]"
+xpos -385
+ypos 1282
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur12
+label "\[value size]"
+xpos -385
+ypos 1332
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur13
+label "\[value size]"
+xpos -385
+ypos 1382
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur14
+label "\[value size]"
+xpos -385
+ypos 1432
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur15
+label "\[value size]"
+xpos -385
+ypos 1482
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur16
+label "\[value size]"
+xpos -385
+ypos 1532
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur17
+label "\[value size]"
+xpos -385
+ypos 1582
+}
+Blur {
+size {{Input.size}}
+maskChannelInput rgba.alpha
+invert_mask true
+name Blur18
+label "\[value size]"
+selected true
+xpos -385
+ypos 1632
+}
+set Ne8817900 [stack 0]
+Unpremult {
+name Unpremult1
+xpos -385
+ypos 2252
+}
+Dot {
+name Dot7
+xpos -351
+ypos 2348
+}
+set Ne8816b00 [stack 0]
+Shuffle {
+alpha white
+name Shuffle1
+xpos -272
+ypos 2345
+}
+Dot {
+name Dot14
+xpos -102
+ypos 2348
+}
+Merge2 {
+inputs 2
+operation mask
+name Merge2
+xpos -136
+ypos 2437
+}
+set Ne8815600 [stack 0]
+Merge2 {
+inputs 2
+operation mask
+name Merge3
+xpos -136
+ypos 2530
+}
+set Ne8814f00 [stack 0]
+Merge2 {
+inputs 2
+operation mask
+name Merge4
+xpos -136
+ypos 2623
+}
+set Ne8814800 [stack 0]
+Merge2 {
+inputs 2
+operation mask
+name Merge5
+xpos -136
+ypos 2716
+}
+set Ne8814100 [stack 0]
+Merge2 {
+inputs 2
+operation mask
+name Merge6
+xpos -136
+ypos 2809
+}
+Defocus {
+defocus {{Input.coreblur*16}}
+quality 10
+name Defocus5
+xpos -259
+ypos 2803
+}
+push $Ne8814100
+Defocus {
+defocus {{Input.coreblur*8}}
+quality 10
+name Defocus4
+xpos -257
+ypos 2710
+}
+push $Ne8814800
+Defocus {
+defocus {{Input.coreblur*4}}
+quality 10
+name Defocus3
+xpos -262
+ypos 2617
+}
+push $Ne8814f00
+Defocus {
+defocus {{Input.coreblur*2}}
+quality 10
+name Defocus2
+xpos -263
+ypos 2524
+}
+push $Ne8815600
+Defocus {
+defocus {{Input.coreblur}}
+quality 10
+name Defocus1
+xpos -275
+ypos 2431
+}
+push $Ne8816b00
+Merge2 {
+inputs 2
+name Merge7
+xpos -385
+ypos 2437
+}
+Merge2 {
+inputs 2
+name Merge8
+xpos -385
+ypos 2530
+}
+Merge2 {
+inputs 2
+name Merge9
+xpos -385
+ypos 2623
+}
+Merge2 {
+inputs 2
+name Merge10
+xpos -385
+ypos 2716
+}
+Merge2 {
+inputs 2
+name Merge11
+xpos -385
+ypos 2809
+}
+push $Ne88bcf00
+Dot {
+name Dot5
+xpos -787
+ypos 3339
+}
+Keymix {
+inputs 3
+name Keymix1
+xpos -385
+ypos 3330
+}
+Output {
+name Output1
+xpos -385
+ypos 3678
+}
+push $Ne8817900
+push $Ne8817900
+Viewer {
+inputs 2
+frame 1041
+frame_range 1001-1001
+gain 2.6
+viewerProcess "sRGB (ACES)"
+name Viewer1
+xpos 685
+ypos 443
+}
+end_group
+Crop {
+box {0 0 2224 1548}
+name Crop6
+xpos -873
+ypos 460
+}
+set Ne8f94f00 [stack 0]
+Output {
+name Output1
+xpos -873
+ypos 515
+}
+push $Ne8918f00
+push $Ne8f94f00
+Viewer {
+inputs 2
+frame_range 1001-1043
+viewerProcess "Dynamic Viewer Process (ACES)"
+name Viewer1
+xpos -586
+ypos -52
+hide_input true
+}
+end_group

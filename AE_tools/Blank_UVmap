@@ -1,0 +1,49 @@
+set cut_paste_input [stack 0]
+version 12.2 v9
+push $cut_paste_input
+Group {
+name Blank_UVmap1
+tile_color 0xe955ffff
+selected true
+xpos 2431
+ypos -901
+addUserKnob {20 User}
+addUserKnob {41 numpixels l "Add Pixels" T AdjBBox1.numpixels}
+}
+Input {
+inputs 0
+name Input
+xpos 829
+ypos -322
+}
+Remove {
+name Remove1
+xpos 829
+ypos -286
+}
+Crop {
+box {{curve} {curve} {input.width} {input.height}}
+crop false
+name Crop1
+xpos 829
+ypos -226
+}
+AdjBBox {
+numpixels 300
+name AdjBBox1
+xpos 829
+ypos -175
+}
+Expression {
+expr0 (x+0.5)/width
+expr1 (y+0.5)/height
+name Expression1
+xpos 829
+ypos -137
+}
+Output {
+name Output1
+xpos 829
+ypos -80
+}
+end_group

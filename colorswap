@@ -1,0 +1,888 @@
+set cut_paste_input [stack 0]
+version 12.2 v9
+push 0
+push $cut_paste_input
+Group {
+inputs 2
+name Colorswap2
+tile_color 0xffffffff
+selected true
+xpos 10866
+ypos -740
+addUserKnob {20 User}
+addUserKnob {6 lumavector_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {19 fromcolor l "from color" t "the color to replace\nchoose the strongest and most pure of this color, for example the center of a marker"}
+fromcolor {0.1042480469 0.03634643555 0.0287322998 1}
+addUserKnob {6 fromcolor_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 fromcolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {19 tocolor l "to color" t "the color to add instead"}
+tocolor {0.0008754730225 0.007190704346 0.04733276367 1}
+addUserKnob {6 tocolor_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 tocolor_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {20 Advlum l Advanced n 1}
+addUserKnob {19 lumavector t "tweaking this may give better results\nby default make it white"}
+lumavector {0.223103 0.247096 1 0}
+addUserKnob {6 lumavector_panelDropped l "panel dropped state" -STARTLINE +HIDDEN}
+lumavector_panelDropped true
+addUserKnob {6 lumavector_panelDropped_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {6 lumavector_panelDropped_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1_1 l "panel dropped state" -STARTLINE +HIDDEN}
+addUserKnob {41 which l rebalance t "This may give better color results on areas that are corrected wrong, but hasnt seemed to help much since version 3, use at own discretion" T Dissolve1.which}
+addUserKnob {41 size l soften t "softening may remove some artifacts, but it will cause hues to bleed into one another on sharper edges. It might be better to use a median node instead." T Blur1.size}
+addUserKnob {20 endGroup_1 l endGroup n -1}
+addUserKnob {26 Crtext l "Ch correct"}
+addUserKnob {26 colfills l "" +STARTLINE T "color fills"}
+addUserKnob {3 fill l "fill length" t "This must be as large as your patches\nsmaller values should make the node slightly faster"}
+fill 152
+addUserKnob {6 premult +STARTLINE}
+addUserKnob {20 endGroup n -1}
+}
+Input {
+inputs 0
+name input
+xpos -309
+ypos 427
+}
+Dot {
+name Dot21
+xpos -275
+ypos 522
+}
+set N2800a400 [stack 0]
+Dot {
+name Dot16
+xpos -275
+ypos 1876
+}
+set N28009d00 [stack 0]
+Dot {
+name Dot41
+xpos -275
+ypos 2047
+}
+Input {
+inputs 0
+name alpha
+xpos -431
+ypos 428
+number 1
+}
+Dot {
+name Dot18
+xpos -397
+ypos 562
+}
+Dot {
+name Dot34
+xpos -143
+ypos 562
+}
+push $N2800a400
+ShuffleCopy {
+inputs 2
+name ShuffleCopy11
+xpos -177
+ypos 652
+}
+ColorMatrix {
+matrix {
+    {{parent.tocolor.r-parent.fromcolor.r} {matrix.6*matrix.5-matrix.3*matrix.8} {parent.lumavector.r}}
+    {{parent.tocolor.g-parent.fromcolor.g} {matrix.0*matrix.8-matrix.2*matrix.6} {parent.lumavector.g}}
+    {{parent.tocolor.b-parent.fromcolor.b} {matrix.0*matrix.5-matrix.3*matrix.2} {parent.lumavector.b}}
+  }
+invert true
+name ColorMatrix2
+xpos 21
+ypos 704
+}
+set N27ff7200 [stack 0]
+Dot {
+name Dot1
+tile_color 0xcc804e00
+xpos 55
+ypos 1261
+}
+set N27ff6b00 [stack 0]
+Dot {
+name Dot15
+tile_color 0xcc804e00
+xpos 55
+ypos 1611
+}
+Dot {
+name Dot23
+xpos 1803
+ypos 1611
+}
+set N27ff5d00 [stack 0]
+push $N27ff6b00
+Dot {
+name Dot2
+xpos 356
+ypos 1261
+}
+set N27ff5600 [stack 0]
+Dot {
+name Dot3
+xpos 553
+ypos 1261
+}
+set N27ff4f00 [stack 0]
+Dot {
+name Dot5
+xpos 746
+ypos 1261
+}
+set N27ff4800 [stack 0]
+Dot {
+name Dot10
+xpos 928
+ypos 1261
+}
+set N27ff4100 [stack 0]
+Dot {
+name Dot58
+xpos 1120
+ypos 1261
+}
+set N27fcb900 [stack 0]
+Dot {
+name Dot12
+xpos 1362
+ypos 1261
+}
+set N27fcb200 [stack 0]
+Dot {
+name Dot19
+xpos 1544
+ypos 1261
+}
+set N27fcab00 [stack 0]
+Dot {
+name Dot20
+xpos 1736
+ypos 1261
+}
+set N27fca400 [stack 0]
+Dot {
+name Dot32
+xpos 1904
+ypos 1261
+}
+Constant {
+inputs 0
+channels rgb
+color {{parent.tocolor} {parent.tocolor} {parent.tocolor} {parent.tocolor}}
+name Constant1
+xpos 1969
+ypos 1074
+}
+ColorMatrix {
+matrix {
+    {{parent.tocolor.r-parent.fromcolor.r} {matrix.3*matrix.8-matrix.6*matrix.5} {parent.lumavector.r}}
+    {{parent.tocolor.g-parent.fromcolor.g} {matrix.0*matrix.8-matrix.2*matrix.6} {parent.lumavector.g}}
+    {{parent.tocolor.b-parent.fromcolor.b} {matrix.0*matrix.5-matrix.3*matrix.2} {parent.lumavector.b}}
+  }
+invert true
+name ColorMatrix1
+xpos 1969
+ypos 1175
+}
+MergeExpression {
+inputs 2
+temp_name0 dL
+temp_expr0 (Ag-Bg)
+temp_name1 dC
+temp_expr1 (Ab-Bb)
+temp_name2 dist
+temp_expr2 sqrt(dL*dL+dC*dC)
+expr0 Br
+expr1 Bg
+expr2 Bb
+expr3 dist
+name Distance16
+xpos 1969
+ypos 1378
+}
+push $N27fca400
+push $N27ff7200
+Dilate {
+channels alpha
+size 1
+name Dilate1
+xpos 205
+ypos 775
+}
+set N27faf900 [stack 0]
+Dot {
+name Dot6
+xpos 239
+ypos 921
+}
+Dot {
+name Dot8
+xpos 373
+ypos 921
+}
+set N27faeb00 [stack 0]
+Dot {
+name Dot13
+xpos 583
+ypos 921
+}
+set N27fae400 [stack 0]
+Dot {
+name Dot14
+xpos 783
+ypos 921
+}
+set N27fadd00 [stack 0]
+Dot {
+name Dot17
+xpos 978
+ypos 921
+}
+set N27fad600 [stack 0]
+Dot {
+name Dot22
+xpos 1198
+ypos 921
+}
+set N27facf00 [stack 0]
+Dot {
+name Dot27
+xpos 1396
+ypos 921
+}
+set N27fac800 [stack 0]
+Dot {
+name Dot30
+xpos 1585
+ypos 921
+}
+set N27fac100 [stack 0]
+Dot {
+name Dot31
+xpos 1779
+ypos 921
+}
+push $N27ff7200
+Dot {
+name Dot4
+xpos 349
+ypos 708
+}
+push $N27faf900
+ChannelMerge {
+inputs 2
+operation stencil
+name ChannelMerge7
+xpos 315
+ypos 769
+}
+Premult {
+name Premult1
+xpos 315
+ypos 840
+}
+Dot {
+name Dot11
+xpos 471
+ypos 844
+}
+set N27f89d00 [stack 0]
+Dot {
+name Dot24
+xpos 682
+ypos 844
+}
+set N27f89600 [stack 0]
+Dot {
+name Dot7
+xpos 873
+ypos 844
+}
+set N27f88f00 [stack 0]
+Dot {
+name Dot9
+xpos 1084
+ypos 844
+}
+set N27f88800 [stack 0]
+Dot {
+name Dot25
+xpos 1307
+ypos 844
+}
+set N27f88100 [stack 0]
+Dot {
+name Dot65
+xpos 1489
+ypos 844
+}
+set N27f77900 [stack 0]
+Dot {
+name Dot68
+xpos 1680
+ypos 844
+}
+set N27f77200 [stack 0]
+Dot {
+name Dot69
+xpos 1862
+ypos 844
+}
+DirBlurWrapper {
+inputs 1+1
+BlurType linear
+BlurLayer rgba
+BlurLength {{parent.fill}}
+BlurAngle 315
+name DirBlurWrapper8
+xpos 1828
+ypos 969
+}
+Unpremult {
+name Unpremult9
+xpos 1828
+ypos 1043
+}
+Dot {
+name Dot73
+xpos 1862
+ypos 1122
+}
+MergeExpression {
+inputs 2
+temp_name0 dL
+temp_expr0 (Ag-Bg)
+temp_name1 dC
+temp_expr1 (Ab-Bb)
+temp_name2 dist
+temp_expr2 sqrt(dL*dL+dC*dC)
+expr0 Br
+expr1 Bg
+expr2 Bb
+expr3 dist
+name Distance15
+xpos 1828
+ypos 1380
+}
+push $N27fcab00
+push $N27fac100
+push $N27f77200
+DirBlurWrapper {
+inputs 1+1
+BlurType linear
+BlurLayer rgba
+BlurLength {{parent.fill}}
+BlurAngle 270
+name DirBlurWrapper7
+xpos 1646
+ypos 965
+}
+Unpremult {
+name Unpremult8
+xpos 1646
+ypos 1043
+}
+Dot {
+name Dot75
+xpos 1680
+ypos 1122
+}
+MergeExpression {
+inputs 2
+temp_name0 dL
+temp_expr0 (Ag-Bg)
+temp_name1 dC
+temp_expr1 (Ab-Bb)
+temp_name2 dist
+temp_expr2 sqrt(dL*dL+dC*dC)
+expr0 Br
+expr1 Bg
+expr2 Bb
+expr3 dist
+name Distance8
+xpos 1646
+ypos 1384
+}
+push $N27fcb200
+push $N27fac800
+push $N27f77900
+DirBlurWrapper {
+inputs 1+1
+BlurType linear
+BlurLayer rgba
+BlurLength {{parent.fill}}
+BlurAngle 225
+name DirBlurWrapper6
+xpos 1455
+ypos 971
+}
+Unpremult {
+name Unpremult1
+xpos 1455
+ypos 1043
+}
+Dot {
+name Dot54
+xpos 1489
+ypos 1122
+}
+MergeExpression {
+inputs 2
+temp_name0 dL
+temp_expr0 (Ag-Bg)
+temp_name1 dC
+temp_expr1 (Ab-Bb)
+temp_name2 dist
+temp_expr2 sqrt(dL*dL+dC*dC)
+expr0 Br
+expr1 Bg
+expr2 Bb
+expr3 dist
+name Distance7
+xpos 1455
+ypos 1377
+}
+push $N27fcb900
+push $N27facf00
+push $N27f88100
+DirBlurWrapper {
+inputs 1+1
+BlurType linear
+BlurLayer rgba
+BlurLength {{parent.fill}}
+BlurAngle 180
+name DirBlurWrapper5
+xpos 1273
+ypos 972
+}
+Unpremult {
+name Unpremult5
+xpos 1273
+ypos 1043
+}
+Dot {
+name Dot26
+xpos 1307
+ypos 1122
+}
+MergeExpression {
+inputs 2
+temp_name0 dL
+temp_expr0 (Ag-Bg)
+temp_name1 dC
+temp_expr1 (Ab-Bb)
+temp_name2 dist
+temp_expr2 sqrt(dL*dL+dC*dC)
+expr0 Br
+expr1 Bg
+expr2 Bb
+expr3 dist
+name Distance6
+xpos 1273
+ypos 1385
+}
+push $N27ff4100
+push $N27fad600
+push $N27f88800
+DirBlurWrapper {
+inputs 1+1
+BlurType linear
+BlurLayer rgba
+BlurLength {{parent.fill}}
+BlurAngle 135
+name DirBlurWrapper4
+xpos 1050
+ypos 973
+}
+Unpremult {
+name Unpremult7
+xpos 1050
+ypos 1043
+}
+Dot {
+name Dot53
+xpos 1084
+ypos 1118
+}
+MergeExpression {
+inputs 2
+temp_name0 dL
+temp_expr0 (Ag-Bg)
+temp_name1 dC
+temp_expr1 (Ab-Bb)
+temp_name2 dist
+temp_expr2 sqrt(dL*dL+dC*dC)
+expr0 Br
+expr1 Bg
+expr2 Bb
+expr3 dist
+name Distance5
+xpos 1050
+ypos 1382
+}
+push $N27ff4800
+push $N27fadd00
+push $N27f88f00
+DirBlurWrapper {
+inputs 1+1
+BlurType linear
+BlurLayer rgba
+BlurLength {{parent.fill}}
+BlurAngle 90
+name DirBlurWrapper3
+xpos 839
+ypos 977
+}
+Unpremult {
+name Unpremult6
+xpos 839
+ypos 1043
+}
+Dot {
+name Dot39
+xpos 873
+ypos 1118
+}
+MergeExpression {
+inputs 2
+temp_name0 dL
+temp_expr0 (Ag-Bg)
+temp_name1 dC
+temp_expr1 (Ab-Bb)
+temp_name2 dist
+temp_expr2 sqrt(dL*dL+dC*dC)
+expr0 Br
+expr1 Bg
+expr2 Bb
+expr3 dist
+name Distance3
+xpos 839
+ypos 1378
+}
+push $N27ff4f00
+push $N27fae400
+push $N27f89600
+DirBlurWrapper {
+inputs 1+1
+BlurType linear
+BlurLayer rgba
+BlurLength {{parent.fill}}
+name DirBlurWrapper2
+xpos 648
+ypos 970
+}
+Unpremult {
+name Unpremult4
+xpos 648
+ypos 1042
+}
+Dot {
+name Dot28
+xpos 682
+ypos 1118
+}
+MergeExpression {
+inputs 2
+temp_name0 dL
+temp_expr0 (Ag-Bg)
+temp_name1 dC
+temp_expr1 (Ab-Bb)
+temp_name2 dist
+temp_expr2 sqrt(dL*dL+dC*dC)
+expr0 Br
+expr1 Bg
+expr2 Bb
+expr3 dist
+name Distance2
+xpos 648
+ypos 1370
+}
+push $N27ff5600
+push $N27faeb00
+push $N27f89d00
+DirBlurWrapper {
+inputs 1+1
+BlurType linear
+BlurLayer rgba
+BlurLength {{parent.fill}}
+BlurAngle 0
+name DirBlurWrapper1
+xpos 437
+ypos 968
+}
+Unpremult {
+name Unpremult3
+xpos 437
+ypos 1043
+}
+Dot {
+name Dot29
+xpos 471
+ypos 1118
+}
+MergeExpression {
+inputs 2
+temp_name0 dL
+temp_expr0 (Ag-Bg)
+temp_name1 dC
+temp_expr1 (Ab-Bb)
+temp_name2 dist
+temp_expr2 sqrt(dL*dL+dC*dC)
+expr0 Br
+expr1 Bg
+expr2 Bb
+expr3 dist
+name Distance
+xpos 437
+ypos 1366
+}
+Expression {
+temp_name0 fall
+temp_expr0 a+0.001
+expr0 r/fall
+expr1 g/fall
+expr2 b/fall
+expr3 1/fall
+name Expression1
+xpos 437
+ypos 1472
+}
+MergeExpression {
+inputs 2
+temp_name0 fall
+temp_expr0 Aa+0.001
+expr0 "Br + Ar/fall"
+expr1 "Bg + Ag/fall"
+expr2 "Bb + Ab/fall"
+expr3 "Ba + 1/fall"
+name inversefalloff
+xpos 648
+ypos 1472
+}
+MergeExpression {
+inputs 2
+temp_name0 fall
+temp_expr0 Aa+0.001
+expr0 "Br + Ar/fall"
+expr1 "Bg + Ag/fall"
+expr2 "Bb + Ab/fall"
+expr3 "Ba + 1/fall"
+name inversefalloff7
+xpos 839
+ypos 1472
+}
+MergeExpression {
+inputs 2
+temp_name0 fall
+temp_expr0 Aa+0.001
+expr0 "Br + Ar/fall"
+expr1 "Bg + Ag/fall"
+expr2 "Bb + Ab/fall"
+expr3 "Ba + 1/fall"
+name inversefalloff8
+xpos 1050
+ypos 1472
+}
+MergeExpression {
+inputs 2
+temp_name0 fall
+temp_expr0 Aa+0.001
+expr0 "Br + Ar/fall"
+expr1 "Bg + Ag/fall"
+expr2 "Bb + Ab/fall"
+expr3 "Ba + 1/fall"
+name inversefalloff9
+xpos 1273
+ypos 1472
+}
+MergeExpression {
+inputs 2
+temp_name0 fall
+temp_expr0 Aa+0.001
+expr0 "Br + Ar/fall"
+expr1 "Bg + Ag/fall"
+expr2 "Bb +Ab/fall"
+expr3 "Ba + 1/fall"
+name inversefalloff10
+xpos 1455
+ypos 1472
+}
+MergeExpression {
+inputs 2
+temp_name0 fall
+temp_expr0 Aa+0.001
+expr0 "Br + Ar/fall"
+expr1 "Bg + Ag/fall"
+expr2 "Bb +Ab/fall"
+expr3 "Ba + 1/fall"
+name inversefalloff11
+xpos 1646
+ypos 1472
+}
+MergeExpression {
+inputs 2
+temp_name0 fall
+temp_expr0 Aa+0.001
+expr0 "Br + Ar/fall"
+expr1 "Bg + Ag/fall"
+expr2 "Bb +Ab/fall"
+expr3 "Ba + 1/fall"
+name inversefalloff12
+xpos 1828
+ypos 1472
+}
+MergeExpression {
+inputs 2
+temp_name0 fall
+temp_expr0 Aa+0.001
+expr0 "Br + Ar/fall"
+expr1 "Bg + Ag/fall"
+expr2 "Bb +Ab/fall"
+expr3 "Ba + 1/fall"
+name inversefalloff1
+xpos 1969
+ypos 1472
+}
+Expression {
+expr0 r/a
+expr1 g/a
+expr2 b/a
+name Normalize
+xpos 1969
+ypos 1525
+}
+set N2808c800 [stack 0]
+MergeExpression {
+inputs 2
+expr0 Ag-Bg+Br
+expr1 Ag
+expr2 Ab
+expr3 Aa
+name rebalance
+xpos 1874
+ypos 1561
+}
+push $N2808c800
+Dissolve {
+inputs 2
+which 0.77
+name Dissolve1
+xpos 1969
+ypos 1593
+}
+push $N27ff5d00
+Merge2 {
+inputs 2
+operation max
+output {rgba.red -rgba.green -rgba.blue -rgba.alpha}
+name Merge1
+label "nvr go back"
+xpos 1969
+ypos 1631
+}
+Blur {
+channels {rgba.red -rgba.green -rgba.blue -rgba.alpha}
+size 100
+name Blur1
+xpos 1969
+ypos 1669
+}
+ColorMatrix {
+matrix {
+    {{parent.tocolor.r-parent.fromcolor.r} {matrix.6*matrix.5-matrix.3*matrix.8} {parent.lumavector.r}}
+    {{parent.tocolor.g-parent.fromcolor.g} {matrix.0*matrix.8-matrix.2*matrix.6} {parent.lumavector.g}}
+    {{parent.tocolor.b-parent.fromcolor.b} {matrix.0*matrix.5-matrix.3*matrix.2} {parent.lumavector.b}}
+  }
+name ColorMatrix3
+xpos 1969
+ypos 1803
+}
+Premult {
+name Premult5
+xpos 1969
+ypos 1829
+}
+set N28245d00 [stack 0]
+Dot {
+name Dot40
+xpos 2161
+ypos 1866
+}
+CopyBBox {
+inputs 2
+name CopyBBox1
+xpos 2127
+ypos 2043
+}
+push $N28245d00
+push $N28009d00
+Merge2 {
+inputs 2
+bbox B
+name Merge9
+xpos 1969
+ypos 1872
+}
+Switch {
+inputs 2
+which {{parent.premult}}
+name Switch2
+xpos 2127
+ypos 2098
+}
+Output {
+name Output
+xpos 2127
+ypos 2154
+}
+end_group
